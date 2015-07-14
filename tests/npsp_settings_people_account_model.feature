@@ -3,11 +3,7 @@ Feature: NPSP Settings People Account Model
   Background:
     Given I login with environment variables
     When I navigate to Settings People Account Model
-
-  Scenario: Account Model default values
-    Then the value for Account Model should be "Household Account"
-      And the value for Household Account Record Type should be "Household Account"
-      And the value for One-to-One Record Type should be "- none -"
+      And I retrieve current settings for Account Model, Household Account Record Type, One-to-One Record Type
 
   Scenario: Account Model set values
     When I set Account Model to "One-to-One"
