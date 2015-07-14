@@ -1,21 +1,21 @@
 When(/^I click Enable Automatic Verification$/) do
-  on(NPSPAddressSettingsPage).enable_automatic_verification_element.click
+  on(NPSPAddressSettingsPage).check_enable_automatic_verification
 end
 
 When(/^I click Household Account Addresses Disabled$/) do
-  on(NPSPAddressSettingsPage).household_account_addresses_disabled_element.click
+  on(NPSPAddressSettingsPage).check_household_account_addresses_disabled
 end
 
 When(/^I click Organizational Account Addresses Enabled$/) do
-  on(NPSPAddressSettingsPage).org_account_addrs_enabled_element.when_present.click
+  on(NPSPAddressSettingsPage).check_org_account_addrs_enabled
 end
 
 When(/^I click Reject Ambiguous Addresses$/) do
-  on(NPSPAddressSettingsPage).reject_ambiguous_addresses_element.when_present.click
+  on(NPSPAddressSettingsPage).check_reject_ambiguous_addresses
 end
 
 When(/^I click Simple Address Change Treated as Update$/) do
-  on(NPSPAddressSettingsPage).simple_addr_change_is_update_element.when_present.click
+  on(NPSPAddressSettingsPage).check_simple_addr_change_is_update
 end
 
 When(/^I select "([^"]*)"$/) do |verification_service|
