@@ -1,0 +1,36 @@
+Given(/^I navigate to Manage Households UI$/) do
+  step 'I click the Accounts tab'
+  step 'I select "Household Accounts" and Go'
+  step 'I click the first Household Account'
+  step 'I click Manage Household'
+end
+
+Given(/^I navigate to Settings People Households$/) do
+  on(NPSPMainPage).npsp_settings_link_element.when_present.click
+  on(NPSPSettingsPage) do |page|
+    page.people_element.when_present.click
+    page.households_element.when_present.click
+    page.edit_hh_button_element.when_present.click
+    step 'I wait for the page to revert'
+  end
+end
+
+Given(/^I navigate to Settings People Account Model$/) do
+  on(NPSPMainPage).npsp_settings_link_element.when_present.click
+  on(NPSPSettingsPage) do |page|
+    page.people_element.when_present.click
+    page.account_model_element.when_present.click
+    page.edit_am_button_element.when_present.click
+    step 'I wait for the page to revert'
+  end
+end
+
+Given(/^I navigate to Settings People Addresses$/) do
+  on(NPSPMainPage).npsp_settings_link_element.when_present.click
+  on(NPSPSettingsPage) do |page|
+    page.people_element.when_present.click
+    page.addresses_element.when_present.click
+    page.edit_button_element.when_present.click
+    step 'I wait for the page to revert'
+  end
+end
