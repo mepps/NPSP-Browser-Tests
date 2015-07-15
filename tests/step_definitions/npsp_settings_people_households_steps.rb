@@ -38,14 +38,6 @@ When(/^I set Name Overrun to "([^"]*)"$/) do |n_over|
   on(NPSPHouseholdsSettingsPage).name_overrun=n_over
 end
 
-Then(/^Automatic Household Naming should be checked$/) do
-  expect(on(NPSPHouseholdsSettingsPage).automatic_hh_naming_checked?).to be true
-end
-
-Then(/^Contact Overrun Count should be "([^"]*)"$/) do |contact_overrun|
-  expect(on(NPSPHouseholdsSettingsPage).contact_overrun).to match contact_overrun
-end
-
 Then(/^Examples for Household Name Format should reflect my changes$/) do
   on(NPSPHouseholdsSettingsPage) do |page|
     page.example_text_box_element.click
@@ -56,44 +48,39 @@ Then(/^Examples for Household Name Format should reflect my changes$/) do
   end
 end
 
-Then(/^Household Creation Excluded Record Types should be "([^"]*)"$/) do |hh_creation_excluded|
-  #expect(on(NPSPHouseholdsSettingsPage).hh_creation_excluded_options).to be == hh_creation_excluded
-  expect(on(NPSPHouseholdsSettingsPage).hh_creation_excluded_element).to be_visible
+Then(/^I should see the original Household Settings on the page$/) do
+  on(NPSPSettingsPage).edit_hh_button_element.when_present.click
+  step 'I wait for the page to revert'
+  on(NPSPHouseholdsSettingsPage) do |page|
+    page.wait_until do
+      page.contact_overrun_element.visible? == true
+    end
+    expect(page.automatic_hh_naming_checked?).to be == @automatic_hh_naming_checked
+    expect(page.contact_overrun).to be == @contact_overrun
+    expect(page.hh_creation_excluded).to be == @hh_creation_excluded
+    expect(page.formal_greetimg_format).to be == @formal_greetimg_format
+    expect(page.mail_list_report).to be == @mail_list_report
+    expect(page.hh_name_format).to be == @hh_name_format
+    expect(page.hh_obj_rule).to be == @hh_obj_rule
+    expect(page.implementing_class).to be == @implementing_class
+    expect(page.informal_greetimg_format).to be == @informal_greetimg_format
+    expect(page.name_connector).to be == @name_connector
+    expect(page.name_overrun).to be == @name_overrun
+  end
 end
 
-Then(/^Formal Greeting Format should be "([^"]*)"$/) do |formal_greeting|
-  expect(on(NPSPHouseholdsSettingsPage).formal_greetimg_format).to be == formal_greeting
-end
-
-Then(/^Household Mailing List Report should be "([^"]*)"$/) do |mail_list_report|
-  #expect(on(NPSPHouseholdsSettingsPage).mail_list_report).to be == mail_list_report
-  expect(on(NPSPHouseholdsSettingsPage).mail_list_report_element).to be_visible
-end
-
-Then(/^Household Name Format should be "([^"]*)"$/) do |format_selected|
-  expect(on(NPSPHouseholdsSettingsPage).hh_name_format).to be == format_selected
-end
-
-Then(/^Household Object Rules should be "([^"]*)"$/) do |hh_obj_rule|
-  expect(on(NPSPHouseholdsSettingsPage).hh_obj_rule).to be == hh_obj_rule
-end
-
-Then(/^I should see the default Household Settings on the page$/) do
-  expect(on(NPSPHouseholdsSettingsPage).page_contents).to match /{!LastName} Household.+{!{!Salutation} {!FirstName}} {!LastName}.+{!{!FirstName}}.+and.+Friends.+9.+HH_NameSpec.+No Contacts/m
-end
-
-Then(/^Implementing Class should be "([^"]*)"$/) do |imp_class|
-  expect(on(NPSPHouseholdsSettingsPage).implementing_class).to be == imp_class
-end
-
-Then(/^Informal Greeting Format should be "([^"]*)"$/) do |informal_greeting|
-  expect(on(NPSPHouseholdsSettingsPage).informal_greetimg_format).to be == informal_greeting
-end
-
-Then(/^Name Connector should be "([^"]*)"$/) do |name_connector|
-  expect(on(NPSPHouseholdsSettingsPage).name_connector). to be == name_connector
-end
-
-Then(/^Name Overrun should be "([^"]*)"$/) do |name_overrun|
-  expect(on(NPSPHouseholdsSettingsPage).name_overrun).to be == name_overrun
+When(/^I retrieve existing values/) do
+  on (NPSPHouseholdsSettingsPage) do |page|
+    @automatic_hh_naming_checked = page.automatic_hh_naming_checked?
+    @contact_overrun = page.contact_overrun
+    @hh_creation_excluded = page.hh_creation_excluded
+    @formal_greetimg_format = page.formal_greetimg_format
+    @mail_list_report = page.mail_list_report
+    @hh_name_format = page.hh_name_format
+    @hh_obj_rule = page.hh_obj_rule
+    @implementing_class = page.implementing_class
+    @informal_greetimg_format = page.informal_greetimg_format
+    @name_connector = page.name_connector
+    @name_overrun = page.name_overrun
+  end
 end
