@@ -7,7 +7,7 @@ When(/^I click Cancel$/) do
     page.wait_until do
       page.cancel_button_element.disabled? == false
     end
-    page.cancel_button
+    page.cancel_button_element.when_present.click
   end
 end
 

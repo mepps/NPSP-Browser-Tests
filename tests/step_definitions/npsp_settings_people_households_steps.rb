@@ -49,38 +49,21 @@ Then(/^Examples for Household Name Format should reflect my changes$/) do
 end
 
 Then(/^I should see the original Household Settings on the page$/) do
-  on(NPSPSettingsPage).edit_hh_button_element.when_present.click
-  step 'I wait for the page to revert'
-  on(NPSPHouseholdsSettingsPage) do |page|
-    page.wait_until do
-      page.contact_overrun_element.visible? == true
-    end
-    expect(page.automatic_hh_naming_checked?).to be == @automatic_hh_naming_checked
-    expect(page.contact_overrun).to be == @contact_overrun
-    expect(page.hh_creation_excluded).to be == @hh_creation_excluded
-    expect(page.formal_greetimg_format).to be == @formal_greetimg_format
-    expect(page.mail_list_report).to be == @mail_list_report
-    expect(page.hh_name_format).to be == @hh_name_format
-    expect(page.hh_obj_rule).to be == @hh_obj_rule
-    expect(page.implementing_class).to be == @implementing_class
-    expect(page.informal_greetimg_format).to be == @informal_greetimg_format
-    expect(page.name_connector).to be == @name_connector
-    expect(page.name_overrun).to be == @name_overrun
-  end
+  expect(on(NPSPAddressSettingsPage).hh_page_contents).to match /#{@hh_name_format}.+#{@formal_greetimg_format}.+#{@informal_greetimg_format}.+#{@name_connector}.+#{@name_overrun}.+#{@contact_overrun}.+#{@implementing_class}.+#{@hh_obj_rule}.+#{@hh_creation_excluded}/m
 end
 
 When(/^I retrieve existing values/) do
   on (NPSPHouseholdsSettingsPage) do |page|
-    @automatic_hh_naming_checked = page.automatic_hh_naming_checked?
-    @contact_overrun = page.contact_overrun
-    @hh_creation_excluded = page.hh_creation_excluded
-    @formal_greetimg_format = page.formal_greetimg_format
-    @mail_list_report = page.mail_list_report
-    @hh_name_format = page.hh_name_format
-    @hh_obj_rule = page.hh_obj_rule
-    @implementing_class = page.implementing_class
-    @informal_greetimg_format = page.informal_greetimg_format
-    @name_connector = page.name_connector
-    @name_overrun = page.name_overrun
+    #@automatic_hh_naming_checked = Regexp.escape page.automatic_hh_naming_checked?
+    @contact_overrun = Regexp.escape page.contact_overrun
+    #@hh_creation_excluded = page.hh_creation_excluded
+    @formal_greetimg_format = Regexp.escape page.formal_greetimg_format
+    @mail_list_report = Regexp.escape page.mail_list_report
+    @hh_name_format = Regexp.escape page.hh_name_format
+    @hh_obj_rule = Regexp.escape page.hh_obj_rule
+    @implementing_class = Regexp.escape page.implementing_class
+    @informal_greetimg_format = Regexp.escape page.informal_greetimg_format
+    @name_connector = Regexp.escape page.name_connector
+    @name_overrun = Regexp.escape page.name_overrun
   end
 end
