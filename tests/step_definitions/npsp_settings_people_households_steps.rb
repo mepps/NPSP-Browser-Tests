@@ -49,14 +49,12 @@ Then(/^Examples for Household Name Format should reflect my changes$/) do
 end
 
 Then(/^I should see the original Household Settings on the page$/) do
-  expect(on(NPSPAddressSettingsPage).hh_page_contents).to match /#{@hh_name_format}.+#{@formal_greetimg_format}.+#{@informal_greetimg_format}.+#{@name_connector}.+#{@name_overrun}.+#{@contact_overrun}.+#{@implementing_class}.+#{@hh_obj_rule}.+#{@hh_creation_excluded}/m
+  expect(on(NPSPHouseholdsSettingsPage).hh_page_contents).to match /#{@hh_name_format}.+#{@formal_greetimg_format}.+#{@informal_greetimg_format}.+#{@name_connector}.+#{@name_overrun}.+#{@contact_overrun}.+#{@implementing_class}.+#{@hh_obj_rule}.+#{@hh_creation_excluded}/m
 end
 
 When(/^I retrieve existing values/) do
   on (NPSPHouseholdsSettingsPage) do |page|
-    #@automatic_hh_naming_checked = Regexp.escape page.automatic_hh_naming_checked?
     @contact_overrun = Regexp.escape page.contact_overrun
-    #@hh_creation_excluded = page.hh_creation_excluded
     @formal_greetimg_format = Regexp.escape page.formal_greetimg_format
     @mail_list_report = Regexp.escape page.mail_list_report
     @hh_name_format = Regexp.escape page.hh_name_format

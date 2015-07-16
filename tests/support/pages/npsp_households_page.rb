@@ -7,6 +7,7 @@ class NPSPHouseholdsSettingsPage
   select(:hh_creation_excluded, name: /idDBMS/)
   select(:hh_name_format, name: /pbHH:slstrFormatHH/)
   select(:hh_obj_rule, name: /pbHH:slHR/)
+  div(:hh_page_contents, id: /idPanelHH/)
   text_field(:implementing_class, name: /pbHH:txtClass/)
   select(:informal_greetimg_format, name: /pbHH:slstrFormatIG/)
   select(:mail_list_report, name: /pbHH:slHMLI/)
