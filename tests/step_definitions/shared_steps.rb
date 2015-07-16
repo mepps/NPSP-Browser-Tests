@@ -8,6 +8,7 @@ When(/^I click Cancel$/) do
       page.cancel_button_element.disabled? == false
     end
     page.cancel_button
+    page.cancel_button
   end
 end
 

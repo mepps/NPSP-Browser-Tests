@@ -38,14 +38,6 @@ When(/^I set Name Overrun to "([^"]*)"$/) do |n_over|
   on(NPSPHouseholdsSettingsPage).name_overrun=n_over
 end
 
-Then(/^Automatic Household Naming should be checked$/) do
-  expect(on(NPSPHouseholdsSettingsPage).automatic_hh_naming_checked?).to be true
-end
-
-Then(/^Contact Overrun Count should be "([^"]*)"$/) do |contact_overrun|
-  expect(on(NPSPHouseholdsSettingsPage).contact_overrun).to match contact_overrun
-end
-
 Then(/^Examples for Household Name Format should reflect my changes$/) do
   on(NPSPHouseholdsSettingsPage) do |page|
     page.example_text_box_element.click
@@ -56,44 +48,20 @@ Then(/^Examples for Household Name Format should reflect my changes$/) do
   end
 end
 
-Then(/^Household Creation Excluded Record Types should be "([^"]*)"$/) do |hh_creation_excluded|
-  #expect(on(NPSPHouseholdsSettingsPage).hh_creation_excluded_options).to be == hh_creation_excluded
-  expect(on(NPSPHouseholdsSettingsPage).hh_creation_excluded_element).to be_visible
+Then(/^I should see the original Household Settings on the page$/) do
+  expect(on(NPSPHouseholdsSettingsPage).hh_page_contents).to match /#{@hh_name_format}.+#{@formal_greetimg_format}.+#{@informal_greetimg_format}.+#{@name_connector}.+#{@name_overrun}.+#{@contact_overrun}.+#{@implementing_class}.+#{@hh_obj_rule}.+#{@hh_creation_excluded}/m
 end
 
-Then(/^Formal Greeting Format should be "([^"]*)"$/) do |formal_greeting|
-  expect(on(NPSPHouseholdsSettingsPage).formal_greetimg_format).to be == formal_greeting
-end
-
-Then(/^Household Mailing List Report should be "([^"]*)"$/) do |mail_list_report|
-  #expect(on(NPSPHouseholdsSettingsPage).mail_list_report).to be == mail_list_report
-  expect(on(NPSPHouseholdsSettingsPage).mail_list_report_element).to be_visible
-end
-
-Then(/^Household Name Format should be "([^"]*)"$/) do |format_selected|
-  expect(on(NPSPHouseholdsSettingsPage).hh_name_format).to be == format_selected
-end
-
-Then(/^Household Object Rules should be "([^"]*)"$/) do |hh_obj_rule|
-  expect(on(NPSPHouseholdsSettingsPage).hh_obj_rule).to be == hh_obj_rule
-end
-
-Then(/^I should see the default Household Settings on the page$/) do
-  expect(on(NPSPHouseholdsSettingsPage).page_contents).to match /{!LastName} Household.+{!{!Salutation} {!FirstName}} {!LastName}.+{!{!FirstName}}.+and.+Friends.+9.+HH_NameSpec.+No Contacts/m
-end
-
-Then(/^Implementing Class should be "([^"]*)"$/) do |imp_class|
-  expect(on(NPSPHouseholdsSettingsPage).implementing_class).to be == imp_class
-end
-
-Then(/^Informal Greeting Format should be "([^"]*)"$/) do |informal_greeting|
-  expect(on(NPSPHouseholdsSettingsPage).informal_greetimg_format).to be == informal_greeting
-end
-
-Then(/^Name Connector should be "([^"]*)"$/) do |name_connector|
-  expect(on(NPSPHouseholdsSettingsPage).name_connector). to be == name_connector
-end
-
-Then(/^Name Overrun should be "([^"]*)"$/) do |name_overrun|
-  expect(on(NPSPHouseholdsSettingsPage).name_overrun).to be == name_overrun
+When(/^I retrieve existing values/) do
+  on (NPSPHouseholdsSettingsPage) do |page|
+    @contact_overrun = Regexp.escape page.contact_overrun
+    @formal_greetimg_format = Regexp.escape page.formal_greetimg_format
+    @mail_list_report = Regexp.escape page.mail_list_report
+    @hh_name_format = Regexp.escape page.hh_name_format
+    @hh_obj_rule = Regexp.escape page.hh_obj_rule
+    @implementing_class = Regexp.escape page.implementing_class
+    @informal_greetimg_format = Regexp.escape page.informal_greetimg_format
+    @name_connector = Regexp.escape page.name_connector
+    @name_overrun = Regexp.escape page.name_overrun
+  end
 end
