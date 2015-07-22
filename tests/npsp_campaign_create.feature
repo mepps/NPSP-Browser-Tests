@@ -13,11 +13,11 @@ Feature: NPSP Campaign Create
     Given I am in the Create Campaign Wizard
     When I choose two input sources from existing Campaigns
       And I choose two input sources from Reports
-      And I join the first two sources with "And"
-      And I join the next two sources with "Or"
-      And I join the final two sources with "Not"
+      And I have two different groups with sources
+      And I choose yet another source of records to be excluded
       And I generate the Campaign
-    Then data from all four sources should be represented correctly
+    Then my result should have no duplicate members
+      And my result should have no members in the set to be excluded
 
   Scenario: Clear existing Campaign
     Given I have created a campaign
