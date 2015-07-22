@@ -10,6 +10,11 @@ Before do
   else
     @browser = Watir::Browser.new :firefox
   end
+
+  unless( ENV['SF_USERNAME'] and ENV['SF_PASSWORD'] and ENV['SF_SERVERURL'])
+     puts 'You must have environment variables set for SF_USERNAME and SF_PASSWORD and SF_SERVERURL in order to run these tests'
+     abort
+  end
 end
 
 After do
