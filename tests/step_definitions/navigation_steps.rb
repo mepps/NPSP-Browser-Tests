@@ -6,7 +6,6 @@ Given(/^I navigate to Manage Households UI$/) do
 end
 
 Given(/^I navigate to Settings People Households$/) do
-  on(NPSPMainPage).npsp_settings_link_element.when_present.click
   on(NPSPSettingsPage) do |page|
     page.people_element.when_present.click
     page.households_element.when_present.click
@@ -16,7 +15,6 @@ Given(/^I navigate to Settings People Households$/) do
 end
 
 Given(/^I navigate to Settings People Account Model$/) do
-  on(NPSPMainPage).npsp_settings_link_element.when_present.click
   on(NPSPSettingsPage) do |page|
     page.people_element.when_present.click
     page.account_model_element.when_present.click
@@ -26,7 +24,6 @@ Given(/^I navigate to Settings People Account Model$/) do
 end
 
 Given(/^I navigate to Settings People Addresses$/) do
-  on(NPSPMainPage).npsp_settings_link_element.when_present.click
   on(NPSPSettingsPage) do |page|
     page.people_element.when_present.click
     page.addresses_element.when_present.click
