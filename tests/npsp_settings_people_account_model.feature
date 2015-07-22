@@ -1,7 +1,7 @@
 Feature: NPSP Settings People Account Model
 
   Background:
-    Given I login with environment variables
+    Given I login to settings with environment variables
     When I navigate to Settings People Account Model
       And I retrieve current settings for Account Model, Household Account Record Type, One-to-One Record Type
 

@@ -2,6 +2,11 @@ Given(/^I login with environment variables$/) do
   visit(LoginPage).login_with_env_vars
 end
 
+
+Given(/^I login to settings with environment variables$/) do
+  visit(LoginSettingsPage).login_with_env_vars
+end
+
 When(/^I click Cancel$/) do
   on(ManageHouseholdsPage) do |page|
     page.wait_until do
