@@ -1,7 +1,7 @@
 class LoginPage
   include PageObject
 
-  page_url 'https://login.salesforce.com/'
+  page_url 'https://login.salesforce.com<%=params[:redirect_to]%>'
 
   text_field(:username, id: 'username')
   text_field(:password, id: 'password')
