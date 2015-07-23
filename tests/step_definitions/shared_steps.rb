@@ -3,7 +3,9 @@ Given(/^I login with environment variables$/) do
 end
 
 Given(/^I login to settings with environment variables$/) do
-  visit(LoginSettingsPage).login_with_env_vars
+  visit(LoginPage, using_params: {:redirect_to => '?startURL=apex%2FSTG_SettingsManager'}) do |page|
+    page.login_with_env_vars
+  end
 end
 
 When(/^I click Cancel$/) do
