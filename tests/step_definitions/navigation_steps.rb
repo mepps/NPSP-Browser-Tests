@@ -31,3 +31,12 @@ Given(/^I navigate to Settings People Addresses$/) do
     step 'I wait for the page to revert'
   end
 end
+
+Given(/^I navigate to Settings Donations Opportunity Names$/) do
+  on(NPSPSettingsPage) do |page|
+    page.donations_element.when_present.click
+    page.opportunity_names_element.when_present.click
+    page.edit_opp_button_element.when_present.click
+    step 'I wait for the page to revert'
+  end
+end
