@@ -27,7 +27,7 @@ When(/^I click Set Address$/) do
 end
 
 When(/^I click the Accounts tab$/) do
-  on(ManageHouseholdsPage).accounts_tab_element.when_present.click
+  on(NPSPMainPage).accounts_tab_element.when_present.click
 end
 
 When(/^I click the first Household Account$/) do

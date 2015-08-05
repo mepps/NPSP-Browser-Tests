@@ -5,6 +5,11 @@ Given(/^I navigate to Manage Households UI$/) do
   step 'I click Manage Household'
 end
 
+Given(/^I navigate to New Contact$/) do
+  on(NPSPMainPage).contacts_tab_element.when_present.click
+  on(NPSPContactsPage).new_button
+end
+
 Given(/^I navigate to Settings People Households$/) do
   on(NPSPSettingsPage) do |page|
     page.people_element.when_present.click

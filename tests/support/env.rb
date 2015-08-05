@@ -17,6 +17,10 @@ Before do
   end
 end
 
+Before do |scenario|
+  @random_string = Random.new.rand(100000000000000000000).to_s
+end
+
 After do
   unless ENV['KEEP_BROWSER_OPEN'] == 'true'
     @browser.close

@@ -1,7 +1,6 @@
 class ManageHouseholdsPage
   include PageObject
 
-  a(:accounts_tab, text: 'Accounts')
   text_field(:add_members_search, id: 'hhSearch-input')
   button(:add_merge_button, text: 'Add and merge Households')
   button(:add_remove_button, text: 'Add and remove from old Household')
@@ -38,4 +37,5 @@ class ManageHouseholdsPage
   a(:select_existing, text: 'Select an existing address')
   button(:set_address_button, text: 'Set Address')
   select_list(:view_select_list, id: 'fcf')
+  div(:households_list, class: 'listBody')
 end
