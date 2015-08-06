@@ -5,4 +5,5 @@ source 'https://rubygems.org'
 gem 'page-object'
 gem 'rspec'
 gem 'cucumber'
+gem 'restforce'
 gem 'rubocop', require: false
