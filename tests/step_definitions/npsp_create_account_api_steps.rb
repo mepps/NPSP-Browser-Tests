@@ -1,6 +1,7 @@
+#include APIClient
+
 Given(/^I create a new random account via the API$/) do
-  on(NPSPApiPage).create_account_via_api("aaaaaa#{@random_string}")
-  puts "create account step"
+  create_account_via_api("aaaaaa#{@random_string}")
 end
 
 When(/^I navigate to All Accounts$/) do
@@ -17,12 +18,12 @@ Then(/^I should see the new account is a Household account$/) do
   expect(page.first_account_record).to match @random_string
   expect(page.first_account_record).to match "Household"
   end
-  on(NPSPApiPage).delete_account_via_api
+  delete_account_via_api
 end
 
 Given(/^I delete the random account via the API$/) do
-  on(NPSPApiPage).create_account_via_api("aaaaaa#{@random_string}")
-  on(NPSPApiPage).delete_account_via_api
+  create_account_via_api("aaaaaa#{@random_string}")
+  delete_account_via_api
 end
 
 Then(/^I should not see the random account created earlier$/) do

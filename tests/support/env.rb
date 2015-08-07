@@ -1,6 +1,10 @@
 require 'rspec'
 require 'page-object'
 require 'watir-webdriver'
+require 'restforce'
+# need to require_relative below
+require_relative 'modules/sfdc_api'
+include Sfdc_api
 
 World(PageObject::PageFactory)
 
