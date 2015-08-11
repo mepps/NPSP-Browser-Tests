@@ -16,10 +16,12 @@ Before do
   end
 
   if ENV['RUN_ON_SAUCE'] == true
-    browser_name = ENV['SELENIUM_BROWSER]
-    caps = Selenium::WebDriver::Remote::Capabilities.browser_name
+    caps = Selenium::WebDriver::Remote::Capabilities.ENV['SELENIUM_BROWSER']
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
+
+puts caps.to_s
+
     Watir::Browser.new(
         :remote,
         :url => "http://#{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']}@ondemand.saucelabs.com:80/wd/hub",
