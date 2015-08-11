@@ -22,9 +22,8 @@ Before do
     Watir::Browser.new(
         :remote,
         :url => "http://#{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']}@ondemand.saucelabs.com:80/wd/hub",
-        :desired_capabilities => caps
+        :desired_capabilities => caps)
   end
-
 
 
   unless( ENV['SF_USERNAME'] and ENV['SF_PASSWORD'] and ENV['SF_SERVERURL'])
