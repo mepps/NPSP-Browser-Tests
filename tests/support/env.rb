@@ -14,8 +14,7 @@ Before do
   #else
   #  @browser = Watir::Browser.new :firefox
   #end
-
-  if ENV['RUN_ON_SAUCE'] == true
+  
     caps = Selenium::WebDriver::Remote::Capabilities.ENV['SELENIUM_BROWSER']
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
@@ -26,7 +25,7 @@ puts caps.to_s
         :remote,
         :url => "http://#{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']}@ondemand.saucelabs.com:80/wd/hub",
         :desired_capabilities => caps)
-  end
+
 
 
   unless( ENV['SF_USERNAME'] and ENV['SF_PASSWORD'] and ENV['SF_SERVERURL'])
