@@ -9,7 +9,14 @@ include Sfdc_api
 World(PageObject::PageFactory)
 
 Before do
-  if ENV['BROWSER']
+  if ENV['RUN_ON_SAUCE']
+    Watir::Browser.new(
+        :remote,
+        :url => "http://#{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']}@ondemand.saucelabs.com:80/wd/hub",
+        :desired_capabilities => ENV['SELENIUM_DRIVER'])
+  end
+
+  if ENV['BROWSER'] and !ENV['RUN_ON_SAUCE']
     @browser = Watir::Browser.new :"#{ENV['BROWSER']}"
   else
     @browser = Watir::Browser.new :firefox
