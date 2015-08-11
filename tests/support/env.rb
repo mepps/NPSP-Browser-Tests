@@ -9,16 +9,16 @@ include Sfdc_api
 World(PageObject::PageFactory)
 
 Before do
-  if ENV['BROWSER'] and !ENV['RUN_ON_SAUCE']
+  if ENV['BROWSER'] and (ENV['RUN_ON_SAUCE'] != true)
     @browser = Watir::Browser.new :"#{ENV['BROWSER']}"
   else
     @browser = Watir::Browser.new :firefox
   end
 
-  if ENV['RUN_ON_SAUCE']
-    caps = Selenium::WebDriver::Remote::Capabilities.send(ENV['BROWSER'])
-    caps.platform = ENV['CAPS_PLATFORM']
-    caps.version = ENV['CAPS_BROWSER']
+  if ENV['RUN_ON_SAUCE'] == true
+    caps = Selenium::WebDriver::Remote::Capabilities."#{ENV['SELENIUM_BROWSER']}"
+    caps.platform = ENV['SELENIUM_PLATFORM']
+    caps.version = ENV['SELENIUM_VERSION']
     Watir::Browser.new(
         :remote,
         :url => "http://#{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']}@ondemand.saucelabs.com:80/wd/hub",
