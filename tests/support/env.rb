@@ -9,18 +9,23 @@ include Sfdc_api
 World(PageObject::PageFactory)
 
 Before do
-  if ENV['RUN_ON_SAUCE']
-    Watir::Browser.new(
-        :remote,
-        :url => "http://#{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']}@ondemand.saucelabs.com:80/wd/hub",
-        :desired_capabilities => ENV['SELENIUM_DRIVER'])
-  end
-
   if ENV['BROWSER'] and !ENV['RUN_ON_SAUCE']
     @browser = Watir::Browser.new :"#{ENV['BROWSER']}"
   else
     @browser = Watir::Browser.new :firefox
   end
+
+  if ENV['RUN_ON_SAUCE']
+    caps = Selenium::WebDriver::Remote::Capabilities.send(ENV['BROWSER'])
+    caps.platform = ENV['CAPS_PLATFORM']
+    caps.version = ENV['CAPS_BROWSER']
+    Watir::Browser.new(
+        :remote,
+        :url => "http://#{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']}@ondemand.saucelabs.com:80/wd/hub",
+        :desired_capabilities => caps
+  end
+
+
 
   unless( ENV['SF_USERNAME'] and ENV['SF_PASSWORD'] and ENV['SF_SERVERURL'])
      puts 'You must have environment variables set for SF_USERNAME and SF_PASSWORD and SF_SERVERURL in order to run these tests'
