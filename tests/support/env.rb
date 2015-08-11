@@ -16,8 +16,8 @@ Before do
   end
 
   if ENV['RUN_ON_SAUCE'] == true
-    #caps = Selenium::WebDriver::Remote::Capabilities."#{ENV['SELENIUM_BROWSER']}"
-    caps = Selenium::WebDriver::Remote::Capabilities.firefox
+    browser_name = ENV['SELENIUM_BROWSER]
+    caps = Selenium::WebDriver::Remote::Capabilities.browser_name
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
     Watir::Browser.new(
