@@ -14,8 +14,8 @@ Before do
   #else
   #  @browser = Watir::Browser.new :firefox
   #end
-  
-    caps = Selenium::WebDriver::Remote::Capabilities.ENV['SELENIUM_BROWSER']
+
+    caps = Selenium::WebDriver::Remote::Capabilities."#{ENV['SELENIUM_BROWSER']}"
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
 
