@@ -15,7 +15,7 @@ Before do
   #  @browser = Watir::Browser.new :firefox
   #end
 
-    caps = Watir::WebDriver::Remote::Capabilities.firefox
+    caps = Selenium::WebDriver::Remote::Capabilities.firefox
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
     caps.name = "NPSP_browser_test"
