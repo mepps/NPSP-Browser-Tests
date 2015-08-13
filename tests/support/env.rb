@@ -18,6 +18,7 @@ Before do
     caps = Selenium::WebDriver::Remote::Capabilities.firefox
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
+    caps.name = 'NPSP_browser_test'
 
 puts caps.to_s
 
@@ -41,5 +42,5 @@ end
 After do
   unless ENV['KEEP_BROWSER_OPEN'] == 'true'
     @browser.close
-  end
+  endd
 end
