@@ -29,7 +29,8 @@ puts caps.to_s
     puts "this is session id "
     puts @browser.driver.capabilities.inspect
     puts @browser.driver.capabilities["webdriver.remote.sessionid"]
-    STDOUT.write @browser.driver.capabilities["webdriver.remote.sessionid"]
+    STDOUT.write "SauceOnDemandSessionID=" + @browser.driver.capabilities["webdriver.remote.sessionid"]
+    STDOUT.write "job-name=NPSP_windows_firefox"
 
 
   unless( ENV['SF_USERNAME'] and ENV['SF_PASSWORD'] and ENV['SF_SERVERURL'])
