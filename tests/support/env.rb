@@ -9,12 +9,13 @@ include Sfdc_api
 World(PageObject::PageFactory)
 
 Before do
-  #if ENV['BROWSER'] and (ENV['RUN_ON_SAUCE'] != true)
-  #  @browser = Watir::Browser.new :"#{ENV['BROWSER']}"
-  #else
-  #  @browser = Watir::Browser.new :firefox
-  #end
+  if ENV['BROWSER']
+    @browser = Watir::Browser.new :"#{ENV['BROWSER']}"
+  else
+    @browser = Watir::Browser.new :firefox
+  end
 
+  if ENV['RUN_ON_SAUCE']
     caps = Selenium::WebDriver::Remote::Capabilities.firefox
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
@@ -25,12 +26,10 @@ puts caps.to_s
         :remote,
         :url => "http://#{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']}@ondemand.saucelabs.com:80/wd/hub",
         :desired_capabilities => caps)
-
-    puts "this is session id "
-    puts @browser.driver.capabilities.inspect
-    puts @browser.driver.capabilities["webdriver.remote.sessionid"]
+    
     STDOUT.write "SauceOnDemandSessionID=" + @browser.driver.capabilities["webdriver.remote.sessionid"]
     STDOUT.write "job-name=NPSP_windows_firefox"
+    end
 
 
   unless( ENV['SF_USERNAME'] and ENV['SF_PASSWORD'] and ENV['SF_SERVERURL'])
@@ -42,24 +41,6 @@ end
 Before do |scenario|
   @random_string = Random.new.rand(100000000000000000000).to_s
 end
-
-
-#After do |scenario|
-#  scenario_name = test_name(scenario)
-
-#  if scenario.respond_to?(:status)
-#    require 'fileutils'
-
-#    teardown(name: scenario_name, status: scenario.status) do |browser|
-#      # Embed remote session URLs
-#      if remote? && browser.driver.respond_to?(:session_id)
-#        embed("http://saucelabs.com/jobs/#{browser.driver.session_id}", 'text/url')
-#      end
-#    end
-#  else
-#    teardown(name: scenario_name)
-#  end
-#end
 
 After do
   unless ENV['KEEP_BROWSER_OPEN'] == 'true'
