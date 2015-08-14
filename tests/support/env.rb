@@ -9,10 +9,12 @@ include Sfdc_api
 World(PageObject::PageFactory)
 
 Before do
-  if ENV['BROWSER'] and (ENV['RUN_ON_SAUCE'] == false)
-    @browser = Watir::Browser.new :"#{ENV['BROWSER']}"
-  else
-    @browser = Watir::Browser.new :firefox
+  if ENV['RUN_LOCAL']
+    if ENV['BROWSER']
+      @browser = Watir::Browser.new :"#{ENV['BROWSER']}"
+    else
+      @browser = Watir::Browser.new :firefox
+    end
   end
 
   if ENV['RUN_ON_SAUCE']
