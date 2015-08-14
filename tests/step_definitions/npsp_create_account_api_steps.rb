@@ -22,7 +22,7 @@ Then(/^I should see the new account is a Household account$/) do
 end
 
 Given(/^I delete the random account via the API$/) do
-  create_account_via_api("aaaaaa#{@random_string}")
+  create_account_via_api("aaaaxaa#{@random_string}")
   delete_account_via_api
 end
 
