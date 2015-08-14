@@ -16,13 +16,13 @@ Then(/^I should see the new account is a Household account$/) do
       page.first_account_record.match @random_string
     end
   expect(page.first_account_record).to match @random_string
-  expect(page.first_account_record).to match "Household"
+  expect(page.first_account_record).to match "Houxsehold"
   end
   delete_account_via_api
 end
 
 Given(/^I delete the random account via the API$/) do
-  create_account_via_api("aaaaxaa#{@random_string}")
+  create_account_via_api("aaaaaa#{@random_string}")
   delete_account_via_api
 end
 
