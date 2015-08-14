@@ -27,7 +27,7 @@ puts caps.to_s
         :desired_capabilities => caps)
 
     puts "this is session id "
-    puts @browser.driver.capabilities
+    puts @browser.driver.capabilities.inspect
 
 
   unless( ENV['SF_USERNAME'] and ENV['SF_PASSWORD'] and ENV['SF_SERVERURL'])
