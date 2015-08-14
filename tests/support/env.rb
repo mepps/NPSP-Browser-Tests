@@ -29,6 +29,7 @@ puts caps.to_s
     puts "this is session id "
     puts @browser.driver.capabilities.inspect
     puts @browser.driver.capabilities["webdriver.remote.sessionid"]
+    STDOUT.write @browser.driver.capabilities["webdriver.remote.sessionid"]
 
 
   unless( ENV['SF_USERNAME'] and ENV['SF_PASSWORD'] and ENV['SF_SERVERURL'])
