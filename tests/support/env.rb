@@ -26,7 +26,8 @@ puts caps.to_s
         :url => "http://#{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']}@ondemand.saucelabs.com:80/wd/hub",
         :desired_capabilities => caps)
 
-    puts "this is session id "@browser.session_id
+    puts "this is session id "
+    puts @browser.session_id
 
 
   unless( ENV['SF_USERNAME'] and ENV['SF_PASSWORD'] and ENV['SF_SERVERURL'])
