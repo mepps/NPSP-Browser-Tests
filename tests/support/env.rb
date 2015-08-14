@@ -21,7 +21,7 @@ Before do
 
 puts caps.to_s
 
-    @browser = Watir::Browser.new(
+    @browser = Selenium::Browser.new(
         :remote,
         :url => "http://#{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']}@ondemand.saucelabs.com:80/wd/hub",
         :desired_capabilities => caps)
