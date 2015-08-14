@@ -39,22 +39,22 @@ Before do |scenario|
 end
 
 
-After do |scenario|
-  scenario_name = test_name(scenario)
+#After do |scenario|
+#  scenario_name = test_name(scenario)
 
-  if scenario.respond_to?(:status)
-    require 'fileutils'
+#  if scenario.respond_to?(:status)
+#    require 'fileutils'
 
-    teardown(name: scenario_name, status: scenario.status) do |browser|
-      # Embed remote session URLs
-      if remote? && browser.driver.respond_to?(:session_id)
-        embed("http://saucelabs.com/jobs/#{browser.driver.session_id}", 'text/url')
-      end
-    end
-  else
-    teardown(name: scenario_name)
-  end
-end
+#    teardown(name: scenario_name, status: scenario.status) do |browser|
+#      # Embed remote session URLs
+#      if remote? && browser.driver.respond_to?(:session_id)
+#        embed("http://saucelabs.com/jobs/#{browser.driver.session_id}", 'text/url')
+#      end
+#    end
+#  else
+#    teardown(name: scenario_name)
+#  end
+#end
 
 After do
   unless ENV['KEEP_BROWSER_OPEN'] == 'true'
