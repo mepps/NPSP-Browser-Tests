@@ -31,7 +31,9 @@ Before do |scenario|
     caps = Selenium::WebDriver::Remote::Capabilities.send(ENV['BROWSER_NAME'])
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
-    caps[:name] = "#{sauce_test_name}"
+    #caps[:name] = "#{sauce_test_name}"
+    caps[:name] = sauce_test_name
+    
 
 puts caps.to_s
 
