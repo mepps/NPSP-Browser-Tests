@@ -10,15 +10,15 @@ World(PageObject::PageFactory)
 
 Before do
   if ENV['RUN_LOCAL']
-    if ENV['BROWSER']
-      @browser = Watir::Browser.new :"#{ENV['BROWSER']}"
+    if ENV['BROWSER_NAME']
+      @browser = Watir::Browser.new :"#{ENV['BROWSER_NAME']}"
     else
       @browser = Watir::Browser.new :firefox
     end
   end
 
   if ENV['RUN_ON_SAUCE']
-    caps = Selenium::WebDriver::Remote::Capabilities..send(ENV['BROWSER'])
+    caps = Selenium::WebDriver::Remote::Capabilities.send(ENV['BROWSER_NAME'])
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
 
