@@ -18,7 +18,7 @@ Before do
   end
 
   if ENV['RUN_ON_SAUCE']
-    caps = Selenium::WebDriver::Remote::Capabilities."#{ENV['BROWSER']}"
+    caps = Selenium::WebDriver::Remote::Capabilities..send("#{ENV['BROWSER']}")
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
 
