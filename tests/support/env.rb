@@ -31,9 +31,8 @@ Before do |scenario|
     caps = Selenium::WebDriver::Remote::Capabilities.send(ENV['BROWSER_NAME'])
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
-    #caps[:name] = "#{sauce_test_name}"
     caps[:name] = sauce_test_name
-    
+
 
 puts caps.to_s
 
@@ -42,8 +41,8 @@ puts caps.to_s
         :url => "http://#{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']}@ondemand.saucelabs.com:80/wd/hub",
         :desired_capabilities => caps)
 
-    $session_id = @browser.driver.capabilities["webdriver.remote.sessionid"]
-    STDOUT.write "SauceOnDemandSessionID=" + $session_id
+    session_id = @browser.driver.capabilities["webdriver.remote.sessionid"]
+    STDOUT.write "SauceOnDemandSessionID=" + session_id
     end
 
 
@@ -58,7 +57,7 @@ Before do |scenario|
 end
 
 After do
-  #unless ENV['KEEP_BROWSER_OPEN'] == 'true'
+  unless ENV['KEEP_BROWSER_OPEN']
     @browser.close
-  #end
+  end
 end
