@@ -18,9 +18,10 @@ Before do
   end
 
   if ENV['RUN_ON_SAUCE']
-    caps = Selenium::WebDriver::Remote::Capabilities.send(ENV['BROWSER_NAME'])
+    caps = Selenium::WebDriver::Remote::Capabilities.send(ENV['BROWSER_NAME']['name'])
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
+    caps[:name] = "NPSP_windows_firefox"
 
 puts caps.to_s
 
@@ -30,7 +31,7 @@ puts caps.to_s
         :desired_capabilities => caps)
 
     $session_id = @browser.driver.capabilities["webdriver.remote.sessionid"]
-    #STDOUT.write "SauceOnDemandSessionID=" + $session_id + " job-name=NPSP_windows_firefox"
+    STDOUT.write "SauceOnDemandSessionID=" + $session_id + " job-name=NPSP_windows_firefox"
     end
 
 
