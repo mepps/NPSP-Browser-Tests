@@ -31,7 +31,7 @@ puts caps.to_s
         :desired_capabilities => caps)
 
     $session_id = @browser.driver.capabilities["webdriver.remote.sessionid"]
-    #STDOUT.write "SauceOnDemandSessionID=" + $session_id + " job-name=NPSP_windows_firefox"
+    STDOUT.write "SauceOnDemandSessionID=" + $session_id
     end
 
 
