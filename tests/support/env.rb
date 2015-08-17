@@ -33,9 +33,6 @@ Before do |scenario|
     caps.version = ENV['SELENIUM_VERSION']
     caps[:name] = sauce_test_name
 
-
-puts caps.to_s
-
     @browser = Watir::Browser.new(
         :remote,
         :url => "http://#{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']}@ondemand.saucelabs.com:80/wd/hub",
