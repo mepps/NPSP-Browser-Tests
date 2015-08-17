@@ -16,7 +16,7 @@ def test_name(scenario)
   end
 end
 
-Before do
+Before do |scenario|
   if ENV['RUN_LOCAL']
     if ENV['BROWSER_NAME']
       @browser = Watir::Browser.new :"#{ENV['BROWSER_NAME']}"
