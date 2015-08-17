@@ -18,7 +18,7 @@ Before do
   end
 
   if ENV['RUN_ON_SAUCE']
-    caps = Selenium::WebDriver::Remote::Capabilities.send(ENV['BROWSER_NAME']['name'])
+    caps = Selenium::WebDriver::Remote::Capabilities.send(ENV['BROWSER_NAME'])
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
     caps[:name] = "NPSP_windows_firefox"
