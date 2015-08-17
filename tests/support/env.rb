@@ -8,6 +8,14 @@ include Sfdc_api
 
 World(PageObject::PageFactory)
 
+def test_name(scenario)
+  if scenario.respond_to? :feature
+    "#{scenario.feature.name}: #{scenario.name}"
+  elsif scenario.respond_to? :scenario_outline
+    "#{scenario.scenario_outline.feature.name}: #{scenario.scenario_outline.name}: #{scenario.name}"
+  end
+end
+
 Before do
   if ENV['RUN_LOCAL']
     if ENV['BROWSER_NAME']
@@ -21,7 +29,7 @@ Before do
     caps = Selenium::WebDriver::Remote::Capabilities.send(ENV['BROWSER_NAME'])
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
-    caps[:name] = "NPSP_windows_firefox"
+    caps[:name] = "#{test_name}"
 
 puts caps.to_s
 
