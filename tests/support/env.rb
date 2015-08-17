@@ -25,11 +25,13 @@ Before do |scenario|
     end
   end
 
+  sauce_test_name = test_name(scenario)
+
   if ENV['RUN_ON_SAUCE']
     caps = Selenium::WebDriver::Remote::Capabilities.send(ENV['BROWSER_NAME'])
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
-    caps[:name] = "#{test_name}"
+    caps[:name] = "#{sauce_test_name}"
 
 puts caps.to_s
 
