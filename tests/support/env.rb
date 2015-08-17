@@ -29,7 +29,8 @@ puts caps.to_s
         :url => "http://#{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']}@ondemand.saucelabs.com:80/wd/hub",
         :desired_capabilities => caps)
 
-    STDOUT.write "SauceOnDemandSessionID=" + @browser.driver.capabilities["webdriver.remote.sessionid"] + " job-name='NPSP_windows_firefox'"
+    $session_id = @browser.driver.capabilities["webdriver.remote.sessionid"]
+    STDOUT.write "SauceOnDemandSessionID=" + $session_id + " job-name=NPSP_windows_firefox"
     end
 
 
