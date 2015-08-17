@@ -57,7 +57,5 @@ Before do |scenario|
 end
 
 After do
-  unless ENV['KEEP_BROWSER_OPEN']
     @browser.close
-  end
 end
