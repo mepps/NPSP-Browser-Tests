@@ -5,7 +5,7 @@ Given(/^I create a new random account via the API$/) do
 end
 
 When(/^I navigate to All Accounts$/) do
-  step 'I login with environment variables'
+  step 'I login with oauth'
   step 'I click the Accounts tab'
   step 'I select "All Accounts" and Go'
 end

@@ -2,6 +2,10 @@ Given(/^I login with environment variables$/) do
   visit(LoginPage).login_with_env_vars
 end
 
+Given(/^I login with oauth$/) do
+  visit(LoginPage).login_with_oauth
+end
+
 Given(/^I login to settings with environment variables$/) do
   visit(LoginPage, using_params: {:redirect_to => '?startURL=apex%2FSTG_SettingsManager'}) do |page|
     page.login_with_env_vars
