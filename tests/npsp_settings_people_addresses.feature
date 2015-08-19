@@ -1,7 +1,7 @@
 Feature: NPSP Settings People Addresses
 
   Background:
-    Given I login to settings with environment variables
+    Given I login to settings with oauth 
       And I navigate to Settings People Addresses
 
   Scenario: General Address Settings

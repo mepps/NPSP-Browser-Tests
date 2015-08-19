@@ -1,7 +1,7 @@
 Feature: Manage Household UI
 
   Background:
-   Given I login with environment variables
+   Given I login with oauth
 
   Scenario: Navigate to Manage Households UI and do basic checks
     When I click the Accounts tab

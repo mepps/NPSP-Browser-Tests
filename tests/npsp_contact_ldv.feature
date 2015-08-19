@@ -1,7 +1,7 @@
 Feature: Create Contact for LDV org
 
   Background:
-   Given I login with environment variables
+   Given I login with oauth
       And I navigate to New Contact
 
   Scenario: Add Contact
