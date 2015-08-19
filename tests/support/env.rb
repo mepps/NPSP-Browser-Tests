@@ -18,8 +18,8 @@ end
 
 Before do |scenario|
   if ENV['RUN_LOCAL']
-    if ENV['BROWSER_NAME']
-      @browser = Watir::Browser.new :"#{ENV['BROWSER_NAME']}"
+    if ENV['SELENIUM_BROWSER']
+      @browser = Watir::Browser.new :"#{ENV['SELENIUM_BROWSER']}"
     else
       @browser = Watir::Browser.new :firefox
     end
@@ -28,7 +28,7 @@ Before do |scenario|
   sauce_test_name = test_name(scenario)
 
   if ENV['RUN_ON_SAUCE']
-    caps = Selenium::WebDriver::Remote::Capabilities.send(ENV['BROWSER_NAME'])
+    caps = Selenium::WebDriver::Remote::Capabilities.send(ENV['SELENIUM_BROWSER'])
     caps.platform = ENV['SELENIUM_PLATFORM']
     caps.version = ENV['SELENIUM_VERSION']
     caps[:name] = sauce_test_name
