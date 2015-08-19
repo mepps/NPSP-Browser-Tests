@@ -56,3 +56,10 @@ end
 After do
     @browser.close
 end
+
+After do |scenario|
+  if ENV['RUN_ON_SAUCE']
+    %x{curl -H "Content-Type:text/json" -s -X PUT -d '{"passed": #{scenario.passed?}}' http://#{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']}@saucelabs.com/rest/v1/#{ENV['SAUCE_NAME']}/jobs/#{$session_id}}
+  end
+  @browser.close
+end
