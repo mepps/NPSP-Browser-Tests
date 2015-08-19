@@ -2,7 +2,7 @@
 Feature: NPSP Settings Donations Opportunity Names
 
   Background:
-    Given I login to settings with environment variables
+    Given I login to settings with oauth 
     When I navigate to Settings Donations Opportunity Names
 
   Scenario: Household Name Settings set values

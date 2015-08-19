@@ -1,7 +1,7 @@
 Feature: NPSP Smoke Test
 
   Background:
-   Given I login with environment variables
+   Given I login with oauth
 
   Scenario: Recurring Donations link works
     When I click the Recurring Donations link
