@@ -59,11 +59,6 @@ end
 
 After do |scenario|
   if ENV['RUN_ON_SAUCE']
-    puts ENV['SAUCE_NAME']
-    puts scenario.passed?
-    puts ENV['SAUCE_KEY']
-    puts @session_id
-
     %x{curl -X PUT -s -d '{"passed": #{scenario.passed?}}' -u #{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']} @saucelabs.com/rest/v1/#{ENV['SAUCE_NAME']}/jobs/#{@session_id}}
   end
 
