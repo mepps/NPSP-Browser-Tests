@@ -38,3 +38,7 @@ Given(/^I login to settings with environment variables$/) do
     page.login_with_env_vars
   end
 end
+
+Given(/^I delete the account$/) do
+  delete_account_via_api
+end
