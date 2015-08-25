@@ -121,17 +121,11 @@ When(/^I type "([^"]*)" into search box$/) do |search_string|
   on(ManageHouseholdsPage).member_search_box_element.when_present.send_keys search_string
 end
 
-Then(/^I should see all nine checkboxes checked$/) do
+Then(/^I should see all three checkboxes checked$/) do
   on(ManageHouseholdsPage) do |page|
     expect(page.exclude_formal_greeting_original_checked?).to be true
-    #expect(page.exclude_formal_greeting_second_checked?).to be true
     expect(page.exclude_informal_greeting_original_checked?).to be true
-    #expect(page.exclude_informal_greeting_second_checked?).to be true
     expect(page.exclude_household_name_original_checked?).to be true
-    #expect(page.exclude_household_name_second_checked?).to be true
-    #expect(page.auto_name_checked?).to be true
-    #expect(page.auto_formal_greeting_checked?).to be true
-    #expect(page.auto_informal_greeting_checked?).to be true
   end
 end
 

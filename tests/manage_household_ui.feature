@@ -39,12 +39,9 @@ Feature: Manage Household UI
   Scenario: Checkboxes for Exclude Contact and Auto Name
     Given I navigate to Manage Households UI
     When I type "a" into search box
-      #And I select the first result
       And I add to household with Add option
       And I click the checkboxes in the original address card
-      #And I click the checkboxes in the second address card
-      #And I click the three Auto checkboxes
-    Then I should see all nine checkboxes checked
+    Then I should see all three checkboxes checked
       And I delete the account
 
   Scenario: Cancel button returns to Manage Household page
