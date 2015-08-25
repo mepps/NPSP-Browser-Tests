@@ -5,10 +5,7 @@ Feature: Manage Household UI
     And I create a new random account via the API
 
   Scenario: Navigate to Manage Households UI and do basic checks
-    When I click the Accounts tab
-      And I select "My Accounts" and Go
-      And I click the first Household Account
-      And I click Manage Household
+    When I navigate to Manage Households UI
     Then I should see the Household Members section
       And I should see the Add Members search field
       And I should see the Household Naming section
