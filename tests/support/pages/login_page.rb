@@ -20,9 +20,9 @@ class LoginPage
 
     response_body = JSON.parse(response.body)
     access_token = response_body['access_token']
-    instance_url = response_body['instance_url']
+    $instance_url = response_body['instance_url']
 
-    @browser.goto(instance_url + '/secur/frontdoor.jsp?sid=' + access_token)
+    @browser.goto($instance_url + '/secur/frontdoor.jsp?sid=' + access_token)
   end
 
 # LOGIN WITH ENV VARS IS NEVER TO BE USED IN A JENKINS BUILD

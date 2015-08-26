@@ -1,8 +1,7 @@
 Given(/^I navigate to Manage Households UI$/) do
-  step 'I click the Accounts tab'
-  step 'I select "Household Accounts" and Go'
-  step 'I click the first Household Account'
-  step 'I click Manage Household'
+  instance_url = $instance_url.sub("https://", "https://npsp.")
+  manage_household_url = instance_url.sub("salesforce.com", "visual.force.com")
+  @browser.goto(manage_household_url + '/apex/HH_ManageHHAccount?scontrolCaching=1&id=' + @account_id)
 end
 
 Given(/^I navigate to New Contact$/) do
