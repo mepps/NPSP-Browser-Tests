@@ -53,14 +53,10 @@ Before do |scenario|
   @random_string = Random.new.rand(100000000000000000000).to_s
 end
 
-After do
-    @browser.close
-end
-
 After do |scenario|
   if ENV['RUN_ON_SAUCE']
     %x{curl -X PUT -s -d '{"passed": #{scenario.passed?}}' -u #{ENV['SAUCE_NAME']}:#{ENV['SAUCE_KEY']} @saucelabs.com/rest/v1/#{ENV['SAUCE_NAME']}/jobs/#{@session_id}}
   end
 
-  @browser.close
+  @browser.close unless ENV['KEEP_BROWSER_OPEN']
 end
