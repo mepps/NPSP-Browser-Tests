@@ -1,6 +1,9 @@
 class LoginPage
   include PageObject
 
+  div(:app_switcher, id: 'tsidButton')
+  a(:npsp_app_picker, text: 'Nonprofit Starter Pack')
+
   def login_with_oauth
     require 'faraday'
 
@@ -24,6 +27,9 @@ class LoginPage
 
     @browser.goto($instance_url + '/secur/frontdoor.jsp?sid=' + access_token)
   end
+
+  div(:app_switcher, id: 'tsidButton')
+  a(:npsp_app_picker, text: 'Nonprofit Starter Pack')
 
 # LOGIN WITH ENV VARS IS NEVER TO BE USED IN A JENKINS BUILD
 # BECAUSE IT LEAKS PASSWORDS IN THE SAUCELABS SELENIUM LOGS.

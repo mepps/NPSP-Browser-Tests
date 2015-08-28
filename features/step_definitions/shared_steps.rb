@@ -1,5 +1,14 @@
 Given(/^I login with oauth$/) do
   visit(LoginPage).login_with_oauth
+  on(LoginPage) do |page|
+    page.app_switcher_element.when_present.click
+    begin
+      #WE ONLY NEED TO CLICK NPSP AFTER A FRESH INSTALL
+      #DON'T FAIL THE TEST IF NPSP IS ALREADY SELECTED
+      page.npsp_app_picker_element.when_present.click
+      rescue
+    end
+  end
 end
 
 Given(/^I login to settings with oauth$/) do
