@@ -9,6 +9,13 @@ Given(/^I login with oauth$/) do
       rescue
     end
   end
+
+  #REMOVE THE CODE BELOW WHEN https://github.com/SalesforceFoundation/Cumulus/issues/1694 is FIXED
+  step 'I click the NPSP Settings link'
+  step 'I navigate to Settings People Households'
+  on(NPSPSettingsPage).edit_hh_button_element.when_present.click
+  on(NPSPSettingsPage).save_button_element.when_present.click
+  #REMOVE THE CODE ABOVE WHEN https://github.com/SalesforceFoundation/Cumulus/issues/1694 is FIXED
 end
 
 Given(/^I login to settings with oauth$/) do

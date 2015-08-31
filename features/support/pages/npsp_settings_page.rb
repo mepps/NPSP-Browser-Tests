@@ -12,4 +12,5 @@ class NPSPSettingsPage
   span(:loading_message, class: 'loadingText')
   a(:opportunity_names, text: 'Opportunity Names')
   a(:people, text: 'People')
+  button(:save_button, value: 'Save')
 end
