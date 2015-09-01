@@ -8,6 +8,7 @@ Given(/^I login with oauth$/) do
       page.npsp_app_picker_element.when_present.click
       rescue
     end
+    page.app_switcher_element.when_present.click
   end
 
   #REMOVE THE CODE BELOW WHEN https://github.com/SalesforceFoundation/Cumulus/issues/1694 is FIXED
