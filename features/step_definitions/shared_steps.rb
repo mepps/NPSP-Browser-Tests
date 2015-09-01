@@ -16,6 +16,7 @@ Given(/^I login with oauth$/) do
   step 'I navigate to Settings People Households'
   on(NPSPSettingsPage).edit_hh_button_element.when_present.click
   step 'I wait for the page to revert'
+  sleep 1
   on(NPSPSettingsPage).save_button_element.when_present(15).click
   step 'I wait for the page to revert'
   #REMOVE THE CODE ABOVE WHEN https://github.com/SalesforceFoundation/Cumulus/issues/1694 is FIXED
