@@ -1,5 +1,15 @@
-When(/^I uncheck Automatic Household Naming$/) do
-  on(NPSPHouseholdsSettingsPage).uncheck_automatic_hh_naming
+When(/^I retrieve existing values/) do
+  on (NPSPHouseholdsSettingsPage) do |page|
+    @contact_overrun = Regexp.escape page.contact_overrun
+    @formal_greetimg_format = Regexp.escape page.formal_greetimg_format
+    @mail_list_report = Regexp.escape page.mail_list_report
+    @hh_name_format = Regexp.escape page.hh_name_format
+    @hh_obj_rule = Regexp.escape page.hh_obj_rule
+    @implementing_class = Regexp.escape page.implementing_class
+    @informal_greetimg_format = Regexp.escape page.informal_greetimg_format
+    @name_connector = Regexp.escape page.name_connector
+    @name_overrun = Regexp.escape page.name_overrun
+  end
 end
 
 When(/^I set Contact Overrun Count to "([^"]*)"$/) do |cont_over|
@@ -38,6 +48,10 @@ When(/^I set Name Overrun to "([^"]*)"$/) do |n_over|
   on(NPSPHouseholdsSettingsPage).name_overrun=n_over
 end
 
+When(/^I uncheck Automatic Household Naming$/) do
+  on(NPSPHouseholdsSettingsPage).uncheck_automatic_hh_naming
+end
+
 Then(/^Examples for Household Name Format should reflect my changes$/) do
   on(NPSPHouseholdsSettingsPage) do |page|
     page.example_text_box_element.click
@@ -52,16 +66,4 @@ Then(/^I should see the original Household Settings on the page$/) do
   expect(on(NPSPHouseholdsSettingsPage).hh_page_contents).to match /#{@hh_name_format}.+#{@formal_greetimg_format}.+#{@informal_greetimg_format}.+#{@name_connector}.+#{@name_overrun}.+#{@contact_overrun}.+#{@implementing_class}.+#{@hh_obj_rule}.+#{@hh_creation_excluded}/m
 end
 
-When(/^I retrieve existing values/) do
-  on (NPSPHouseholdsSettingsPage) do |page|
-    @contact_overrun = Regexp.escape page.contact_overrun
-    @formal_greetimg_format = Regexp.escape page.formal_greetimg_format
-    @mail_list_report = Regexp.escape page.mail_list_report
-    @hh_name_format = Regexp.escape page.hh_name_format
-    @hh_obj_rule = Regexp.escape page.hh_obj_rule
-    @implementing_class = Regexp.escape page.implementing_class
-    @informal_greetimg_format = Regexp.escape page.informal_greetimg_format
-    @name_connector = Regexp.escape page.name_connector
-    @name_overrun = Regexp.escape page.name_overrun
-  end
-end
+

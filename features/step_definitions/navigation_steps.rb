@@ -9,11 +9,11 @@ Given(/^I navigate to New Contact$/) do
   on(NPSPContactsPage).new_button
 end
 
-Given(/^I navigate to Settings People Households$/) do
+Given(/^I navigate to Settings Donations Opportunity Names$/) do
   on(NPSPSettingsPage) do |page|
-    page.people_element.when_present.click
-    page.households_element.when_present.click
-    page.edit_hh_button_element.when_present.click
+    page.donations_element.when_present.click
+    page.opportunity_names_element.when_present.click
+    page.edit_opp_button_element.when_present.click
     step 'I wait for the page to revert'
   end
 end
@@ -36,11 +36,11 @@ Given(/^I navigate to Settings People Addresses$/) do
   end
 end
 
-Given(/^I navigate to Settings Donations Opportunity Names$/) do
+Given(/^I navigate to Settings People Households$/) do
   on(NPSPSettingsPage) do |page|
-    page.donations_element.when_present.click
-    page.opportunity_names_element.when_present.click
-    page.edit_opp_button_element.when_present.click
+    page.people_element.when_present.click
+    page.households_element.when_present.click
+    page.edit_hh_button_element.when_present.click
     step 'I wait for the page to revert'
   end
 end
