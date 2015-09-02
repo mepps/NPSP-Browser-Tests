@@ -14,12 +14,25 @@ Given(/^I login with oauth$/) do
   #REMOVE THE CODE BELOW WHEN https://github.com/SalesforceFoundation/Cumulus/issues/1694 is FIXED
   step 'I click the NPSP Settings link'
   step 'I navigate to Settings People Households'
+
+  on(NPSPSettingsPage) do |page|
+    page.wait_until do
+      page.edit_hh_button_element.disabled? == false
+    end
   sleep 1
-  on(NPSPSettingsPage).edit_hh_button_element.when_present.click
+    page.edit_hh_button
+  end
+
   step 'I wait for the page to revert'
   sleep 1
-  on(NPSPSettingsPage).save_button_element.when_present(15).click
-  step 'I wait for the page to revert'
+  on(NPSPSettingsPage) do |page|
+    page.wait_until do
+      page.save_button_element.disabled? == false
+  end
+  sleep 1
+    page.save_button
+  end
+  #step 'I wait for the page to revert'
   #REMOVE THE CODE ABOVE WHEN https://github.com/SalesforceFoundation/Cumulus/issues/1694 is FIXED
 end
 
@@ -40,7 +53,7 @@ end
 
 When(/^I wait for the page to revert$/) do
   on(NPSPSettingsPage) do |page|
-    page.wait_until(10) do
+    page.wait_until(15) do
       page.loading_message_element.visible? == false
     end
   end
