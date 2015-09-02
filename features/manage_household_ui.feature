@@ -16,9 +16,7 @@ Feature: Manage Household UI
     Given I navigate to Manage Households UI
     When I type "a" into search box
       And I select the first result
-      #And I add to household with Add option
       And I type "b" into search box
-      #And I select the first result
       And I add to household with Add option
     Then I should see two Household Member entries
       And I delete the account
@@ -44,7 +42,6 @@ Feature: Manage Household UI
   Scenario: Cancel button returns to Manage Household page
     Given I navigate to Manage Households UI
     When I type "a" into search box
-    #And I select the first result
     And I add to household with Add option
     And I click Cancel
   Then I should be on the regular Households page
