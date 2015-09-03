@@ -29,6 +29,7 @@ class ManageHouseholdsPage
   button(:manage_households_button, text: 'Manage Household')
   text_field(:member_search_box, id: 'hhSearch-input')
   div(:regular_page_detail_block, id: 'ep')
+  div(:search_part, class: 'hhSearch')
   a(:select_existing, text: 'Select an existing address')
   button(:set_address_button, text: 'Set Address')
   select_list(:view_select_list, id: 'fcf')

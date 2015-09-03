@@ -118,7 +118,10 @@ When(/^I select "([^"]*)" and Go$/) do |account_view|
   end
 
 When(/^I select the first result$/) do
-  on(ManageHouseholdsPage).first_member_add_button_element.when_present.click
+  on(ManageHouseholdsPage) do |page|
+    page.first_member_add_button_element.when_present.click
+    page.search_part_element.when_present.click
+  end
 end
 
 When(/^I type "([^"]*)" into search box$/) do |search_string|
