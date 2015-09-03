@@ -121,6 +121,7 @@ When(/^I select the first result$/) do
   on(ManageHouseholdsPage) do |page|
     page.search_part_element.when_not_present
     page.first_member_add_button_element.when_present.click
+    page.search_part_element.when_not_present
   end
 end
 
