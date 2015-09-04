@@ -127,7 +127,7 @@ end
 
 When(/^I type "([^"]*)" into search box$/) do |search_string|
   on(ManageHouseholdsPage) do |page|
-    page.search_part_element.when_not_present
+    sleep 2
     page.member_search_box_element.when_present.click #search box needs focus for Chrome
     page.member_search_box_element.when_present.send_keys search_string
   end
