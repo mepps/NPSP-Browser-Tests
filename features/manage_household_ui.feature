@@ -16,9 +16,10 @@ Feature: Manage Household UI
     Given I navigate to Manage Households UI
     When I type "a" into search box
       And I select the first result
+      And I click New Contact
       And I type "b" into search box
       And I add to household with Add option
-    Then I should see two Household Member entries
+    Then I should see three Household Member entries
       And I delete the account
 
   Scenario: Change Household address

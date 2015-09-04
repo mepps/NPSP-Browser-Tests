@@ -27,6 +27,10 @@ When(/^I click Manage Household$/) do
   on(ManageHouseholdsPage).manage_households_button_element.when_present.click
 end
 
+When(/^I click New Contact$/) do
+  on(ManageHouseholdsPage).new_contact_element.when_present.click
+end
+
 When(/^I click Select an existing address$/) do
   on(ManageHouseholdsPage).select_existing_element.when_present.click
 end
@@ -127,7 +131,6 @@ end
 
 When(/^I type "([^"]*)" into search box$/) do |search_string|
   on(ManageHouseholdsPage) do |page|
-    sleep 2
     page.member_search_box_element.when_present.click #search box needs focus for Chrome
     page.member_search_box_element.when_present.send_keys search_string
   end
@@ -157,10 +160,11 @@ Then(/^I should see the Household Naming section$/) do
   expect(on(ManageHouseholdsPage).household_naming_element.when_present).to be_visible
 end
 
-Then(/^I should see two Household Member entries$/) do
+Then(/^I should see three Household Member entries$/) do
   on(ManageHouseholdsPage) do |page|
     expect(page.household_member_second_element.when_present).to be_visible
     expect(page.household_member_first_element.when_present).to be_visible
+    expect(page.household_member_third_element.when_present).to be_visible
   end
 end
 

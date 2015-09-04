@@ -28,6 +28,7 @@ class ManageHouseholdsPage
   div(:household_naming, id: 'hhNaming')
   button(:manage_households_button, text: 'Manage Household')
   text_field(:member_search_box, id: 'hhSearch-input')
+  button(:new_contact, text: 'New Contact')
   div(:regular_page_detail_block, id: 'ep')
   div(:search_part, class: 'hhSearch-item-address')
   a(:select_existing, text: 'Select an existing address')
