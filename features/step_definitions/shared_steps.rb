@@ -14,30 +14,6 @@ Given(/^I login the first time with oauth$/) do
     end
     page.app_switcher_element.when_present.click
   end
-
-  #REMOVE THE CODE BELOW WHEN https://github.com/SalesforceFoundation/Cumulus/issues/1694 is FIXED
-  #step 'I click the NPSP Settings link'
-  #step 'I navigate to Settings People Households'
-
-  #on(NPSPSettingsPage) do |page|
-  #  page.wait_until do
-  #    page.edit_hh_button_element.disabled? == false
-  #  end
-  #sleep 1
-  #  page.edit_hh_button
-  #end
-
-  #step 'I wait for the page to revert'
-  #sleep 1
-  #on(NPSPSettingsPage) do |page|
-  #  page.wait_until do
-  #    page.save_button_element.disabled? == false
-  #end
-  #sleep 1
-  #  page.save_button
-  #end
-  #step 'I wait for the page to revert'
-  #REMOVE THE CODE ABOVE WHEN https://github.com/SalesforceFoundation/Cumulus/issues/1694 is FIXED
 end
 
 Given(/^I login to settings with oauth$/) do
