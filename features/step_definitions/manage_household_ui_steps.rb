@@ -119,6 +119,7 @@ When(/^I select "([^"]*)" and Go$/) do |account_view|
       page.view_select_list_element.when_present
       page.view_select_list=account_view
       page.go_button_element.when_present.click
+    sleep 4
     end
   end
 
