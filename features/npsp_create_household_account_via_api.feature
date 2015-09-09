@@ -1,5 +1,6 @@
 Feature: Account created via API is automatically a Household account
 
+  @smoketest
   Scenario: Create new random account
     Given I create a new random account via the API
     When I navigate to All Accounts

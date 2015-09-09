@@ -4,6 +4,7 @@ Feature: Create Contact for LDV org
    Given I login with oauth
       And I navigate to New Contact
 
+    @smoketest
   Scenario: Add Contact
     When I fill in last name
       And I click Save

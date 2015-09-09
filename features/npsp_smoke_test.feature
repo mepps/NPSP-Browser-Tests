@@ -1,3 +1,4 @@
+@smoketest
 Feature: NPSP Smoke Test
 
   Background:

@@ -5,6 +5,7 @@ Feature: NPSP Settings People Account Model
     When I navigate to Settings People Account Model
       And I retrieve current settings for Account Model, Household Account Record Type, One-to-One Record Type
 
+
   Scenario: Account Model set values
     When I set Account Model to "One-to-One"
       And I set Account Model to "Individual"

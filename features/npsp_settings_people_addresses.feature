@@ -4,6 +4,7 @@ Feature: NPSP Settings People Addresses
     Given I login to settings with oauth 
       And I navigate to Settings People Addresses
 
+    @smoketest
   Scenario: General Address Settings
     When I click Household Account Addresses Disabled
       And I click Organizational Account Addresses Enabled
