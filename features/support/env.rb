@@ -59,4 +59,8 @@ After do |scenario|
   end
 
   @browser.close unless ENV['KEEP_BROWSER_OPEN']
+
+  #CLOBBER THE ACCOUNT TO PREVENT FAILURES FROM POLLUTING DOWNSTREAM TESTS
+  #IF THE ACCOUNT IS ALREADY DELETED THIS IS A NOOP
+  delete_account_via_api
 end

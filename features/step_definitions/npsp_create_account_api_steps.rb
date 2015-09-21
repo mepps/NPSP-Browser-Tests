@@ -25,5 +25,4 @@ Then(/^I should see the new account is a Household account$/) do
   expect(page.first_account_record).to match @random_string
   expect(page.first_account_record).to match "Household"
   end
-  delete_account_via_api
 end
