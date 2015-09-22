@@ -9,6 +9,12 @@ Given(/^I navigate to New Contact$/) do
   on(NPSPContactsPage).new_button
 end
 
+Given(/^I navigate to Payment Wizard for that Opportunity$/) do
+  instance_url = $instance_url.sub("https://", "https://npsp.")
+  payment_wizard_url = instance_url.sub("salesforce.com", "visual.force.com")
+  @browser.goto(payment_wizard_url + '/apex/PMT_PaymentWizard?id=' + @opportunity_id + '&wtype=payment')
+end
+
 Given(/^I navigate to Settings Donations Opportunity Names$/) do
   on(NPSPSettingsPage) do |page|
     page.donations_element.when_present.click
