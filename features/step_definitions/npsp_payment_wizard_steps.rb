@@ -7,5 +7,12 @@ When(/^I click Calculate Payments$/) do
 end
 
 Then(/^I should see the Payment Wizard fields$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(PaymentWizardPage) do |page|
+    expect(page.title_text).to match 'Create one or more Payments for this Opportunity'
+    expect(page.current_opportunity_title).to match 'Current Opportunity Info'
+    expect(page.create_payment_schedule).to match 'Create a Payment Schedule'
+    expect(page.payments_to_be_created). to match 'Payments to be Created'
+    expect(page.header_line).to match /Payment Number.+Payment Amount.+Scheduled Date.+Payment Date.+Paid/m
+    expect(page.create_payments_button_element).to be_visible
+  end
 end
