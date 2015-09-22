@@ -3,7 +3,7 @@ Given(/^I create a new Opportunity via the API with stage name "([^"]*)" and clo
 end
 
 When(/^I click Calculate Payments$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(PaymentWizardPage).calculate_payments_element.when_present.click
 end
 
 Then(/^I should see the Payment Wizard fields$/) do
