@@ -3,6 +3,7 @@ class NPSPMainPage
 
   a(:accounts_tab, text: 'Accounts')
   a(:contacts_tab, text: 'Contacts')
+  a(:getting_started_link, text: 'Getting Started')
   a(:recurring_donations_link, text: 'Recurring Donations')
   a(:npsp_settings_link, text: 'NPSP Settings')
   div(:home_page_text, class: 'content')
