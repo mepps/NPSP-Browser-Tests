@@ -13,6 +13,10 @@ Then(/^I should see the Payment Wizard fields$/) do
     expect(page.create_payment_schedule).to match 'Create a Payment Schedule'
     expect(page.payments_to_be_created). to match 'Payments to be Created'
     expect(page.header_line).to match /Payment Number.+Payment Amount.+Scheduled Date.+Payment Date.+Paid/m
+    page.wait_until do
+      page.twelfth_amount_textfield_element.visible?
+    end
+    expect(page.twelfth_amount_textfield).to eq '83.33'
     expect(page.create_payments_button_element).to be_visible
   end
 end
