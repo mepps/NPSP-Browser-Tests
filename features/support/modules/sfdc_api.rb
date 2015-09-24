@@ -13,6 +13,12 @@ def create_account_via_api(client_name)
   end
 end
 
+def create_contact_via_api(client_name)
+  api_client do
+    @contact_id = @api_client.create!('Contact', LastName: client_name)
+  end
+end
+
 def create_opportunity_via_api(client_name, stage_name, close_date, amount)
   api_client do
     @opportunity_id = @api_client.create!('Opportunity',
@@ -26,6 +32,12 @@ end
 def delete_account_via_api
   api_client do
     @api_client.destroy('Account', @account_id)
+  end
+end
+
+def delete_contact_via_api
+  api_client do
+    @api_client.destroy('Contact', @contact_id)
   end
 end
 
