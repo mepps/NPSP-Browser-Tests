@@ -1,10 +1,10 @@
 class NPSPMainPage
   include PageObject
 
-  a(:accounts_tab, text: 'Accounts')
-  a(:contacts_tab, text: 'Contacts')
-  a(:getting_started_link, text: 'Getting Started')
-  a(:recurring_donations_link, text: 'Recurring Donations')
+  a(:accounts_tab, class: 'accountBlock')
+  a(:contacts_tab, class: 'contactBlock')
+  a(:getting_started_link, class: 'Custom64Block')
+  a(:recurring_donations_link, class: 'Custom40Block')
   a(:npsp_settings_link, text: 'NPSP Settings')
   div(:home_page_text, class: 'content')
   div(:npsp_home_page_text, class: 'jumbotron')

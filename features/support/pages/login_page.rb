@@ -26,6 +26,7 @@ class LoginPage
     $instance_url = response_body['instance_url']
 
     @browser.goto($instance_url + '/secur/frontdoor.jsp?sid=' + access_token)
+    @browser.goto($instance_url + '/home/showAllTabs.jsp')
   end
 
   div(:app_switcher, id: 'tsidButton')
