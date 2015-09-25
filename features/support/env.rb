@@ -51,6 +51,7 @@ end
 
 Before do |scenario|
   @random_string = Random.new.rand(100000000000000000000).to_s
+  @array_of_contacts = []
 end
 
 After do |scenario|
@@ -63,5 +64,6 @@ After do |scenario|
   #CLOBBER OBJECTS TO PREVENT FAILURES FROM POLLUTING DOWNSTREAM TESTS
   #IF THE OBJECT IS ALREADY DELETED THIS IS A NOOP
   delete_account_via_api
+  delete_contacts_via_api
   #delete_opportunity_via_api
 end
