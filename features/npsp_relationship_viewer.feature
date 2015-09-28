@@ -3,7 +3,8 @@ Feature: Relationship Viewer test
   @smoketest
   Scenario: Invoke Relationship Viewer
     Given I login with oauth
-      And I create a new Contact via the API with
-      And I create a new Contact via the API with
-    When I navigate to Relationship Viewer for that Opportunity
+      And I create a new Contact via the API
+      And I create a new Contact via the API
+      And I create a Relationship for those contacts
+    When I navigate to Relationship Viewer for the Primary Contact
     Then I should see the relationship in Relationship Viewer
