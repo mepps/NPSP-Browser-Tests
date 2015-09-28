@@ -13,6 +13,12 @@ def create_account_via_api(client_name)
   end
 end
 
+def create_contact_via_api(client_name)
+  api_client do
+    @contact_id = @api_client.create!('Contact', LastName: client_name)
+  end
+end
+
 def create_opportunity_via_api(client_name, stage_name, close_date, amount)
   api_client do
     @opportunity_id = @api_client.create!('Opportunity',
@@ -23,9 +29,23 @@ def create_opportunity_via_api(client_name, stage_name, close_date, amount)
   end
 end
 
+def create_relationship_via_api(contact, related_contact)
+  api_client do
+    @relationshiop_id = @api_client.create!('npe4__Relationship__c', npe4__Contact__c: contact, npe4__RelatedContact__c: related_contact)
+  end
+end
+
 def delete_account_via_api
   api_client do
     @api_client.destroy('Account', @account_id)
+  end
+end
+
+def delete_contacts_via_api
+  api_client do
+    @array_of_contacts.each do |contact_id|
+      @api_client.destroy('Contact', contact_id)
+      end
   end
 end
 
