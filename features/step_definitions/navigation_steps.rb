@@ -1,7 +1,6 @@
 Given(/^I navigate to Manage Households UI$/) do
-  instance_url = $instance_url.sub("https://", "https://npsp.")
-  manage_household_url = instance_url.sub("salesforce.com", "visual.force.com")
-  @browser.goto(manage_household_url + '/apex/HH_ManageHHAccount?scontrolCaching=1&id=' + @account_id)
+  on(ManagedOrgUrlPage).set_up_managed_org_url
+  @browser.goto($managed_org_url + '/apex/HH_ManageHHAccount?scontrolCaching=1&id=' + @account_id)
 end
 
 Given(/^I navigate to New Contact$/) do
@@ -10,15 +9,13 @@ Given(/^I navigate to New Contact$/) do
 end
 
 Given(/^I navigate to Payment Wizard for that Opportunity$/) do
-  instance_url = $instance_url.sub("https://", "https://npsp.")
-  payment_wizard_url = instance_url.sub("salesforce.com", "visual.force.com")
-  @browser.goto(payment_wizard_url + '/apex/PMT_PaymentWizard?id=' + @opportunity_id + '&wtype=payment')
+  on(ManagedOrgUrlPage).set_up_managed_org_url
+  @browser.goto($managed_org_url + '/apex/PMT_PaymentWizard?id=' + @opportunity_id + '&wtype=payment')
 end
 
 Given(/^I navigate to Relationship Viewer for the Primary Contact$/) do
-  instance_url = $instance_url.sub("https://", "https://npsp.")
-  relationship_viewer_url = instance_url.sub("salesforce.com", "visual.force.com")
-  @browser.goto(relationship_viewer_url + '/apex/REL_RelationshipsViewer?id=' + @array_of_contacts[0])
+  on(ManagedOrgUrlPage).set_up_managed_org_url
+  @browser.goto($managed_org_url + '/apex/REL_RelationshipsViewer?id=' + @array_of_contacts[0])
 end
 
 Given(/^I navigate to Settings Donations Opportunity Names$/) do
