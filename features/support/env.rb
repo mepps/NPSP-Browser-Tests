@@ -65,5 +65,5 @@ After do |scenario|
   #IF THE OBJECT IS ALREADY DELETED THIS IS A NOOP
   delete_account_via_api
   delete_contacts_via_api
-  #delete_opportunity_via_api
+  delete_opportunity_via_api
 end
