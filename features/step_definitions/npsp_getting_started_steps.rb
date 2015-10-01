@@ -1,5 +1,5 @@
 When(/^I click the Getting Started tab$/) do
-  on(NPSPMainPage).getting_started_link_element.when_present.click
+  on(NPSPMainPage).getting_started_link_element.when_present(10).click
 end
 
 Then(/^I should see the Getting Started text$/) do
