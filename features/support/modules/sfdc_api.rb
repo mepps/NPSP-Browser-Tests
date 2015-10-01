@@ -41,6 +41,12 @@ def delete_account_via_api
   end
 end
 
+def delete_contact_via_api
+  api_client do
+      @api_client.destroy('Contact', @contact_id)
+  end
+end
+
 def delete_contacts_via_api
   api_client do
     @array_of_contacts.each do |contact_id|
