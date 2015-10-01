@@ -60,4 +60,14 @@ def delete_opportunity_via_api
     @api_client.destroy('Opportunity', @opportunity_id)
   end
 end
+
+def delete_open_opportunities
+  api_client do
+    rd_opps = @api_client.query("select Id from Opportunity where IsClosed = false")
+    rd_opps.each do |opp|
+      opp.destroy
+    end
+  end
+end
+
 end

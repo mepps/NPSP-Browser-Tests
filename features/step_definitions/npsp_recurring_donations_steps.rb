@@ -8,7 +8,6 @@ When(/^I create a "([^"]*)" recurring donation for "([^"]*)" months for "([^"]*)
     page.amount = amount
     page.contact_field = @random_string
     page.save_button
-
   end
 end
 
