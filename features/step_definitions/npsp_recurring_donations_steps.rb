@@ -13,7 +13,7 @@ end
 
 Then(/^I should see "([^"]*)" monthly donations for "([^"]*)"$/) do |number, amount|
   on(NPSPRecurringDonationsPage) do |page|
-    expect(page.donations_section). to match /Donation \(1 of 12\)/
+    expect(page.donations_section). to match /#{@random_string} Donation \(1 of 12\).+#{@random_string} Household.+Pledged /
     expect(page.donations_section). to match Regexp.escape(amount)
   end
 end
