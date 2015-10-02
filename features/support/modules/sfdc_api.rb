@@ -41,6 +41,12 @@ def delete_account_via_api
   end
 end
 
+def delete_contact_via_api
+  api_client do
+      @api_client.destroy('Contact', @contact_id)
+  end
+end
+
 def delete_contacts_via_api
   api_client do
     @array_of_contacts.each do |contact_id|
@@ -54,4 +60,23 @@ def delete_opportunity_via_api
     @api_client.destroy('Opportunity', @opportunity_id)
   end
 end
+
+def delete_open_opportunities
+  api_client do
+    rd_opps = @api_client.query("select Id from Opportunity where IsClosed = false")
+    rd_opps.each do |opp|
+      opp.destroy
+    end
+  end
+end
+
+def delete_recurring_donations
+  api_client do
+    rds = @api_client.query("select Id from npe03__Recurring_Donation__c")
+    rds.each do |rd|
+      rd.destroy
+    end
+  end
+end
+
 end
