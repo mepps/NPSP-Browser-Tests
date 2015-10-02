@@ -5,9 +5,10 @@ Feature: NPSP Recurring Donations
    Given I login with oauth
     And I navigate to Recurring Donations
 
+    @smoketest
   Scenario: Recurring Donations generated on save
-    When I create a "Monthly" recurring donation for "2" months for "1000.00"
-    Then I should see "12" monthly donations for "500.00"
+    When I create a "Monthly" recurring donation for "12" months for "1000.00"
+    Then I should see "12" monthly donations for "$83.33"
 
   Scenario: Recurring Donation Refresh Opportunities open
     When I create a "Monthly" "Open" recurring donation for "12" months for "1000.00"

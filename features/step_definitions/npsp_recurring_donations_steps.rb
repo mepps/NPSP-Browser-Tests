@@ -11,8 +11,11 @@ When(/^I create a "([^"]*)" recurring donation for "([^"]*)" months for "([^"]*)
   end
 end
 
-Then(/^I should see "([^"]*)" monthly donations for "([^"]*)"$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should see "([^"]*)" monthly donations for "([^"]*)"$/) do |number, amount|
+  on(NPSPRecurringDonationsPage) do |page|
+    expect(page.donations_section). to match /Donation \(1 of 12\)/
+    expect(page.donations_section). to match Regexp.escape(amount)
+  end
 end
 
 When(/^I create a "([^"]*)" "([^"]*)" recurring donation for "([^"]*)" months for "([^"]*)"$/) do |arg1, arg2, arg3, arg4|

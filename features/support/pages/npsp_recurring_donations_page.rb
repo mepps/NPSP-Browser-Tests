@@ -8,4 +8,5 @@ class NPSPRecurringDonationsPage
   text_field(:donation_name, id: 'Name')
   button(:save_button, name: 'save')
   text_field(:contact_field, index: 5)
+  div(:donations_section, class: 'bPageBlock', index: 1)
   end
