@@ -68,4 +68,5 @@ After do |scenario|
   delete_contacts_via_api
   delete_opportunity_via_api
   delete_open_opportunities
+  delete_recurring_donations
 end

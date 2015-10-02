@@ -70,4 +70,13 @@ def delete_open_opportunities
   end
 end
 
+def delete_recurring_donations
+  api_client do
+    rds = @api_client.query("select Id from npe03__Recurring_Donation__c")
+    rds.each do |rd|
+      rd.destroy
+    end
+  end
+end
+
 end
