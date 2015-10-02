@@ -1,3 +1,7 @@
+When(/^I click Refresh Opportuniites$/) do
+  on(NPSPRecurringDonationsPage).refresh_button
+end
+
 When(/^I create a "([^"]*)" recurring donation for "([^"]*)" months for "([^"]*)"$/) do |period, number, amount|
   create_contact_via_api(@random_string)
   on(NPSPRecurringDonationsPage) do |page|
@@ -8,13 +12,6 @@ When(/^I create a "([^"]*)" recurring donation for "([^"]*)" months for "([^"]*)
     page.amount = amount
     page.contact_field = @random_string
     page.save_button
-  end
-end
-
-Then(/^I should see "([^"]*)" monthly donations for "([^"]*)"$/) do |number, amount|
-  on(NPSPRecurringDonationsPage) do |page|
-    expect(page.donations_section). to match /#{@random_string} Donation \(1 of 12\).+#{@random_string} Household.+Pledged /
-    expect(page.donations_section). to match Regexp.escape(amount)
   end
 end
 
@@ -29,6 +26,9 @@ When(/^I delete two of the payments$/) do
   end
 end
 
-When(/^I click Refresh Opportuniites$/) do
-  on(NPSPRecurringDonationsPage).refresh_button
+Then(/^I should see "([^"]*)" monthly donations for "([^"]*)"$/) do |number, amount|
+  on(NPSPRecurringDonationsPage) do |page|
+    expect(page.donations_section). to match /#{@random_string} Donation \(1 of 12\).+#{@random_string} Household.+Pledged /
+    expect(page.donations_section). to match Regexp.escape(amount)
+  end
 end
