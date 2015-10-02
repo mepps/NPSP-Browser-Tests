@@ -9,4 +9,6 @@ class NPSPRecurringDonationsPage
   button(:save_button, name: 'save')
   text_field(:contact_field, index: 5)
   div(:donations_section, class: 'bPageBlock', index: 1)
+  a(:delete_link, text: 'Del')
+  button(:refresh_button, name: 'npe03__refresh_opportunities')
   end

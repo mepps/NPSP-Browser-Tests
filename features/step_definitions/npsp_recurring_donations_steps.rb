@@ -18,30 +18,17 @@ Then(/^I should see "([^"]*)" monthly donations for "([^"]*)"$/) do |number, amo
   end
 end
 
-When(/^I create a "([^"]*)" "([^"]*)" recurring donation for "([^"]*)" months for "([^"]*)"$/) do |arg1, arg2, arg3, arg4|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
 When(/^I delete two of the payments$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(NPSPRecurringDonationsPage) do |page|
+    page.delete_link
+    sleep 1
+    @browser.alert.ok
+    page.delete_link
+    sleep 1
+    @browser.alert.ok
+  end
 end
 
-When(/^I edit the Stage for a payment to be "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When(/^I click "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^I should see a new page for for the Recurring Donation$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^the deleted payments should be restored$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^the Stage for all payments should be "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I click Refresh Opportuniites$/) do
+  on(NPSPRecurringDonationsPage).refresh_button
 end
