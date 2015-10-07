@@ -61,6 +61,15 @@ def delete_opportunity_via_api
   end
 end
 
+def delete_household_accounts
+  api_client do
+    rd_opps = @api_client.query("select Id from Account where Type = 'Household'")
+    rd_opps.each do |opp|
+      opp.destroy
+    end
+  end
+end
+
 def delete_open_opportunities
   api_client do
     rd_opps = @api_client.query("select Id from Opportunity where IsClosed = false")

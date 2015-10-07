@@ -63,10 +63,9 @@ After do |scenario|
 
   #CLOBBER OBJECTS TO PREVENT FAILURES FROM POLLUTING DOWNSTREAM TESTS
   #IF THE OBJECT IS ALREADY DELETED THIS IS A NOOP
-  delete_account_via_api
   delete_contact_via_api
   delete_contacts_via_api
   delete_opportunity_via_api
   delete_open_opportunities
-  delete_recurring_donations
+  delete_household_accounts
 end
