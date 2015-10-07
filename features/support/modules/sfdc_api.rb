@@ -64,8 +64,8 @@ end
 def delete_household_accounts
   api_client do
     rd_opps = @api_client.query("select Id from Account where Type = 'Household'")
-    rd_opps.each do |opp|
-      opp.destroy
+    rd_opps.each do |hh|
+      hh.destroy
     end
   end
 end
