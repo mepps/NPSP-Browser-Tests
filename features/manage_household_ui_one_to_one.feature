@@ -1,4 +1,4 @@
-Feature: Manage Household UI
+Feature: Manage Household UI One-to-One
 
   Background:
    Given I login with oauth
