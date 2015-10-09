@@ -1,3 +1,7 @@
+Given(/^I change the Account Model to "([^"]*)"$/) do |to_value|
+  update_account_model(to_value)
+end
+
 When(/^I add to household with Add option$/) do
   on(ManageHouseholdsPage) do |page|
     page.wait_until do
