@@ -16,6 +16,7 @@ end
 def create_contact_via_api(client_name)
   api_client do
     @contact_id = @api_client.create!('Contact', LastName: client_name)
+    @array_of_contacts << @contact_id
   end
 end
 
