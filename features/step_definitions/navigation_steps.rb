@@ -19,6 +19,10 @@ Given(/^I navigate to Recurring Donations$/) do
   on(NPSPMainPage).recurring_donations_link_element.when_present(10).click
 end
 
+Given(/^I navigate to Contact Merge$/) do
+  on(NPSPMainPage).contact_merge_link_element.when_present(10).click
+end
+
 Given(/^I navigate to Settings Donations Opportunity Names$/) do
   on(NPSPSettingsPage) do |page|
     page.donations_element.when_present.click
