@@ -9,4 +9,4 @@ Feature: Contact Merge test
     When I select "aaa2" as the winning Contact
       And I merge the contacts
     Then I should see "aaa2" in All Contacts
-      And I should not see "aaa1" or "aaa2" in All Contacts
+      And I should not see "aaa1" or "aaa3" in All Contacts
