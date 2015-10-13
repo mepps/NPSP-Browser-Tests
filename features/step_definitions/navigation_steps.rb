@@ -2,9 +2,8 @@ Given(/^I navigate to Manage Households UI$/) do
   @browser.goto($target_org_url + '/apex/HH_ManageHHAccount?scontrolCaching=1&id=' + @account_id)
 end
 
-Given(/^I navigate to New Contact$/) do
-  on(NPSPMainPage).contacts_tab_element.when_present.click
-  on(NPSPContactsPage).new_button
+Given(/^I navigate to Contacts$/) do
+  on(NPSPMainPage).contacts_tab_on_page
 end
 
 Given(/^I navigate to Payment Wizard for that Opportunity$/) do
@@ -16,7 +15,11 @@ Given(/^I navigate to Relationship Viewer for the Primary Contact$/) do
 end
 
 Given(/^I navigate to Recurring Donations$/) do
-  on(NPSPMainPage).recurring_donations_link_element.when_present(10).click
+  on(NPSPMainPage).recurring_donations_link_element.when_present(15).click
+end
+
+Given(/^I navigate to Contact Merge$/) do
+  on(NPSPMainPage).contact_merge_link_element.when_present(15).click
 end
 
 Given(/^I navigate to Settings Donations Opportunity Names$/) do
