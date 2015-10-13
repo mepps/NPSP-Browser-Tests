@@ -29,12 +29,24 @@ end
 
 When(/^I merge the contacts$/) do
   on(NPSPContactMergePage).merge_contact_button
+  step 'I navigate to Contacts'
+
+  on(NPSPContactsPage) do |page|
+    page.all_contacts = 'All Contacts'
+    page.go_button
+    page.wait_until do
+      page.contacts_display_element.visible?
+    end
+  end
 end
 
-Then(/^I should see "([^"]*)" in All Contacts$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should see "([^"]*)" in All Contacts$/) do |merged_contact|
+  expect(on(NPSPContactsPage).contacts_display).to match merged_contact
 end
 
-Then(/^I should not see "([^"]*)" or "([^"]*)" in All Contacts$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should not see "([^"]*)" or "([^"]*)" in All Contacts$/) do |deleted1, deleted2|
+  on(NPSPContactsPage) do |page|
+    expect(page.contacts_display).not_to match deleted1
+    expect(page.contacts_display).not_to match deleted2
+  end
 end

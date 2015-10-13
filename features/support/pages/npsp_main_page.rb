@@ -3,6 +3,7 @@ class NPSPMainPage
 
   a(:accounts_tab, class: 'accountBlock')
   a(:contacts_tab, class: 'contactBlock')
+  a(:contacts_tab_on_page, text: 'Contacts')
   a(:getting_started_link, class: 'Custom64Block')
   a(:recurring_donations_link, class: 'Custom40Block')
   a(:npsp_settings_link, text: 'NPSP Settings')
