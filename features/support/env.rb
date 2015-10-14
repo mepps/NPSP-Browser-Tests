@@ -68,5 +68,5 @@ After do |scenario|
   delete_open_opportunities
   delete_recurring_donations
   delete_household_accounts
-  update_account_model('Household')
+  update_account_model('Household Account')
 end
