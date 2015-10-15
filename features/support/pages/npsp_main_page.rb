@@ -4,11 +4,12 @@ class NPSPMainPage
   a(:accounts_tab, class: 'accountBlock')
   a(:contacts_tab, class: 'contactBlock')
   a(:contacts_tab_on_page, text: 'Contacts')
-  a(:getting_started_link, text: 'Getting Started')
+  img(:getting_started_link, title: 'Getting Started')
   a(:recurring_donations_link, text: 'Recurring Donations')
   a(:npsp_settings_link, text: 'NPSP Settings')
   a(:contact_merge_link, text: 'Contact Merge')
   div(:home_page_text, class: 'content')
   div(:npsp_home_page_text, class: 'jumbotron')
   button(:new_recurring_donations_button, name: 'new')
+  select_list(:view_tabs, id: 'p1')
 end
