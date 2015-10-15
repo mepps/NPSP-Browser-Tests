@@ -20,6 +20,12 @@ def create_contact_via_api(client_name)
   end
 end
 
+def create_lead_via_api(last_name, company)
+  api_client do
+    @lead_id = @api_client.create!('Lead', LastName: last_name, Company: company)
+  end
+end
+
 def create_opportunity_via_api(client_name, stage_name, close_date, amount)
   api_client do
     @opportunity_id = @api_client.create!('Opportunity',
@@ -53,6 +59,12 @@ def delete_contacts_via_api
     @array_of_contacts.each do |contact_id|
       @api_client.destroy('Contact', contact_id)
       end
+  end
+end
+
+def delete_lead_via_api
+  api_client do
+    @api_client.destroy('Lead', @lead_id)
   end
 end
 
