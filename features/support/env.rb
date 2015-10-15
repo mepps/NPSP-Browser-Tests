@@ -41,12 +41,6 @@ Before do |scenario|
     @session_id = @browser.driver.capabilities["webdriver.remote.sessionid"]
     STDOUT.write "SauceOnDemandSessionID=" + @session_id
     end
-
-
-  unless( ENV['SF_USERNAME'] and ENV['SF_PASSWORD'] and ENV['SF_SERVERURL'])
-     puts 'You must have environment variables set for SF_USERNAME and SF_PASSWORD and SF_SERVERURL in order to run these tests'
-     abort
-  end
 end
 
 Before do |scenario|
