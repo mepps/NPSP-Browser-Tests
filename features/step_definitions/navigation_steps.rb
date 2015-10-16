@@ -10,6 +10,10 @@ When(/^I navigate to Lead Convert page for the Lead$/) do
   @browser.goto($target_org_url + '/apex/LD_LeadConvertOverride?id=' + @lead_id)
 end
 
+Given(/^I navigate to the Account Conversions page$/) do
+  @browser.goto($target_org_url + '/apex/npsp__CONV_Account_Conversion')
+end
+
 Given(/^I navigate to Payment Wizard for that Opportunity$/) do
   @browser.goto($target_org_url + '/apex/PMT_PaymentWizard?id=' + @opportunity_id + '&wtype=payment')
 end
