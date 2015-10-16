@@ -23,7 +23,7 @@ When(/^I select the second Contact as the winning Contact$/) do
     page.check_contact_checkbox_second
     page.check_contact_checkbox_third
     page.next_button
-    page.choose_contact_second
+    page.choose_contact_second_element.click
   end
 end
 

@@ -1,7 +1,11 @@
 class NPSPContactMergePage
   include PageObject
 
-  a(:choose_contact_second, text: 'Select All', index: 1)
+  cell(:second_contact, text: 'aaa2 [Select All]')
+  a(:choose_contact_second) do |page|
+    page.second_contact_element.link_element(text: /Select All/)
+  end
+
   checkbox(:contact_checkbox_first, name: /contactMergePage.+checkedone/, index:0)
   checkbox(:contact_checkbox_second, name: /contactMergePage.+checkedone/, index:1)
   checkbox(:contact_checkbox_third, name: /contactMergePage.+checkedone/, index:2)
