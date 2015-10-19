@@ -57,11 +57,11 @@ After do |scenario|
 
   #CLOBBER OBJECTS TO PREVENT FAILURES FROM POLLUTING DOWNSTREAM TESTS
   #IF THE OBJECT IS ALREADY DELETED THIS IS A NOOP
+  update_account_model('Household Account')
   delete_contacts_via_api
   delete_lead_via_api
   delete_opportunity_via_api
   delete_open_opportunities
   delete_recurring_donations
   delete_household_accounts
-  update_account_model('Household Account')
 end
