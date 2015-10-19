@@ -1,7 +1,3 @@
-When(/^I click the Getting Started tab$/) do
-  on(NPSPMainPage).getting_started_link_element.when_present.click
-end
-
 Then(/^I should see the Getting Started text$/) do
   on(NPSPGettingStartedPage) do |page|
     expect(page.page_contents).to match 'Welcome to Salesforce and the Nonprofit Starter Pack!'

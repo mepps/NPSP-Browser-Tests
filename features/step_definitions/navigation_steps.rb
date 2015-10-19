@@ -6,6 +6,11 @@ Given(/^I navigate to Contacts$/) do
   on(NPSPMainPage).contacts_tab_on_page
 end
 
+When(/^I navigate to Getting Started/) do
+  @browser.goto($target_org_url + '/apex/NPSP_Resources')
+end
+
+
 When(/^I navigate to Lead Convert page for the Lead$/) do
   @browser.goto($target_org_url + '/apex/LD_LeadConvertOverride?id=' + @lead_id)
 end
