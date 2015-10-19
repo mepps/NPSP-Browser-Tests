@@ -7,12 +7,6 @@ Given(/^I delete the random account via the API$/) do
   delete_account_via_api
 end
 
-When(/^I navigate to All Accounts$/) do
-  step 'I login with oauth'
-  step 'I click the Accounts tab'
-  step 'I select "All Accounts" and Go'
-end
-
 Then(/^I should not see the random account created earlier$/) do
   expect(on(NPSPAllAccountsPage).first_account_record).not_to match @random_string
 end

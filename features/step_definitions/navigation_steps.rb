@@ -10,6 +10,11 @@ When(/^I navigate to Getting Started/) do
   @browser.goto($target_org_url + '/apex/NPSP_Resources')
 end
 
+When(/^I navigate to All Accounts$/) do
+  step 'I login with oauth'
+  step 'I click the Accounts tab'
+  step 'I select "All Accounts" and Go'
+end
 
 When(/^I navigate to Lead Convert page for the Lead$/) do
   @browser.goto($target_org_url + '/apex/LD_LeadConvertOverride?id=' + @lead_id)

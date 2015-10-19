@@ -1,7 +1,7 @@
 class NPSPMainPage
   include PageObject
 
-  a(:accounts_tab, class: 'accountBlock')
+  a(:accounts_tab, text: 'Accounts')
   a(:contacts_tab, class: 'contactBlock')
   a(:contacts_tab_on_page, text: 'Contacts')
   img(:getting_started_link, title: 'Getting Started')
