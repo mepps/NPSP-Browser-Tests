@@ -4,8 +4,7 @@ Feature: Manage Household UI One-to-One
    Given I login with oauth
     And I change the Account Model to "One-to-One"
     And I create a new random account via the API
-
-    @smoketest
+    
   Scenario: Navigate to Manage Households UI and do basic checks
     When I navigate to Manage Households UI
     Then I should see the Household Members section
