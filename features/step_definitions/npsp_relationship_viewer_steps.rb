@@ -1,5 +1,5 @@
 Given(/^I create a new Contact via the API$/) do
-  create_contact_via_api("aaaaaa#{@random_string}")
+  create_contact_via_api("aaaarelview#{@random_string}")
   @array_of_contacts << @contact_id
 end
 

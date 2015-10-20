@@ -1,9 +1,9 @@
 Given(/^I create a new random account via the API$/) do
-  create_account_via_api("aaaaaa#{@random_string}")
+  create_account_via_api("aaaacreacc1#{@random_string}")
 end
 
 Given(/^I delete the random account via the API$/) do
-  create_account_via_api("aaaaaa#{@random_string}")
+  create_account_via_api("aaaacreacc2#{@random_string}")
   delete_account_via_api
 end
 
