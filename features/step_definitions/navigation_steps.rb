@@ -16,6 +16,11 @@ When(/^I navigate to All Accounts$/) do
   step 'I select "All Accounts" and Go'
 end
 
+When(/^I navigate to Copy Address page for the Contact$/) do
+  @browser.goto($target_org_url + '/apex/npsp__ADDR_CopyAddrHHObjBTN?id=' + @contact_id)
+end
+
+
 When(/^I navigate to Lead Convert page for the Lead$/) do
   @browser.goto($target_org_url + '/apex/LD_LeadConvertOverride?id=' + @lead_id)
 end
