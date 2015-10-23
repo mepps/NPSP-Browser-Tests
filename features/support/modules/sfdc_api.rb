@@ -20,6 +20,13 @@ def create_contact_via_api(client_name)
   end
 end
 
+def create_contact_with_household_object_via_api(hh_obj, contact_name)
+  api_client do
+    @hh_obj_id = @api_client.create!('npo02__Household__c', Name: hh_obj)
+    @contact_id = @api_client.create!('Contact', LastName: contact_name, npo02__Household__c: @hh_obj_id)
+  end
+end
+
 def create_lead_via_api(last_name, company)
   api_client do
     @lead_id = @api_client.create!('Lead', LastName: last_name, Company: company)
