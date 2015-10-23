@@ -20,10 +20,13 @@ def create_contact_via_api(client_name)
   end
 end
 
-def create_contact_with_household_object_via_api(hh_obj, contact_name)
+def create_contacts_with_household_object_via_api(hh_obj, contact_name)
   api_client do
     @hh_obj_id = @api_client.create!('npo02__Household__c', Name: hh_obj)
     @contact_id = @api_client.create!('Contact', LastName: contact_name, npo02__Household__c: @hh_obj_id)
+    @array_of_contacts << @contact_id
+    @contact_id = @api_client.create!('Contact', LastName: contact_name, MailingCity: "hhmailingcity", npo02__Household__c: @hh_obj_id)
+    @array_of_contacts << @contact_id
   end
 end
 
@@ -84,6 +87,15 @@ end
 def delete_household_accounts
   api_client do
     rd_opps = @api_client.query("select Id from Account where Type = 'Household'")
+    rd_opps.each do |hh|
+      hh.destroy
+    end
+  end
+end
+
+def delete_household_objects
+  api_client do
+    rd_opps = @api_client.query("select Id from npo02__Household__c")
     rd_opps.each do |hh|
       hh.destroy
     end
