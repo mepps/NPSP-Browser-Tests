@@ -65,4 +65,5 @@ After do |scenario|
   delete_recurring_donations
   delete_household_accounts
   delete_non_household_accounts
+  delete_household_objects
 end

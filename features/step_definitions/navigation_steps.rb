@@ -20,6 +20,11 @@ When(/^I navigate to All Accounts$/) do
   step 'I select "All Accounts" and Go'
 end
 
+When(/^I navigate to Copy Address page for the Contact$/) do
+  @browser.goto($target_org_url + '/apex/npsp__ADDR_CopyAddrHHObjBTN?id=' + @contact_id)
+end
+
+
 When(/^I navigate to Lead Convert page for the Lead$/) do
   @browser.goto($target_org_url + '/apex/LD_LeadConvertOverride?id=' + @lead_id)
 end
@@ -35,6 +40,15 @@ end
 Given(/^I navigate to Relationship Viewer for the Primary Contact$/) do
   @browser.goto($target_org_url + '/apex/REL_RelationshipsViewer?id=' + @array_of_contacts[0])
 end
+
+Given(/^I navigate to first Contact created$/) do
+  @browser.goto($instance_url + '/' + @array_of_contacts[0])
+end
+
+Given(/^I navigate to Household created$/) do
+  @browser.goto($instance_url + '/' + @hh_obj_id)
+end
+
 
 Given(/^I navigate to Recurring Donations$/) do
   on(NPSPMainPage).recurring_donations_link_element.when_present(15).click
