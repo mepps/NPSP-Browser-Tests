@@ -10,4 +10,4 @@ Feature: NPSP Manage Allocations Page Test
     Then Delete Row should be present
       And Amount in the first row should be disabled
       And Percent in the second row should be disabled
-      And Save and Close shouuld be present
+      And Save and Close should be present
