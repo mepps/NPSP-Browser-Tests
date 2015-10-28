@@ -2,14 +2,15 @@ Feature: NPSP Manage Allocations Page Test
 
   Background:
     Given I login with oauth
-    And I create an Opportunity for "1000"
-    And I create two GAUs for allocations
+      And I create a new Opportunity via the API with stage name "Qualification" and close date "2020-01-01" and amount "1000"
+      And I create a GAU named "first"
+      And I create a GAU named "second"
 
   Scenario: Manage Allocations
     When I navigate to the Manage Allocations page
       And I add a row
-      And I enter "100" in the Amount for the first row for one GAU
-      And I enter "10" in the Percent for the second row for the other GAU
+      And I enter "100" in the Amount for the first row for the first GAU
+      And I enter "10" in the Percent for the second row for the second GAU
     Then Delete Row should be present
       And Percent in the first row should be disabled
       And Account in the second row should be disabled
@@ -29,7 +30,7 @@ Feature: NPSP Manage Allocations Page Test
 
   Scenario: Manage Allocations GAU error
     When I navigate to the Manage Allocations page
-      And I enter "100" in the Amount for the first row for one GAU
-      And I enter "10" in the Percent for the second row for the same GAU
+      And I enter "100" in the Amount for the first row for the first GAU
+      And I enter "10" in the Percent for the second row for the first GAU
       And I click Save
     Then I should see an error message
