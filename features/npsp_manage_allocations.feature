@@ -23,7 +23,7 @@ Feature: NPSP Manage Allocations Page Test
 
   Scenario: Manage Allocations percent error
     When I navigate to the Manage Allocations page
-      And I enter "101" in the Percent for the second row
+      And I enter "101" in the Percent for the first row
       And I click Save
     Then I should see an error message
 
