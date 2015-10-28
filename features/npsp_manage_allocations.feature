@@ -11,3 +11,4 @@ Feature: NPSP Manage Allocations Page Test
       And Amount in the first row should be disabled
       And Percent in the second row should be disabled
       And Save and Close shouuld be present
+    
