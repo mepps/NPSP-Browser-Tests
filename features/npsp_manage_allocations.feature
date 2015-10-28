@@ -2,7 +2,8 @@ Feature: NPSP Manage Allocations Page Test
 
   Scenario: Manage Allocations
     Given I login with oauth
-      And I create an Opportunity for "1000" and a GAU for allocations
+      And I create an Opportunity for "1000"
+      And a GAU for allocations
     When I navigate to the Manage Allocations page
       And I add a row
       And I enter "100" in the Amount for the first row
