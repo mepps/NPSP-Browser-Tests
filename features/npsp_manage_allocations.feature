@@ -18,15 +18,15 @@ Feature: NPSP Manage Allocations Page Test
 
   Scenario: Manage Allocations amount error
     When I navigate to the Manage Allocations page
-      And I enter "1001" in the Amount for the first row
-      And I click Save
-    Then I should see an error message
+      And I enter "1001" in the Amount for the first row for the first GAU
+    Then I should see a remainder of "$-1.00"
+      And I should see the Save button disabled
 
   Scenario: Manage Allocations percent error
     When I navigate to the Manage Allocations page
-      And I enter "101" in the Percent for the first row
-      And I click Save
-    Then I should see an error message
+      And I enter "101" in the Percent for the first row for the first GAU
+    Then I should see a remainder of "$-10.00"
+    And I should see the Save button disabled
 
   Scenario: Manage Allocations GAU error
     When I navigate to the Manage Allocations page

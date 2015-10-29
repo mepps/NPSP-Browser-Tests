@@ -47,6 +47,7 @@ Before do |scenario|
   @random_string = Random.new.rand(100000000000000000000).to_s
   @array_of_contacts = []
   @array_of_gaus = []
+  @gau_names = []
 end
 
 After do |scenario|

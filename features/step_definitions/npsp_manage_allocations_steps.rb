@@ -1,6 +1,7 @@
 Given(/^I create a GAU named "([^"]*)"$/) do |gau_name|
-  create_gau_via_api(gau_name)
+  create_gau_via_api(gau_name + @random_string)
   @array_of_gaus << @gau_id
+  @gau_names << gau_name + @random_string
 end
 
 When(/^I add a row$/) do
@@ -13,11 +14,28 @@ When(/^I add a row$/) do
 end
 
 When(/^I enter "([^"]*)" in the Amount for the first row for the first GAU$/) do |amount|
-  on(NPSPManageAllocationsPage).first_row_amount = amount
+  on(NPSPManageAllocationsPage) do |page|
+    page.first_gau_field = @gau_names[0]
+    page.first_row_amount = amount
+  end
 end
 
 When(/^I enter "([^"]*)" in the Percent for the second row for the second GAU$/) do |percent|
-  on(NPSPManageAllocationsPage).second_row_percent = percent
+  on(NPSPManageAllocationsPage) do |page|
+    page.second_gau_field = @gau_names[1]
+    page.second_row_percent = percent
+  end
+end
+
+When(/^I enter "([^"]*)" in the Percent for the first row for the first GAU$/) do |percent|
+  on(NPSPManageAllocationsPage) do |page|
+    page.first_gau_field = @gau_names[0]
+    page.first_row_percent = percent
+  end
+end
+
+When(/^I click Save$/) do
+  on(NPSPManageAllocationsPage).save_and_close_button
 end
 
 Then(/^Delete Row should be present$/) do
@@ -34,5 +52,13 @@ end
 
 Then(/^Save and Close should be present$/) do
   expect(on(NPSPManageAllocationsPage).save_and_close_button_element).to be_visible
+end
+
+Then(/^I should see a remainder of "([^"]*)"$/) do |rem|
+  expect(on(NPSPManageAllocationsPage).remainder_amount).to eq rem
+end
+
+Then(/^I should see the Save button disabled$/) do
+  expect(on(NPSPManageAllocationsPage).save_and_close_button_element.disabled?).to be true
 end
 
