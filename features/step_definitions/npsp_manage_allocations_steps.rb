@@ -34,6 +34,13 @@ When(/^I enter "([^"]*)" in the Percent for the first row for the first GAU$/) d
   end
 end
 
+When(/^I enter "([^"]*)" in the Percent for the second row for the first GAU$/) do |percent|
+  on(NPSPManageAllocationsPage) do |page|
+    page.second_gau_field = @gau_names[0]
+    page.second_row_percent = percent
+  end
+end
+
 When(/^I click Save$/) do
   on(NPSPManageAllocationsPage).save_and_close_button
 end
