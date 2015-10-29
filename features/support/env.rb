@@ -46,6 +46,8 @@ end
 Before do |scenario|
   @random_string = Random.new.rand(100000000000000000000).to_s
   @array_of_contacts = []
+  @array_of_gaus = []
+  @gau_names = []
 end
 
 After do |scenario|
@@ -66,4 +68,5 @@ After do |scenario|
   delete_household_accounts
   delete_non_household_accounts
   delete_household_objects
+  delete_gaus_via_api
 end

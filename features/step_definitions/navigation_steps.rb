@@ -10,6 +10,10 @@ When(/^I navigate to Getting Started/) do
   @browser.goto($target_org_url + '/apex/NPSP_Resources')
 end
 
+When(/^I navigate to the Manage Allocations page$/) do
+  @browser.goto($target_org_url + '/apex/ALLO_ManageAllocations?opp=' +@opportunity_id)
+end
+
 When(/^I navigate to NPSP Data Import/) do
   @browser.goto($target_org_url + '/apex/BDI_DataImport')
 end

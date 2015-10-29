@@ -30,6 +30,12 @@ def create_contacts_with_household_object_via_api(hh_obj, contact_name)
   end
 end
 
+def create_gau_via_api(gau_name)
+  api_client do
+    @gau_id = @api_client.create!('npsp__General_Accounting_Unit__c', Name: gau_name)
+  end
+end
+
 def create_lead_via_api(last_name, company)
   api_client do
     @lead_id = @api_client.create!('Lead', LastName: last_name, Company: company)
@@ -69,6 +75,14 @@ def delete_contacts_via_api
     @array_of_contacts.each do |contact_id|
       @api_client.destroy('Contact', contact_id)
       end
+  end
+end
+
+def delete_gaus_via_api
+  api_client do
+    @array_of_gaus.each do |contact_id|
+      @api_client.destroy('npsp__General_Accounting_Unit__c', contact_id)
+    end
   end
 end
 
