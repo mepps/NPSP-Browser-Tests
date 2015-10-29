@@ -13,7 +13,7 @@ Feature: NPSP Manage Allocations Page Test
       And I enter "10" in the Percent for the second row for the second GAU
     Then Delete Row should be present
       And Percent in the first row should be disabled
-      And Account in the second row should be disabled
+      And Amount in the second row should be disabled
       And Save and Close should be present
 
   Scenario: Manage Allocations amount error
