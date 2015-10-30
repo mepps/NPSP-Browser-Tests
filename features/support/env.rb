@@ -49,6 +49,7 @@ Before do |scenario|
   @array_of_gaus = []
   @gau_names = []
   login_with_oauth
+  set_url_namespace_to_npsp
 end
 
 After do |scenario|

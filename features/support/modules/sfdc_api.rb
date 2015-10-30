@@ -151,6 +151,12 @@ def update_account_model(to_value)
   end
 end
 
+def set_url_namespace_to_npsp
+  #THIS IS FOR A MANAGED ORG TEST ENV. UNMANAGED ORG WILL HAVE A DIFFERENT URL SCHEME FOR NPSP PAGES
+  interim_url = $instance_url.sub("https://", "https://npsp.")
+  $target_org_url = interim_url.sub("salesforce.com", "visual.force.com")
+end
+
 def login_with_oauth
   require 'faraday'
 
@@ -174,10 +180,6 @@ def login_with_oauth
 
   @browser.goto($instance_url + '/secur/frontdoor.jsp?sid=' + access_token)
   @browser.goto($instance_url + '/home/showAllTabs.jsp')
-
-  #THIS IS FOR A MANAGED ORG TEST ENV. UNMANAGED ORG WILL HAVE A DIFFERENT URL SCHEME FOR NPSP PAGES
-  interim_url = $instance_url.sub("https://", "https://npsp.")
-  $target_org_url = interim_url.sub("salesforce.com", "visual.force.com")
 end
 
 end
