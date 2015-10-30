@@ -1,8 +1,7 @@
 Feature: Manage Household UI One-to-One
 
   Background:
-   Given I login with oauth
-    And I change the Account Model to "One-to-One"
+   Given I change the Account Model to "One-to-One"
     And I create a new random account via the API
     
   Scenario: Navigate to Manage Households UI and do basic checks

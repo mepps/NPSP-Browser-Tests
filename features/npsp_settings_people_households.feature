@@ -2,7 +2,7 @@
 Feature: NPSP Settings People Households
 
   Background:
-    Given I login to settings with oauth 
+    Given I click the NPSP Settings link
     When I navigate to Settings People Households
 
   Scenario: Household Name Settings set values

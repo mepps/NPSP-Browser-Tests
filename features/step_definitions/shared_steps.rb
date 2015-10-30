@@ -1,26 +1,3 @@
-Given(/^I login with oauth$/) do
-  visit(LoginPage).login_with_oauth
-end
-
-Given(/^I login the first time with oauth$/) do
-  visit(LoginPage).login_with_oauth
-  on(LoginPage) do |page|
-    page.app_switcher_element.when_present.click
-    begin
-      #WE ONLY NEED TO CLICK NPSP AFTER A FRESH INSTALL
-      #DON'T FAIL THE TEST IF NPSP IS ALREADY SELECTED
-      page.npsp_app_picker_element.when_present.click
-      rescue
-    end
-    page.app_switcher_element.when_present.click
-  end
-end
-
-Given(/^I login to settings with oauth$/) do
-  visit(LoginPage).login_with_oauth
-  step 'I click the NPSP Settings link'
-end
-
 Given(/^I create a new Opportunity via the API with stage name "([^"]*)" and close date "([^"]*)" and amount "([^"]*)"$/) do |stage_name, close_date, amount|
   create_opportunity_via_api("aaaatestopp#{@random_string}", stage_name, close_date, amount)
 end

@@ -19,7 +19,6 @@ When(/^I navigate to NPSP Data Import/) do
 end
 
 When(/^I navigate to All Accounts$/) do
-  step 'I login with oauth'
   step 'I click the Accounts tab'
   step 'I select "All Accounts" and Go'
 end
@@ -95,5 +94,19 @@ Given(/^I navigate to Settings People Households$/) do
     page.households_element.when_present.click
     page.edit_hh_button_element.when_present.click
     step 'I wait for the page to revert'
+  end
+end
+
+Given(/^I login the first time with oauth$/) do
+  visit(LoginPage).login_with_oauth
+  on(LoginPage) do |page|
+    page.app_switcher_element.when_present.click
+    begin
+      #WE ONLY NEED TO CLICK NPSP AFTER A FRESH INSTALL
+      #DON'T FAIL THE TEST IF NPSP IS ALREADY SELECTED
+      page.npsp_app_picker_element.when_present.click
+    rescue
+    end
+    page.app_switcher_element.when_present.click
   end
 end

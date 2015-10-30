@@ -2,8 +2,7 @@ Feature: Account Convert
 
   @smoketest
   Scenario: Account Convert screen
-    Given I login with oauth
-      And I navigate to the Account Conversions page
+    Given I navigate to the Account Conversions page
       And the Begin button is disabled
       And the Account Field is visible
     When I check all the boxes
