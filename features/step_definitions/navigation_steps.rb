@@ -98,7 +98,6 @@ Given(/^I navigate to Settings People Households$/) do
 end
 
 Given(/^I login the first time with oauth$/) do
-  visit(LoginPage).login_with_oauth
   on(LoginPage) do |page|
     page.app_switcher_element.when_present.click
     begin
