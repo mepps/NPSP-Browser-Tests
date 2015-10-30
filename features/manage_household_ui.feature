@@ -1,8 +1,7 @@
 Feature: Manage Household UI
 
   Background:
-   Given I login with oauth
-    And I create a new random account via the API
+    Given I create a new random account via the API
 
     @smoketest
   Scenario: Navigate to Manage Households UI and do basic checks

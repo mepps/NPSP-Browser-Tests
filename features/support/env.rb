@@ -48,6 +48,7 @@ Before do |scenario|
   @array_of_contacts = []
   @array_of_gaus = []
   @gau_names = []
+  login_with_oauth
 end
 
 After do |scenario|

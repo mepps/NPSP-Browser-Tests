@@ -1,7 +1,7 @@
 Feature: NPSP Settings People Account Model
 
   Background:
-    Given I login to settings with oauth 
+    Given I click the NPSP Settings link
     When I navigate to Settings People Account Model
       And I retrieve current settings for Account Model, Household Account Record Type, One-to-One Record Type
 

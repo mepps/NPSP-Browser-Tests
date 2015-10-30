@@ -2,8 +2,7 @@
 Feature: NPSP Recurring Donations
 
   Background:
-   Given I login with oauth
-    And I navigate to Recurring Donations
+   Given I navigate to Recurring Donations
 
     @smoketest
   Scenario: Recurring Donations generated on save

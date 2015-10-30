@@ -1,8 +1,7 @@
 Feature: NPSP Manage Allocations Page Test
 
   Background:
-    Given I login with oauth
-      And I create a new Opportunity via the API with stage name "Qualification" and close date "2020-01-01" and amount "1000"
+    Given I create a new Opportunity via the API with stage name "Qualification" and close date "2020-01-01" and amount "1000"
       And I create a GAU named "first"
       And I create a GAU named "second"
 
