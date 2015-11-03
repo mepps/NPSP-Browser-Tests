@@ -40,16 +40,9 @@ Before do |scenario|
 
     @session_id = @browser.driver.capabilities["webdriver.remote.sessionid"]
     STDOUT.write "SauceOnDemandSessionID=" + @session_id
-    end
-end
-
-Before do |scenario|
+  end
   @random_string = Random.new.rand(100000000000000000000).to_s
-  @array_of_contacts = []
-  @array_of_gaus = []
-  @gau_names = []
   login_with_oauth
-  set_url_namespace_to_npsp
 end
 
 After do |scenario|
@@ -58,17 +51,4 @@ After do |scenario|
   end
 
   @browser.close unless ENV['KEEP_BROWSER_OPEN']
-
-  #CLOBBER OBJECTS TO PREVENT FAILURES FROM POLLUTING DOWNSTREAM TESTS
-  #IF THE OBJECT IS ALREADY DELETED THIS IS A NOOP
-  update_account_model('Household Account')
-  delete_contacts_via_api
-  delete_lead_via_api
-  delete_opportunity_via_api
-  delete_open_opportunities
-  delete_recurring_donations
-  delete_household_accounts
-  delete_non_household_accounts
-  delete_household_objects
-  delete_gaus_via_api
 end
