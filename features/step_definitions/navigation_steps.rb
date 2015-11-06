@@ -45,6 +45,10 @@ Given(/^I navigate to Payment Wizard for that Opportunity$/) do
   @browser.goto($target_org_url + '/apex/PMT_PaymentWizard?id=' + @opportunity_id + '&wtype=payment')
 end
 
+Given(/^I navigate to Matching Donation for that Opportunity$/) do
+  @browser.goto($target_org_url + '/apex/OPP_MatchingDonationsBTN?id=' + @opportunity_id)
+end
+
 Given(/^I navigate to Relationship Viewer for the Primary Contact$/) do
   @browser.goto($target_org_url + '/apex/REL_RelationshipsViewer?id=' + @array_of_contacts[0])
 end
