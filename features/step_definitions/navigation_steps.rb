@@ -6,6 +6,11 @@ Given(/^I navigate to Contacts$/) do
   on(NPSPMainPage).contacts_tab_on_page
 end
 
+Given(/^I navigate to Batch Data Entry page$/) do
+  @browser.goto($target_org_url + '/apex/BDE_BatchEntry')
+end
+
+
 When(/^I navigate to Getting Started/) do
   @browser.goto($target_org_url + '/apex/NPSP_Resources')
 end
