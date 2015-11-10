@@ -16,6 +16,10 @@ end
 def create_contact_via_api(client_name)
   api_client do
     @contact_id = @api_client.create!('Contact', LastName: client_name)
+    @contact_name = client_name
+    account_object = @api_client.query("select AccountId from Contact where Id = '#{@contact_id}'")
+    my_account_object = account_object.first
+    @account_id_for_contact = my_account_object.AccountId
     @array_of_contacts << @contact_id
   end
 end

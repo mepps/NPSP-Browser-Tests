@@ -1,3 +1,7 @@
+Given(/^I create a new Contact via the API$/) do
+  create_contact_via_api("aaaatestcontact#{@random_string}")
+end
+
 Given(/^I create a new Opportunity via the API with stage name "([^"]*)" and close date "([^"]*)" and amount "([^"]*)"$/) do |stage_name, close_date, amount|
   create_opportunity_via_api("aaaatestopp#{@random_string}", stage_name, close_date, amount)
 end

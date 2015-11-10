@@ -53,6 +53,11 @@ Given(/^I navigate to Relationship Viewer for the Primary Contact$/) do
   @browser.goto($target_org_url + '/apex/REL_RelationshipsViewer?id=' + @array_of_contacts[0])
 end
 
+
+When(/^I navigate to New Contact Donation Page$/) do
+  @browser.goto($target_org_url + '	/setup/ui/recordtypeselect.jsp?ent=Opportunity&retURL=%2F' + @contact_id + '&save_new_url=%2F006%2Fe%3Flookupcmpgn%3D1%26retURL%3D%252F' + @contact_id + '%26accid%3D' + @account_id_for_contact + '%26conid%3D' + @contact_id + '&opp3=' + @contact_name + '-%20Donation%20{!Today}')
+end
+
 Given(/^I navigate to first Contact created$/) do
   @browser.goto($instance_url + '/' + @array_of_contacts[0])
 end
