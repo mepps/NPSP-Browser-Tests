@@ -17,6 +17,9 @@ end
 
 When(/^I delete two of the payments$/) do
   on(NPSPRecurringDonationsPage) do |page|
+    page.wait_until do
+      page.delete_link_element.visible? == true
+    end
     page.delete_link
     sleep 1
     @browser.alert.ok
