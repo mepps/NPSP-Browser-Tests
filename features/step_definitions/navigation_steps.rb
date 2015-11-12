@@ -69,6 +69,7 @@ end
 
 Given(/^I navigate to Recurring Donations$/) do
   on(NPSPMainPage).recurring_donations_link_element.when_present(15).click
+  @browser.window.maximize
 end
 
 Given(/^I navigate to Contact Merge$/) do
