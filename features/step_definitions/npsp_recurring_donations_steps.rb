@@ -28,6 +28,9 @@ end
 
 Then(/^I should see "([^"]*)" monthly donations for "([^"]*)"$/) do |number, amount|
   on(NPSPRecurringDonationsPage) do |page|
+    page.wait_until do
+      page.donations_section_element.visible? == true
+    end
     expect(page.donations_section). to match /#{@random_string} Donation \(1 of 12\).+Pledged /
     expect(page.donations_section). to match Regexp.escape(amount)
   end
