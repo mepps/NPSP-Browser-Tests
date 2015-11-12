@@ -1,5 +1,6 @@
 Before do |scenario|
   @array_of_contacts = []
+  @array_of_contact_names = []
   @array_of_gaus = []
   @gau_names = []
   set_url_namespace_to_npsp
