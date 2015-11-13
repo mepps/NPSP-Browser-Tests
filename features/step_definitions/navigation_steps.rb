@@ -77,7 +77,7 @@ end
 
 Given(/^I navigate to Settings Donations Opportunity Names$/) do
   on(NPSPSettingsPage) do |page|
-    page.donations_element.when_present.click
+    page.donations_element.when_present(10).click
     page.opportunity_names_element.when_present.click
     page.edit_opp_button_element.when_present.click
     step 'I wait for the page to revert'
@@ -86,7 +86,7 @@ end
 
 Given(/^I navigate to Settings People Account Model$/) do
   on(NPSPSettingsPage) do |page|
-    page.people_element.when_present.click
+    page.people_element.when_present(10).click
     page.account_model_element.when_present.click
     page.edit_am_button_element.when_present.click
     step 'I wait for the page to revert'
@@ -95,7 +95,7 @@ end
 
 Given(/^I navigate to Settings People Addresses$/) do
   on(NPSPSettingsPage) do |page|
-    page.people_element.when_present.click
+    page.people_element.when_present(10).click
     page.addresses_element.when_present.click
     page.edit_button_element.when_present.click
     step 'I wait for the page to revert'
@@ -104,7 +104,7 @@ end
 
 Given(/^I navigate to Settings People Households$/) do
   on(NPSPSettingsPage) do |page|
-    page.people_element.when_present.click
+    page.people_element.when_present(10).click
     page.households_element.when_present.click
     page.edit_hh_button_element.when_present.click
     step 'I wait for the page to revert'
