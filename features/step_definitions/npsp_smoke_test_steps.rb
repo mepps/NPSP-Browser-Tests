@@ -11,7 +11,10 @@ Then(/^I should be able to click the New button$/) do
 end
 
 Then(/^I should see the NPSP Application Settings page$/) do
-  expect(on(NPSPMainPage).npsp_home_page_text).to match 'Nonprofit Starter Pack Application Settings'
+  on(NPSPMainPage) do |page|
+    page.npsp_home_page_text_element.when_present(10)
+    expect(page.npsp_home_page_text).to match 'Nonprofit Starter Pack Application Settings'
+  end
 end
 
 Then(/^I should see the Recurring Donations home page$/) do
