@@ -2,9 +2,9 @@ class NPSPAccountConvertPage
   include PageObject
 
   select_list(:account_field, name: /HHId/)
-  checkbox(:all_non_npsp, id: 'check-required-fields', index: 1)
+  checkbox(:all_non_npsp, id: 'check-apps')
   checkbox(:all_record, id: 'check-inactiveuser')
-  checkbox(:all_required, id: 'check-required-fields', index: 0)
+  checkbox(:all_required, id: 'check-required-fields')
   checkbox(:all_users, id: 'check-users-logged-out')
   checkbox(:all_workflows, id: 'check-wf-validation')
   button(:begin_conversion, id: 'conversionBTN')
