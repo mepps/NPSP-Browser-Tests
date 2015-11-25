@@ -10,7 +10,6 @@ Feature: Manage Household UI
       And I should see the Add Members search field
       And I should see the Household Naming section
       And I should see the Household Details section
-      And I delete the account
 
   Scenario: Add Members to Household
     Given I create two Contacts "aaa" and "bbb" to be added to Household
@@ -23,7 +22,6 @@ Feature: Manage Household UI
       And I add to household with Add option
       And I add to household with Add and merge Households option
     Then I should see three Household Member entries
-      And I delete the account
 
   Scenario: Change Household address
     Given I navigate to Manage Households UI
@@ -33,7 +31,6 @@ Feature: Manage Household UI
       And I fill in the five address fields
       And I click Set Address
     Then the five address fields should appear in the Household Address section in the correct order
-      And I delete the account
 
   Scenario: Checkboxes for Exclude Contact and Auto Name
     Given I create two Contacts "ccc" and "ddd" to be added to Household
