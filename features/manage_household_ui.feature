@@ -40,18 +40,15 @@ Feature: Manage Household UI
       And I navigate to Manage Households UI
     When I type "ddd" into search box
       And I add to household with Add option
-    And I add to household with Add and merge Households option
+      And I add to household with Add and merge Households option
       And I click the checkboxes in the original address card
     Then I should see all three checkboxes checked
 
   Scenario: Cancel button returns to Manage Household page
-    Given I navigate to Manage Households UI
-    When I type "a" into search box
-    And I add to household with Add option
-    And I click Cancel
-  Then I should be on the regular Households page
-    And I delete the account
-
-
-
-
+    Given I create two Contacts "eee" and "fff" to be added to Household
+      And I navigate to Manage Households UI
+    When I type "fff" into search box
+      And I add to household with Add option
+      And I add to household with Add and merge Households option
+      And I click Cancel
+    Then I should be on the regular Households page
