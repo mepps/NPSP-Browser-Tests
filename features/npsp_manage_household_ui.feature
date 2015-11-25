@@ -20,7 +20,7 @@ Feature: Manage Household UI
       And I click New Contact
       And I type "bbb" into search box
       And I add to household with Add option
-      And I add to household with Add and merge Households option
+      And I add to household with Add and remove from old Household option
     Then I should see three Household Member entries
 
   Scenario: Change Household address
@@ -46,6 +46,6 @@ Feature: Manage Household UI
       And I navigate to Manage Households UI
     When I type "fff" into search box
       And I add to household with Add option
-      And I add to household with Add and merge Households option
+      And I add to household with Add and remove from old Household option
       And I click Cancel
     Then I should be on the regular Households page
