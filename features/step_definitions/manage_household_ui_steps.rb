@@ -2,6 +2,12 @@ Given(/^I change the Account Model to "([^"]*)"$/) do |to_value|
   update_account_model(to_value)
 end
 
+Given(/^I create two Contacts "([^"]*)" and "([^"]*)" to be added to Household$/) do |con1, con2|
+  create_contact_via_api(con1)
+  create_contact_via_api(con2)
+end
+
+
 When(/^I add to household with Add option$/) do
   on(ManageHouseholdsPage) do |page|
     page.wait_until do
@@ -138,6 +144,10 @@ end
 When(/^I type "([^"]*)" into search box$/) do |search_string|
   on(ManageHouseholdsPage) do |page|
     page.member_search_box_element.when_present.click #search box needs focus for Chrome
+    number_of_backspaces = search_string.length
+    number_of_backspaces.times do
+      page.member_search_box_element.send_keys(:backspace)
+    end
     page.member_search_box_element.when_present.send_keys search_string
   end
 end

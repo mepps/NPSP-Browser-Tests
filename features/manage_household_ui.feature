@@ -13,12 +13,15 @@ Feature: Manage Household UI
       And I delete the account
 
   Scenario: Add Members to Household
-    Given I navigate to Manage Households UI
-    When I type "a" into search box
-      And I select the first result
-      And I click New Contact
-      And I type "b" into search box
+    Given I create two Contacts "aaa" and "bbb" to be added to Household
+      And I navigate to Manage Households UI
+    When I type "aaa" into search box
       And I add to household with Add option
+      And I add to household with Add and merge Households option
+      And I click New Contact
+      And I type "bbb" into search box
+      And I add to household with Add option
+      And I add to household with Add and merge Households option
     Then I should see three Household Member entries
       And I delete the account
 
