@@ -136,6 +136,15 @@ def delete_household_objects
   end
 end
 
+def delete_leads
+  api_client do
+    leads = @api_client.query("select Id from Lead")
+    leads.each do |lead|
+      lead.destroy
+    end
+  end
+end
+
 def delete_non_household_accounts
   api_client do
     rd_opps = @api_client.query("select Id from Account where Type = null")
