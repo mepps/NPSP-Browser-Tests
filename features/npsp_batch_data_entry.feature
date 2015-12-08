@@ -17,6 +17,7 @@ Feature: Batch Data Entry test
       And I enter "Company" for Company value
       And I click the pin buttons for Last Name and for Company
       And I click the BDE Save button
-    Then the Last Name field should contain "Lastname"
+    Then the Saved Record list should show the saved record
+      And the Last Name field should contain "Lastname"
       And the Company field should contain "Company"
       And the Save button should be clickable
