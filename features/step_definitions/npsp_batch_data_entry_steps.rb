@@ -26,6 +26,6 @@ Then(/^I should see four text fields$/) do
   end
 end
 
-Then(/^I the Save button should be clickable$/) do
+Then(/^the Save button should be clickable$/) do
   expect(on(NPSPBDEPage).save_button_element.disabled?).to be false
 end
