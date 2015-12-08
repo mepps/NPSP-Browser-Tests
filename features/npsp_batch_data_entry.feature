@@ -15,6 +15,7 @@ Feature: Batch Data Entry test
   Scenario: Pinned fields persist over multiple records
     When I enter "Lastname" for Last Name value
       And I enter "Company" for Company value
+      And I click the pin buttons for Last Name and for Company
       And I click the BDE Save button
     Then the Last Name field should contain "Lastname"
       And the Company field should contain "Company"
