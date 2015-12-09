@@ -16,3 +16,27 @@ Then(/^I should see the Payment Wizard fields$/) do
     expect(page.create_payments_button_element).to be_visible
   end
 end
+
+When(/^I change number of payments from (\d+) to (\d+)$/) do |arg1, arg2|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I see the screen with nine payments of "([^"]*)"$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I click Create Payments$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I click on the ninth link to a Payment record$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I should the Payment page$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^the payment amount should be "([^"]*)"$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
