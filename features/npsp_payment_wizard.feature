@@ -10,12 +10,11 @@ Feature: Payment wizard test
     Then I should see the Payment Wizard fields
 
   Scenario: Change from 12 to 9 payments and create the payments
-    When I change number of payments from 12 to 9
+    When I change number of payments from "12" to "9"
       And I click Calculate Payments
-      And I see the screen with nine payments of "111.11"
       And I click Create Payments
       And I click on the ninth link to a Payment record
-    Then I should the Payment page
+    Then I should see the Payment page
       And the payment amount should be "111.11"
 
 

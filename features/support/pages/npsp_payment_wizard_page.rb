@@ -9,4 +9,9 @@ class PaymentWizardPage
   div(:payments_to_be_created, class: 'pbHeader', index: 2)
   h2(:title_text, class: 'pageDescription')
   text_field(:twelfth_amount_textfield, name: /theTable:11/)
+
+  select_list(:number_of_payments, name: /paymentCount/)
+  a(:ninth_payment_link, text: /PMT/, index: 8)
+
+
 end

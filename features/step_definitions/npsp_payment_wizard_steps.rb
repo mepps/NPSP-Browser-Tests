@@ -17,26 +17,24 @@ Then(/^I should see the Payment Wizard fields$/) do
   end
 end
 
-When(/^I change number of payments from (\d+) to (\d+)$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When(/^I see the screen with nine payments of "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I change number of payments from "([^"]*)" to "([^"]*)"$/) do |existing_payments, new_payments|
+  on(PaymentWizardPage).number_of_payments = new_payments
 end
 
 When(/^I click Create Payments$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(PaymentWizardPage).create_payments_button
 end
 
 When(/^I click on the ninth link to a Payment record$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(PaymentWizardPage).ninth_payment_link
 end
 
-Then(/^I should the Payment page$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should see the Payment page$/) do
+  on(PaymentWizardPage) do |page|
+    expect(page.payment_page_header).to match 'Payment'
+  end
 end
 
-Then(/^the payment amount should be "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^the payment amount should be "([^"]*)"$/) do |payment_amount|
+  expect(on(PaymentWizardPage).payment_page_amount).to eq payment_amount
 end
