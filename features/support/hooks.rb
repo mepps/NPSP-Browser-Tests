@@ -12,8 +12,9 @@ After do |scenario|
   update_account_model('Household Account')
   delete_contacts_via_api
   delete_leads
-  delete_opportunity_via_api
-  delete_open_opportunities
+  #delete_payments
+  #delete_opportunity_via_api
+  #delete_open_opportunities
   delete_recurring_donations
   delete_household_accounts
   delete_non_household_accounts
