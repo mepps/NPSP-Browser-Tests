@@ -15,6 +15,6 @@ Feature: Payment wizard test
       And I click Create Payments
       And I click on the ninth link to a Payment record
     Then I should see the Payment page
-      And the payment amount should be "111.11"
+      And the payment amount should be "$111.12"
 
 

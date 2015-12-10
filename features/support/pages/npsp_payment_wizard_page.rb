@@ -12,6 +12,9 @@ class PaymentWizardPage
 
   select_list(:number_of_payments, name: /paymentCount/)
   a(:ninth_payment_link, text: /PMT/, index: 8)
+  h1(:payment_page_header, class: 'pageType')
+  div(:payment_page_amount, text: '$111.12')
+
 
 
 end

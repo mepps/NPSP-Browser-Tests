@@ -31,7 +31,7 @@ end
 
 Then(/^I should see the Payment page$/) do
   on(PaymentWizardPage) do |page|
-    expect(page.payment_page_header).to match 'Payment'
+    expect(page.payment_page_header).to eq 'Payment'
   end
 end
 
