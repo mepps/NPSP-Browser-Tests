@@ -145,6 +145,15 @@ def delete_leads
   end
 end
 
+def delete_payments
+  api_client do
+    payments = @api_client.query("select Id from npe01__OppPayment__c")
+    payments.each do |payment|
+      payment.destroy
+    end
+  end
+end
+
 def delete_non_household_accounts
   api_client do
     rd_opps = @api_client.query("select Id from Account where Type = null")
