@@ -1,4 +1,4 @@
-@smoketest
+
 Feature: NPSP New Opportunity creates Payment record
 
     @smoketest
