@@ -25,6 +25,16 @@ When(/^I wait for the page to revert$/) do
   end
 end
 
+Then(/^I should see the Payment page$/) do
+  on(PaymentWizardPage) do |page|
+    expect(page.payment_page_header).to eq 'Payment'
+  end
+end
+
+Then(/^the payment amount should be "([^"]*)"$/) do |payment_amount|
+  expect(on(PaymentWizardPage).payment_page_amount).to eq payment_amount
+end
+
 # THE STEPS BELOW ARE NEVER TO BE USED IN A JENKINS BUILD
 # BECAUSE THEY LEAK PASSWORDS IN THE SAUCELABS SELENIUM LOGS.
 # PLEASE USE THE OAUTH LOGIN STEPS ABOVE INSTEAD

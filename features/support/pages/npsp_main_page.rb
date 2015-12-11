@@ -7,6 +7,8 @@ class NPSPMainPage
   img(:getting_started_link, title: 'Getting Started')
   a(:recurring_donations_link, text: 'Recurring Donations')
   a(:npsp_settings_link, text: 'NPSP Settings')
+  a(:opportunities_link, text: 'Opportunities')
+  a(:payments_link, text: 'Payments')
   a(:contact_merge_link, text: 'Contact Merge')
   div(:home_page_text, class: 'content')
   div(:npsp_home_page_text, class: 'jumbotron')
