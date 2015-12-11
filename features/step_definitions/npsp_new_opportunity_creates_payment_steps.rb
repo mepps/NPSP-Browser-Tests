@@ -18,7 +18,3 @@ When(/^I navigate from Opportunity to the Payment$/) do
     page.payment_page_link_element.when_present.click
   end
 end
-
-Then(/^the payment edit amount should be "([^"]*)"$/) do |amount|
-  expect(on(NPSPOpportunitiesPage).payment_amount).to eq amount
-end
