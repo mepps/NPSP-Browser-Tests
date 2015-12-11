@@ -163,9 +163,9 @@ def delete_non_household_accounts
   end
 end
 
-def delete_open_opportunities
+def delete_opportunities
   api_client do
-    rd_opps = @api_client.query("select Id from Opportunity where IsClosed = false")
+    rd_opps = @api_client.query("select Id from Opportunity")
     rd_opps.each do |opp|
       opp.destroy
     end
