@@ -2,7 +2,7 @@ When(/^I create a new Opportunity with name "([^"]*)" and close date today and a
   on(NPSPOpportunitiesPage) do |page|
     page.new_button
     page.today_link
-    page.opp_name = name
+    page.opp_name = name + @random_string
     page.opp_amount = amount
     page.opp_stage = "Closed Won"
     page.save_button
