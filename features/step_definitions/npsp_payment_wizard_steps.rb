@@ -28,13 +28,3 @@ Then(/^I should see the Payment Wizard fields$/) do
     expect(page.create_payments_button_element).to be_visible
   end
 end
-
-Then(/^I should see the Payment page$/) do
-  on(PaymentWizardPage) do |page|
-    expect(page.payment_page_header).to match 'Payment'
-  end
-end
-
-Then(/^the payment amount should be "([^"]*)"$/) do |payment_amount|
-  expect(on(PaymentWizardPage).payment_page_amount).to eq payment_amount
-end

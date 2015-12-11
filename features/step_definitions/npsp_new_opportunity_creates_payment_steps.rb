@@ -12,8 +12,11 @@ end
 When(/^I navigate from Opportunity to the Payment$/) do
   @browser.goto($instance_url + '/home/showAllTabs.jsp')
   step 'I navigate to Payments'
-  on(NPSPOpportunitiesPage).go_button
-  on(NPSPOpportunitiesPage).payment_edit_link
+  on(NPSPOpportunitiesPage) do |page|
+    page.go_button
+    page.payment_edit_link
+    page.payment_page_link_element.when_present.click
+  end
 end
 
 Then(/^the payment edit amount should be "([^"]*)"$/) do |amount|

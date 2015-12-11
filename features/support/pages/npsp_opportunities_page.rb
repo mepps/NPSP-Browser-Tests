@@ -10,4 +10,5 @@ class NPSPOpportunitiesPage
   button(:go_button, name: 'go')
   a(:payment_edit_link, text: 'Edit')
   text_field(:payment_amount, value: '100.00')
+  span(:payment_page_link, text: /PMT/)
 end

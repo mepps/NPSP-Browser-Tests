@@ -7,4 +7,4 @@ Feature: NPSP New Opportunity creates Payment record
   When I create a new Opportunity with name "aaa" and close date today and amount "100" and stage "Closed Won"
     And I navigate from Opportunity to the Payment
   Then I should see the Payment page
-    And the payment edit amount should be "100.00"
+    And the payment amount should be "$100.00"
