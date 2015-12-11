@@ -8,7 +8,6 @@ class PaymentWizardPage
   table(:header_line, id: /theTable/)
   a(:ninth_payment_link, text: /PMT/, index: 8)
   select_list(:number_of_payments, name: /paymentCount/)
-  #div(:payment_page_amount, text: '$111.12')
   div(:payment_page_amount, id: /_ileinner/, index: 2)
   h1(:payment_page_header, class: 'pageType')
   div(:payments_to_be_created, class: 'pbHeader', index: 2)
