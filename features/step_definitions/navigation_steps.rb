@@ -71,6 +71,14 @@ Given(/^I navigate to Recurring Donations$/) do
   on(NPSPMainPage).recurring_donations_link_element.when_present(15).click
 end
 
+Given(/^I navigate to Opportunity$/) do
+  on(NPSPMainPage).opportunities_link_element.when_present(15).click
+end
+
+Given(/^I navigate to Payments$/) do
+  on(NPSPMainPage).payments_link_element.when_present(15).click
+end
+
 Given(/^I navigate to Contact Merge$/) do
   @browser.goto($target_org_url + '/apex/CON_ContactMerge')
 end

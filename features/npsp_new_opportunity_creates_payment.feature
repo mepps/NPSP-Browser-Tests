@@ -5,6 +5,6 @@ Feature: NPSP New Opportunity creates Payment record
   Scenario: NPSP New Opportunity creates Payment record
   Given I navigate to Opportunity
   When I create a new Opportunity with name "aaa" and close date today and amount "100" and stage "Closed Won"
-    And I navigate from Opportunity to Payments
-  Then I should see a payment record
-    And the value of the payment should be "$100.00"
+    And I navigate from Opportunity to the Payment
+  Then I should see the Payment page
+    And the payment edit amount should be "100.00"
