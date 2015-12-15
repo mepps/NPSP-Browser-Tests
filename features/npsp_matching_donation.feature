@@ -2,10 +2,11 @@ Feature: Matching Donation test
 
   @smoketest
   Scenario: Invoke Matching Donation
-    Given I create a new Opportunity via the API with stage name "Qualification" and close date "2020-01-01" and amount "1000"
+    Given I create a new Contact via the API
+  I create a new Opportunity via the API for the Contact Account with stage name "Qualification" and close date "2020-01-01" and amount "1000"
     When I navigate to Matching Donation for that Opportunity
-    Then Matching Donation Opportunity Name should match "Matching Donation"
-      And Amount should be "1,000.00"
-      And Close Date should be "1/1/2020"
-      And Stage should be "--None--"
-      And Save button should be enabled
+    Then Matching Donation Opportunity Name should match "Matching Donation" plus Contact Account name
+    And Amount should be "1,000.00"
+    And Close Date should be "1/1/2020"
+    And Stage should be "--None--"
+    And Save button should be enabled
