@@ -68,7 +68,8 @@ def create_opportunity_via_api(client_name, stage_name, close_date, amount)
                                           Name: client_name,
                                           StageName: stage_name,
                                           CloseDate: close_date,
-                                          Amount: amount.to_i)
+                                          Amount: amount.to_i,
+                                          AccountId: @account_id_for_contact)
   end
 end
 

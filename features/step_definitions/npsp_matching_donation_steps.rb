@@ -1,5 +1,9 @@
-Then(/^Matching Donation Opportunity Name should match "([^"]*)"$/) do |opp_name|
-  expect(on(NPSPMatchingDonationPage).opp_name).to match opp_name
+Then(/^Matching Donation Opportunity Name should match "([^"]*)" plus the Contact Account Name$/) do |opp_name|
+  expect(on(NPSPMatchingDonationPage).opp_name).to match /#{opp_name} #{@contact_name} Household/
+end
+
+Then(/^Account Name shoujld be the Account for the Contact created$/) do
+  expect(on(NPSPMatchingDonationPage).account_name).to eq "#{@contact_name} Household"
 end
 
 Then(/^Amount should be "([^"]*)"$/) do |amount|
