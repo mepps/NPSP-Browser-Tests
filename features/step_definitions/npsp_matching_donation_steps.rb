@@ -2,6 +2,10 @@ Then(/^Matching Donation Opportunity Name should match "([^"]*)" plus the Contac
   expect(on(NPSPMatchingDonationPage).opp_name).to match /#{opp_name} #{@contact_name} Household/
 end
 
+Then(/^Account Name shoujld be the Account for the Contact created$/) do
+  expect(on(NPSPMatchingDonationPage).account_name).to eq "#{@contact_name} Household"
+end
+
 Then(/^Amount should be "([^"]*)"$/) do |amount|
   expect(on(NPSPMatchingDonationPage).amount).to eq amount
 end
