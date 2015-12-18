@@ -199,7 +199,7 @@ end
 def login_with_oauth
   require 'faraday'
 
-  conn = Faraday.new(:url => 'https://login.salesforce.com') do |faraday|
+  conn = Faraday.new(:url => ENV['SF_SERVERURL']) do |faraday|
     faraday.request  :url_encoded             # form-encode POST params
     #faraday.response :logger                  # log requests to STDOUT
     faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
