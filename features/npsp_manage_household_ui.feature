@@ -25,12 +25,20 @@ Feature: Manage Household UI
 
   Scenario: Change Household address
     Given I navigate to Manage Households UI
+      And I see Contact name
+      And I see existing address fields
+      And I see the Household Name
+      And I see the Formal Greeting
+      And I see the Primary Contact
     When I click Change on Household Address
       And I click Select an existing address
       And I click Enter a new address
       And I fill in the five address fields
       And I click Set Address
-    Then the five address fields should appear in the Household Address section in the correct order
+      And the five address fields should appear in the Household Address section in the correct order
+      And I click Manage Household Save
+    Then I should be on the Account page
+      And I should see the new address
 
   Scenario: Checkboxes for Exclude Contact and Auto Name
     Given I create two Contacts "ccc" and "ddd" to be added to Household

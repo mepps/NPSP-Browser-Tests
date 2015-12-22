@@ -1,3 +1,39 @@
+
+Given(/^I see Contact name$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I see existing address fields$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I see the Household Name$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I see the Formal Greeting$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I see the Primary Contact$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I click Manage Household Save$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I should be on the Account page$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I should see the new address$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+
+
+
 Given(/^I change the Account Model to "([^"]*)"$/) do |to_value|
   update_account_model(to_value)
 end
