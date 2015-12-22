@@ -1,6 +1,11 @@
 class ManageHouseholdsPage
   include PageObject
 
+  span(:card_name, class: 'hhCard-details-name')
+    a(:card_contact_link) { |page| page.card_name_element.link_element }
+  span(:existing_address, class: 'hhCard-details-address')
+  text_field(:hh_name, id: 'hhName')
+
   text_field(:add_members_search, id: 'hhSearch-input')
   button(:add_button, text: 'Add')
   button(:add_merge_button, text: 'Add and merge Households')

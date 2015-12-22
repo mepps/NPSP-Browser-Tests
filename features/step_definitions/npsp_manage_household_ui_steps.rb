@@ -1,14 +1,14 @@
 
 Given(/^I see Contact name$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(on(ManageHouseholdsPage).card_contact_link_element.text).to eq "aaaatestcontact#{@random_string}"
 end
 
 Given(/^I see existing address fields$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(on(ManageHouseholdsPage).existing_address).to match /automation city.+automation state.+automation zip.+automation country/m
 end
 
 Given(/^I see the Household Name$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(on(ManageHouseholdsPage).hh_name).to eq "aaaatestcontact#{@random_string} Household"
 end
 
 Given(/^I see the Formal Greeting$/) do
