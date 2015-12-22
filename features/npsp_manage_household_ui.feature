@@ -1,7 +1,7 @@
 Feature: Manage Household UI
 
   Background:
-    Given I create a new random account via the API
+    Given I create a new Contact via the API
 
     @smoketest
   Scenario: Navigate to Manage Households UI and do basic checks
