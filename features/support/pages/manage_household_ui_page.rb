@@ -8,7 +8,8 @@ class ManageHouseholdsPage
   text_field(:formal_greeting, id: 'hhFormalGreeting')
   text_field(:primary_contact, class: 'sfField sfField-npe01__One2OneContact__c')
   button(:manage_household_save, class: 'gwPreventUI btn gwControls-save')
-
+  h1(:account_label, class: 'pageType')
+  h2(:page_title, class: 'pageDescription')
 
   text_field(:add_members_search, id: 'hhSearch-input')
   button(:add_button, text: 'Add')

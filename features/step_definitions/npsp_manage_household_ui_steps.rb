@@ -24,11 +24,11 @@ When(/^I click Manage Household Save$/) do
 end
 
 Then(/^I should be on the Account page$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(on(ManageHouseholdsPage).account_label).to eq 'Account'
 end
 
 Then(/^I should see the new address$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(on(ManageHouseholdsPage).page_title).to eq "aaaatestcontact#{@random_string} Household"
 end
 
 
