@@ -3,7 +3,7 @@ Feature: Manage Household UI
   Background:
     Given I create a new Contact via the API with address "automation city" "automation state" "automation country" "automation zip"
       And I create a new random account via the API
-    
+
     @smoketest
   Scenario: Navigate to Manage Households UI and do basic checks
     When I navigate to Manage Households UI
