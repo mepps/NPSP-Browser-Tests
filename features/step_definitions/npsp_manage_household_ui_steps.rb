@@ -12,15 +12,15 @@ Given(/^I see the Household Name$/) do
 end
 
 Given(/^I see the Formal Greeting$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(on(ManageHouseholdsPage).formal_greeting).to eq " aaaatestcontact#{@random_string}"
 end
 
 Given(/^I see the Primary Contact$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(on(ManageHouseholdsPage).primary_contact).to eq "aaaatestcontact#{@random_string}"
 end
 
 When(/^I click Manage Household Save$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(ManageHouseholdsPage).manage_household_save
 end
 
 Then(/^I should be on the Account page$/) do
