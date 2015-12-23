@@ -24,12 +24,19 @@ When(/^I click Manage Household Save$/) do
 end
 
 Then(/^I should be on the Account page$/) do
-  expect(on(ManageHouseholdsPage).account_label).to eq 'Account'
+  on(ManageHouseholdsPage) do |page|
+    page.wait_until do
+      page.page_title_element.when_present
+    end
+    expect(page.page_title).to eq "aaaatestcontact#{@random_string} Household"
+    expect(page.account_label).to eq 'Account'
+  end
 end
 
 Then(/^I should see the new address$/) do
-  expect(on(ManageHouseholdsPage).page_title).to eq "aaaatestcontact#{@random_string} Household"
+  expect(on(ManageHouseholdsPage).account_address_field).to match /street.+city, state zip.+country/m
 end
+
 
 
 

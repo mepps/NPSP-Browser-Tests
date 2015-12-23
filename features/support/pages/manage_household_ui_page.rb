@@ -10,6 +10,7 @@ class ManageHouseholdsPage
   button(:manage_household_save, class: 'gwPreventUI btn gwControls-save')
   h1(:account_label, class: 'pageType')
   h2(:page_title, class: 'pageDescription')
+  div(:account_address_field, id: 'acc17_ileinner')
 
   text_field(:add_members_search, id: 'hhSearch-input')
   button(:add_button, text: 'Add')
