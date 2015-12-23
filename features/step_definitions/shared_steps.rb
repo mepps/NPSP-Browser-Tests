@@ -1,5 +1,5 @@
 Given(/^I create a new Contact via the API$/) do
-  create_contact_via_api("aaaatestcontact#{@random_string}")
+  create_contact_via_api("aaaatestcontact#{@random_string}", '', '', '', '')
 end
 
 Given(/^I create a new Contact via the API with address "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)"$/) do |city, state, country, zip|

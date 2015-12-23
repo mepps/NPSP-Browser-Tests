@@ -2,7 +2,8 @@ Feature: Manage Household UI
 
   Background:
     Given I create a new Contact via the API with address "automation city" "automation state" "automation country" "automation zip"
-
+      And I create a new random account via the API
+    
     @smoketest
   Scenario: Navigate to Manage Households UI and do basic checks
     When I navigate to Manage Households UI
@@ -24,7 +25,7 @@ Feature: Manage Household UI
     Then I should see three Household Member entries
 
   Scenario: Change Household address
-    Given I navigate to Manage Households UI
+    Given I navigate to Manage Households UI for contact
       And I see Contact name
       And I see existing address fields
       And I see the Household Name

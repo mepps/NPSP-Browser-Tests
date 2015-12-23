@@ -1,4 +1,8 @@
 Given(/^I navigate to Manage Households UI$/) do
+  @browser.goto($target_org_url + '/apex/HH_ManageHHAccount?scontrolCaching=1&id=' + @account_id)
+end
+
+Given(/^I navigate to Manage Households UI for contact$/) do
   @browser.goto($target_org_url + '/apex/HH_ManageHHAccount?scontrolCaching=1&id=' + @account_id_for_contact)
 end
 

@@ -221,7 +221,9 @@ def login_with_oauth
   access_token = response_body['access_token']
   $instance_url = response_body['instance_url']
 
+  sleep 1
   @browser.goto('about:blank')
+  sleep 2
   @browser.goto($instance_url + '/secur/frontdoor.jsp?sid=' + access_token)
   @browser.goto($instance_url + '/home/showAllTabs.jsp')
 end

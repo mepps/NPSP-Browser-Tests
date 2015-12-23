@@ -1,9 +1,9 @@
 Given(/^I create three Contacts "([^"]*)" and "([^"]*)" and "([^"]*)"$/) do |con1, con2, con3|
-  create_contact_via_api(con1)
+  create_contact_via_api(con1, '', '', '', '')
   @array_of_contacts << @contact_id
-  create_contact_via_api(con2)
+  create_contact_via_api(con2, '', '', '', '')
   @array_of_contacts << @contact_id
-  create_contact_via_api(con3)
+  create_contact_via_api(con3, '', '', '', '')
   @array_of_contacts << @contact_id
 end
 
