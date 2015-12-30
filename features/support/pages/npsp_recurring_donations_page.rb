@@ -8,7 +8,7 @@ class NPSPRecurringDonationsPage
   text_field(:contact_field, index: 5)
   a(:delete_link, text: 'Del')
   text_field(:donation_name, id: 'Name')
-  div(:donations_section, id: /PP_body/)
+  div(:donations_section, id: /_body/)
   text_field(:installments_field, index: 8)
   button(:new_button, name: 'new')
   button(:refresh_button, name: 'npe03__refresh_opportunities')
