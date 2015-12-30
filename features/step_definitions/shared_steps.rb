@@ -31,6 +31,9 @@ end
 
 Then(/^I should see the Payment page$/) do
   on(PaymentWizardPage) do |page|
+    page.wait_until do
+      page.payment_page_header_element.visible? == true
+    end
     expect(page.payment_page_header).to eq 'Payment'
   end
 end

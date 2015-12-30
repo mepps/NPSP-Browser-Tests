@@ -12,7 +12,9 @@ class NPSPBDEPage
   button(:save_button, class: 'btn btnSave')
   table(:record_table, class: 'detailList', index: 2)
   h3(:saved_record_list, text: 'Saved Record List (1 records)')
-  select_list(:status_select, index: 1)
+
+  div(:subsection, class: 'pbSubsection')
+  select_list(:status_select) { |page| page.subsection_element.select_list_element }
 
   # FIRST TEXT_FIELD ON PAGE IS IN SEARCH BOX
   text_field(:text_field_first, index: 1)

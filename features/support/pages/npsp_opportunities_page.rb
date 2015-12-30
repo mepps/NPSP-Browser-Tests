@@ -1,6 +1,7 @@
 class NPSPOpportunitiesPage
   include PageObject
 
+  text_field(:account_name, id: 'opp4')
   button(:new_button, title: 'New')
   a(:today_link, href: /DatePicker/)
   text_field(:opp_name, id: 'opp3')

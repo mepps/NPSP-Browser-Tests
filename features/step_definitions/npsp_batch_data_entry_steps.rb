@@ -27,7 +27,13 @@ When(/^I select New Batch for "([^"]*)"$/) do |data_type|
 end
 
 Then(/^Batch Name should contain "([^"]*)"$/) do |batch_type|
-  expect(on(NPSPBDEPage).batch_name).to match batch_type
+  on(NPSPBDEPage) do |page|
+    page.wait_until do
+      page.new_batch_button_element.visible? == false
+      page.batch_name_element.visible? == true
+    end
+  expect(page.batch_name).to match batch_type
+  end
 end
 
 Then(/^Batch Status should be "([^"]*)"$/) do |batch_status|
