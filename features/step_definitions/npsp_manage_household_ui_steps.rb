@@ -37,10 +37,6 @@ Then(/^I should see the new address$/) do
   expect(on(ManageHouseholdsPage).account_address_field).to match /street.+city, state zip.+country/m
 end
 
-
-
-
-
 Given(/^I change the Account Model to "([^"]*)"$/) do |to_value|
   update_account_model(to_value)
 end

@@ -1,11 +1,10 @@
 Feature: Manage Household UI One-to-One
 
   Background:
-   Given I change the Account Model to "One-to-One"
-    And I create a new random account via the API
+   Given I create new Contacts with Household Object via the API
 
   Scenario: Navigate to Manage Households UI and do basic checks
-    When I navigate to Manage Households UI
+    When I navigate to Manage Households UI for Household Object
     Then I should see the Household Members section
     And I should see the Add Members search field
     And I should see the Household Naming section
@@ -13,16 +12,18 @@ Feature: Manage Household UI One-to-One
 
   Scenario: Add Members to Household
     Given I create two Contacts "aaa" and "bbb" to be added to Household
-    And I navigate to Manage Households UI
+    And I navigate to Manage Households UI for Household Object
     When I type "aaa" into search box
     And I add to household with Add option
+    And I add to household with Add and merge Households option
     And I click New Contact
     And I type "bbb" into search box
     And I add to household with Add option
+    And I add to household with Add and remove from old Household option
     Then I should see three Household Member entries
 
   Scenario: Change Household address
-    Given I navigate to Manage Households UI
+    Given I navigate to Manage Households UI for Household Object
     When I click Change on Household Address
     And I click Select an existing address
     And I click Enter a new address
@@ -32,16 +33,18 @@ Feature: Manage Household UI One-to-One
 
   Scenario: Checkboxes for Exclude Contact and Auto Name
     Given I create two Contacts "ccc" and "ddd" to be added to Household
-    And I navigate to Manage Households UI
+    And I navigate to Manage Households UI for Household Object
     When I type "ddd" into search box
     And I add to household with Add option
+    And I add to household with Add and merge Households option
     And I click the checkboxes in the original address card
     Then I should see all three checkboxes checked
 
   Scenario: Cancel button returns to Manage Household page
     Given I create two Contacts "eee" and "fff" to be added to Household
-    And I navigate to Manage Households UI
+    And I navigate to Manage Households UI for Household Object
     When I type "fff" into search box
     And I add to household with Add option
+    And I add to household with Add and remove from old Household option
     And I click Cancel
     Then I should be on the regular Households page
