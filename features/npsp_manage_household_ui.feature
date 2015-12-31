@@ -1,7 +1,8 @@
 Feature: Manage Household UI
 
   Background:
-    Given I create a new random account via the API
+    Given I create a new Contact via the API with address "automation city" "automation state" "automation country" "automation zip"
+      And I create a new random account via the API
 
     @smoketest
   Scenario: Navigate to Manage Households UI and do basic checks
@@ -24,13 +25,21 @@ Feature: Manage Household UI
     Then I should see three Household Member entries
 
   Scenario: Change Household address
-    Given I navigate to Manage Households UI
+    Given I navigate to Manage Households UI for contact
+      And I see Contact name
+      And I see existing address fields
+      And I see the Household Name
+      And I see the Formal Greeting
+      And I see the Primary Contact
     When I click Change on Household Address
       And I click Select an existing address
       And I click Enter a new address
       And I fill in the five address fields
       And I click Set Address
-    Then the five address fields should appear in the Household Address section in the correct order
+      And the five address fields should appear in the Household Address section in the correct order
+      And I click Manage Household Save
+    Then I should be on the Account page
+      And I should see the new address
 
   Scenario: Checkboxes for Exclude Contact and Auto Name
     Given I create two Contacts "ccc" and "ddd" to be added to Household

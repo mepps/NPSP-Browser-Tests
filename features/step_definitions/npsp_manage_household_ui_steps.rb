@@ -1,10 +1,49 @@
+
+Given(/^I see Contact name$/) do
+  expect(on(ManageHouseholdsPage).card_contact_link_element.text).to eq "aaaatestcontact#{@random_string}"
+end
+
+Given(/^I see existing address fields$/) do
+  expect(on(ManageHouseholdsPage).existing_address).to match /automation city.+automation state.+automation zip.+automation country/m
+end
+
+Given(/^I see the Household Name$/) do
+  expect(on(ManageHouseholdsPage).hh_name).to eq "aaaatestcontact#{@random_string} Household"
+end
+
+Given(/^I see the Formal Greeting$/) do
+  expect(on(ManageHouseholdsPage).formal_greeting).to eq " aaaatestcontact#{@random_string}"
+end
+
+Given(/^I see the Primary Contact$/) do
+  expect(on(ManageHouseholdsPage).primary_contact).to eq "aaaatestcontact#{@random_string}"
+end
+
+When(/^I click Manage Household Save$/) do
+  on(ManageHouseholdsPage).manage_household_save
+end
+
+Then(/^I should be on the Account page$/) do
+  on(ManageHouseholdsPage) do |page|
+    page.wait_until do
+      page.page_title_element.when_present
+    end
+    expect(page.page_title).to eq "aaaatestcontact#{@random_string} Household"
+    expect(page.account_label).to eq 'Account'
+  end
+end
+
+Then(/^I should see the new address$/) do
+  expect(on(ManageHouseholdsPage).account_address_field).to match /street.+city, state zip.+country/m
+end
+
 Given(/^I change the Account Model to "([^"]*)"$/) do |to_value|
   update_account_model(to_value)
 end
 
 Given(/^I create two Contacts "([^"]*)" and "([^"]*)" to be added to Household$/) do |con1, con2|
-  create_contact_via_api(con1)
-  create_contact_via_api(con2)
+  create_contact_via_api(con1, '', '', '', '')
+  create_contact_via_api(con2, '', '', '', '')
 end
 
 
