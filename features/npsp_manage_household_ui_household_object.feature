@@ -25,7 +25,6 @@ Feature: Manage Household UI One-to-One
   Scenario: Change Household address
     Given I navigate to Manage Households UI for Household Object
     When I click Change on Household Address
-    And I click Select an existing address
     And I click Enter a new address
     And I fill in the five address fields
     And I click Set Address
