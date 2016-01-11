@@ -42,8 +42,8 @@ Given(/^I change the Account Model to "([^"]*)"$/) do |to_value|
 end
 
 Given(/^I create two Contacts "([^"]*)" and "([^"]*)" to be added to Household$/) do |con1, con2|
-  create_contact_via_api(con1, '', '', '', '')
-  create_contact_via_api(con2, '', '', '', '')
+  create_contact_via_api(con1)
+  create_contact_via_api(con2)
 end
 
 

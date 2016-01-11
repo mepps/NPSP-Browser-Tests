@@ -13,7 +13,7 @@ def create_account_via_api(client_name)
   end
 end
 
-def create_contact_via_api(client_name, city, state, country, zip)
+def create_contact_via_api(client_name, city = '',  state = '', country = '', zip = '')
   api_client do
     @contact_id = @api_client.create!('Contact', LastName: client_name,
                                       MailingCity: city,
