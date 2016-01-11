@@ -3,7 +3,7 @@ When(/^I click Refresh Opportuniites$/) do
 end
 
 When(/^I create a "([^"]*)" recurring donation for "([^"]*)" months for "([^"]*)"$/) do |period, number, amount|
-  create_contact_via_api('arecurringdonation' + @random_string, '', '', '', '')
+  create_contact_via_api('arecurringdonation' + @random_string)
   on(NPSPRecurringDonationsPage) do |page|
     page.new_button_element.when_present.click
     page.donation_name_element.when_present.send_keys @random_string
