@@ -20,7 +20,12 @@ Given(/^I see the Primary Contact$/) do
 end
 
 When(/^I click Manage Household Save$/) do
-  on(ManageHouseholdsPage).manage_household_save
+  on(ManageHouseholdsPage) do |page|
+    page.wait_until do
+      page.manage_household_save_element.when_present.disabled? == false
+    end
+    page.manage_household_save_element.click
+  end
 end
 
 Then(/^I should be on the Account page$/) do
@@ -35,6 +40,10 @@ end
 
 Then(/^I should see the new address$/) do
   expect(on(ManageHouseholdsPage).account_address_field).to match /street.+city, state zip.+country/m
+end
+
+Then(/^I should see the new address containing "([^"]*)" and "([^"]*)" and "([^"]*)" and "([^"]*)" and "([^"]*)"$/) do |street, city, state, zip, country|
+  expect(on(ManageHouseholdsPage).account_address_field).to match /#{street}.+#{city}, #{state} #{zip}.+#{country}/m
 end
 
 Given(/^I change the Account Model to "([^"]*)"$/) do |to_value|
@@ -188,6 +197,13 @@ When(/^I type "([^"]*)" into search box$/) do |search_string|
       page.member_search_box_element.send_keys(:backspace)
     end
     page.member_search_box_element.when_present.send_keys search_string
+  end
+end
+
+When(/^I type the random string into search box$/) do
+  on(ManageHouseholdsPage) do |page|
+    page.member_search_box_element.when_present.click #search box needs focus for Chrome
+    page.member_search_box_element.when_present.send_keys @random_string
   end
 end
 
