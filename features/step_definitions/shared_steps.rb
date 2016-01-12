@@ -7,8 +7,8 @@ Given(/^I create a new Contact via the API$/) do
   create_contact_via_api("aaaatestcontact#{@random_string}")
 end
 
-Given(/^I create a new Contact via the API with address "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)"$/) do |city, state, country, zip|
-  create_contact_via_api("aaaatestcontact#{@random_string}", city, state, country, zip)
+Given(/^I create a new Contact via the API with address "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)"$/) do |street, city, state, country, zip|
+  create_contact_via_api("aaaatestcontact#{@random_string}", street, city, state, country, zip)
 end
 
 Given(/^I create a new Opportunity via the API with stage name "([^"]*)" and close date "([^"]*)" and amount "([^"]*)"$/) do |stage_name, close_date, amount|
