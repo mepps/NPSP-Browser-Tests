@@ -1,4 +1,9 @@
 
+Given(/^I create two Contacts "([^"]*)" and "([^"]*)" to be added to Household$/) do |con1, con2|
+  create_contact_via_api(con1)
+  create_contact_via_api(con2)
+end
+
 Given(/^I see Contact name$/) do
   expect(on(ManageHouseholdsPage).card_contact_link_element.text).to eq "aaaatestcontact#{@random_string}"
 end
@@ -19,49 +24,12 @@ Given(/^I see the Primary Contact$/) do
   expect(on(ManageHouseholdsPage).primary_contact).to eq "aaaatestcontact#{@random_string}"
 end
 
-When(/^I click Manage Household Save$/) do
-  on(ManageHouseholdsPage) do |page|
-    page.wait_until do
-      page.manage_household_save_element.when_present.disabled? == false
-    end
-    page.manage_household_save_element.click
-  end
-end
-
-Then(/^I should be on the Account page$/) do
-  on(ManageHouseholdsPage) do |page|
-    page.wait_until do
-      page.page_title_element.when_present
-    end
-    expect(page.page_title).to eq "aaaatestcontact#{@random_string} Household"
-    expect(page.account_label).to eq 'Account'
-  end
-end
-
-Then(/^I should see the new address$/) do
-  expect(on(ManageHouseholdsPage).account_address_field).to match /street.+city, state zip.+country/m
-end
-
-Then(/^I should see the new address containing "([^"]*)" and "([^"]*)" and "([^"]*)" and "([^"]*)" and "([^"]*)"$/) do |street, city, state, zip, country|
-  expect(on(ManageHouseholdsPage).account_address_field).to match /#{street}.+#{city}, #{state} #{zip}.+#{country}/m
-end
-
-Given(/^I change the Account Model to "([^"]*)"$/) do |to_value|
-  update_account_model(to_value)
-end
-
-Given(/^I create two Contacts "([^"]*)" and "([^"]*)" to be added to Household$/) do |con1, con2|
-  create_contact_via_api(con1)
-  create_contact_via_api(con2)
-end
-
-
 When(/^I add to household with Add option$/) do
   on(ManageHouseholdsPage) do |page|
     page.wait_until do
       page.add_button_element.when_present.disabled? == false
     end
-      page.add_button_element.click
+    page.add_button_element.click
   end
 end
 
@@ -83,6 +51,15 @@ end
 
 When(/^I click Manage Household$/) do
   on(ManageHouseholdsPage).manage_households_button_element.when_present.click
+end
+
+When(/^I click Manage Household Save$/) do
+  on(ManageHouseholdsPage) do |page|
+    page.wait_until do
+      page.manage_household_save_element.when_present.disabled? == false
+    end
+    page.manage_household_save_element.click
+  end
 end
 
 When(/^I click New Contact$/) do
@@ -174,12 +151,12 @@ end
 
 When(/^I select "([^"]*)" and Go$/) do |account_view|
   on(ManageHouseholdsPage) do |page|
-      page.view_select_list_element.when_present
-      page.view_select_list=account_view
-      page.go_button_element.when_present.click
+    page.view_select_list_element.when_present
+    page.view_select_list=account_view
+    page.go_button_element.when_present.click
     sleep 4
-    end
   end
+end
 
 When(/^I select the first result$/) do
   on(ManageHouseholdsPage) do |page|
@@ -207,6 +184,20 @@ When(/^I type the random string into search box$/) do
   end
 end
 
+Then(/^I should be on the Account page$/) do
+  on(ManageHouseholdsPage) do |page|
+    page.wait_until do
+      page.page_title_element.when_present
+    end
+    expect(page.page_title).to eq "aaaatestcontact#{@random_string} Household"
+    expect(page.account_label).to eq 'Account'
+  end
+end
+
+Then(/^I should be on the regular Households page$/) do
+  expect(on(ManageHouseholdsPage).regular_page_detail_block_element.when_present).to be_visible
+end
+
 Then(/^I should see all three checkboxes checked$/) do
   on(ManageHouseholdsPage) do |page|
     expect(page.exclude_formal_greeting_original_checked?).to be true
@@ -231,6 +222,14 @@ Then(/^I should see the Household Naming section$/) do
   expect(on(ManageHouseholdsPage).household_naming_element.when_present).to be_visible
 end
 
+Then(/^I should see the new address$/) do
+  expect(on(ManageHouseholdsPage).account_address_field).to match /street.+city, state zip.+country/m
+end
+
+Then(/^I should see the new address containing "([^"]*)" and "([^"]*)" and "([^"]*)" and "([^"]*)" and "([^"]*)"$/) do |street, city, state, zip, country|
+  expect(on(ManageHouseholdsPage).account_address_field).to match /#{street}.+#{city}, #{state} #{zip}.+#{country}/m
+end
+
 Then(/^I should see three Household Member entries$/) do
   on(ManageHouseholdsPage) do |page|
     expect(page.household_member_second_element.when_present).to be_visible
@@ -241,8 +240,4 @@ end
 
 Then(/^the five address fields should appear in the Household Address section in the correct order$/) do
   expect(on(ManageHouseholdsPage).household_address_field).to match /street.+city.+state.+zip.+country/m
-end
-
-Then(/^I should be on the regular Households page$/) do
-  expect(on(ManageHouseholdsPage).regular_page_detail_block_element.when_present).to be_visible
 end
