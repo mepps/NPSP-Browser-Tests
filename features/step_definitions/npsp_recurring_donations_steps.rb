@@ -35,7 +35,7 @@ end
 
 Then(/^I should see "([^"]*)" monthly donations for "([^"]*)"$/) do |number, amount|
   on(NPSPRecurringDonationsPage) do |page|
-    page.wait_until do
+    page.wait_until(15) do
       page.donations_section_element.visible? == true
       !page.donations_section.match ('Loading')
     end
