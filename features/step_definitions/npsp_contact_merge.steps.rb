@@ -29,6 +29,7 @@ end
 
 When(/^I merge the contacts$/) do
   on(NPSPContactMergePage).merge_contact_button
+
   step 'I navigate to Contacts'
 
   on(NPSPContactsPage) do |page|

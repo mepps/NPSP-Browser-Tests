@@ -3,7 +3,7 @@ Given(/^I navigate to Batch Data Entry page$/) do
 end
 
 Given(/^I navigate to Contacts$/) do
-  on(NPSPMainPage).contacts_tab_on_page
+  on(NPSPMainPage).contacts_tab_on_page_element.when_present.click
 end
 
 Given(/^I navigate to Contact Merge$/) do
