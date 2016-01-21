@@ -27,7 +27,7 @@ end
 When(/^I add to household with Add option$/) do
   on(ManageHouseholdsPage) do |page|
     page.wait_until do
-      page.add_button_element.when_present.disabled? == false
+      page.add_button_element.when_present(15).disabled? == false
     end
     page.add_button_element.click
   end
