@@ -20,8 +20,7 @@ end
 Then(/^I should see the Recurring Donations home page$/) do
   on(NPSPMainPage) do |page|
     page.wait_until(15) do
-      page.donations_section_element.visible? == true
-      !page.donations_section.match ('Loading')
+      page.home_page_text_element.visible? == true
     end
     expect(page.home_page_text).to match 'Recurring Donations'
     expect(page.home_page_text).to match 'Home'
