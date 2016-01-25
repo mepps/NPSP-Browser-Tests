@@ -1,19 +1,7 @@
 module Sfdc_api_npsp
-  def is_valid_obj_hash?(object_name, obj_hash)
-    required_fields = get_object_describe(object_name).map{|x| x.fieldName}
-    #   [name, id, required_field_1__c, etc]
-    valid = true
-    required_fields.each do |f|
 
-      # NPSP will automatically create certain fields on certain objects based on required input values for those records.
-      # There is no way to know in advance from the API which these are, so we find them empirically and handle them.
-      fields_acceptibly_nil = {'Contact': ['Name'],
-                               'Opportunity': ['ForecastCategory']}
-
-      valid = false if((!obj_hash.has_key? f.to_sym) and (!fields_acceptibly_nil[object_name].contains? f rescue false))
-    end
-    valid
-  end
+  @fields_acceptibly_nil = {'Contact': ['Name'],
+   'Opportunity': ['ForecastCategory']}
 
   def create_account_via_api(client_name)
     @account_id = create 'Account', {Name:client_name}

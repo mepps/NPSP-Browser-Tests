@@ -8,12 +8,22 @@ module Sfdc_api
   end
 
   def create(type, obj_hash)
-    if is_valid_obj_hash?(type, obj_hash)
+    if is_valid_obj_hash?(type, obj_hash, @fields_acceptibly_nil)
       objId = api_client do
         @api_client.create! type, obj_hash
       end
     end
     objId
+  end
+
+  def is_valid_obj_hash?(object_name, obj_hash, fields_acceptibly_nil)
+    required_fields = get_object_describe(object_name).map{|x| x.fieldName}
+    #   [name, id, required_field_1__c, etc]
+    valid = true
+    required_fields.each do |f|
+      valid = false if((!obj_hash.has_key? f.to_sym) and (!fields_acceptibly_nil[object_name].contains? f rescue false))
+    end
+    valid
   end
 
   def get_object_describe(object_name)
@@ -29,8 +39,6 @@ module Sfdc_api
             :default => x.defaultValue)
       end
       required.select{|y| y.required}
-
     end
   end
-
 end
