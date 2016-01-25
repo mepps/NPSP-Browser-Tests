@@ -63,7 +63,7 @@ end
 
 def create_gau_via_api(gau_name)
   api_client do
-    @gau_id = @api_client.create!('npsp__General_Accounting_Unit__c', Name: gau_name)
+    @gau_id = create 'npsp__General_Accounting_Unit__c', {Name: gau_name}
   end
 end
 
