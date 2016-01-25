@@ -1,9 +1,9 @@
 module Sfdo_api
   def api_client
-    @api_client ||= Restforce.new :api_version => '32.0',
-                                  :refresh_token => ENV['SF_REFRESH_TOKEN'],
-                                  :client_id => ENV['SF_CLIENT_KEY'],
-                                  :client_secret => ENV['SF_CLIENT_SECRET']
+    @api_client ||= Restforce.new api_version: '32.0',
+                                  refresh_token: ENV['SF_REFRESH_TOKEN'],
+                                  client_id: ENV['SF_CLIENT_KEY'],
+                                  client_secret: ENV['SF_CLIENT_SECRET']
     yield
   end
 
@@ -17,11 +17,15 @@ module Sfdo_api
   end
 
   def is_valid_obj_hash?(object_name, obj_hash, fields_acceptibly_nil)
-    required_fields = get_object_describe(object_name).map{|x| x.fieldName}
+    required_fields = get_object_describe(object_name).map(&:fieldName)
     #   [name, id, required_field_1__c, etc]
     valid = true
     required_fields.each do |f|
-      valid = false if((!obj_hash.has_key? f.to_sym) and (!fields_acceptibly_nil[object_name].contains? f rescue false))
+      valid = false if (!obj_hash.key? f.to_sym) && (begin
+                                                       !fields_acceptibly_nil[object_name].contains? f
+                                                     rescue
+                                                       false
+                                                     end)
     end
     valid
   end
@@ -34,11 +38,11 @@ module Sfdo_api
 
       required = describeobject.fields.map do |x|
         Hashie::Mash.new(
-            :fieldName => x.name,
-            :required => (!x.nillable && !x.defaultedOnCreate),
-            :default => x.defaultValue)
+          fieldName: x.name,
+          required: (!x.nillable && !x.defaultedOnCreate),
+          default: x.defaultValue)
       end
-      required.select{|y| y.required}
+      required.select(&:required)
     end
   end
 end
