@@ -4,7 +4,10 @@ require 'watir-webdriver'
 require 'restforce'
 # need to require_relative below
 require_relative 'modules/sfdc_api'
+require_relative 'modules/sfdc_api_npsp'
 include Sfdc_api
+include Sfdc_api_npsp
+
 
 World(PageObject::PageFactory)
 
