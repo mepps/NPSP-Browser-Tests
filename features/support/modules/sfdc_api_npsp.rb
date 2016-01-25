@@ -54,7 +54,7 @@ end
 def create_contacts_with_household_object_via_api(hh_obj, contact_name)
   api_client do
     @hh_obj_id = create 'npo02__Household__c', {Name: hh_obj}
-    @contact_id = @api_client.create!('Contact', LastName: contact_name, npo02__Household__c: @hh_obj_id)
+    @contact_id = create 'Contact', {LastName: contact_name, npo02__Household__c: @hh_obj_id}
     @array_of_contacts << @contact_id
     @contact_id = create 'Contact', {LastName: contact_name, MailingCity: "hhmailingcity", npo02__Household__c: @hh_obj_id}
     @array_of_contacts << @contact_id
