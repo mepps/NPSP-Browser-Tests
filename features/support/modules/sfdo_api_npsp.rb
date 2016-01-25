@@ -1,30 +1,26 @@
 module Sfdo_api_npsp
-
   @fields_acceptibly_nil = {'Contact': ['Name'],
-   'Opportunity': ['ForecastCategory']}
+                            'Opportunity': ['ForecastCategory']}
 
   def create_account_via_api(client_name)
     @account_id = create 'Account', {Name:client_name}
   end
 
   def create_contact_via_api(client_name, street = '', city = '',  state = '', country = '', zip = '')
-    api_client do
-      @contact_id = create 'Contact', {LastName: client_name,
-                                       MailingStreet: street,
-                                       MailingCity: city,
-                                       MailingState: state,
-                                       MailingCountry: country,
-                                       MailingPostalCode: zip}
-      @contact_name = client_name
-      account_object = @api_client.query("select AccountId from Contact where Id = '#{@contact_id}'")
-      my_account_object = account_object.first
-      @account_id_for_contact = my_account_object.AccountId
-      @array_of_contacts << @contact_id
-    end
+    @contact_id = create 'Contact', {LastName: client_name,
+                                     MailingStreet: street,
+                                     MailingCity: city,
+                                     MailingState: state,
+                                     MailingCountry: country,
+                                     MailingPostalCode: zip}
+    @contact_name = client_name
+    account_object = @api_client.query("select AccountId from Contact where Id = '#{@contact_id}'")
+    my_account_object = account_object.first
+    @account_id_for_contact = my_account_object.AccountId
+    @array_of_contacts << @contact_id
   end
 
-def create_two_contacts_on_account_via_api(client_name1, client_name2)
-  api_client do
+  def create_two_contacts_on_account_via_api(client_name1, client_name2)
     @contact_id = create 'Contact', {LastName: client_name1}
     @contact_name = client_name1
     @array_of_contact_names << client_name1
@@ -37,45 +33,34 @@ def create_two_contacts_on_account_via_api(client_name1, client_name2)
     @array_of_contact_names << client_name2
     @array_of_contacts << @contact_id
   end
-end
 
 def create_contacts_with_household_object_via_api(hh_obj, contact_name)
-  api_client do
-    @hh_obj_id = create 'npo02__Household__c', {Name: hh_obj}
-    @contact_id = create 'Contact', {LastName: contact_name, npo02__Household__c: @hh_obj_id}
-    @array_of_contacts << @contact_id
-    @contact_id = create 'Contact', {LastName: contact_name, MailingCity: "hhmailingcity", npo02__Household__c: @hh_obj_id}
-    @array_of_contacts << @contact_id
-  end
+  @hh_obj_id = create 'npo02__Household__c', {Name: hh_obj}
+  @contact_id = create 'Contact', {LastName: contact_name, npo02__Household__c: @hh_obj_id}
+  @array_of_contacts << @contact_id
+  @contact_id = create 'Contact', {LastName: contact_name, MailingCity: "hhmailingcity", npo02__Household__c: @hh_obj_id}
+  @array_of_contacts << @contact_id
 end
 
 def create_gau_via_api(gau_name)
-  api_client do
-    @gau_id = create 'npsp__General_Accounting_Unit__c', {Name: gau_name}
-  end
+  @gau_id = create 'npsp__General_Accounting_Unit__c', {Name: gau_name}
 end
 
 def create_lead_via_api(last_name, company)
-  api_client do
-    @lead_id = create 'Lead', {LastName: last_name, Company: company}
-  end
+  @lead_id = create 'Lead', {LastName: last_name, Company: company}
 end
 
 def create_opportunity_via_api(client_name, stage_name, close_date, amount)
-  api_client do
-    @opportunity_id = create 'Opportunity',
-                                          {Name: client_name,
-                                          StageName: stage_name,
-                                          CloseDate: close_date,
-                                          Amount: amount.to_i,
-                                          AccountId: @account_id_for_contact}
-  end
+  @opportunity_id = create 'Opportunity',
+                           {Name: client_name,
+                            StageName: stage_name,
+                            CloseDate: close_date,
+                            Amount: amount.to_i,
+                            AccountId: @account_id_for_contact}
 end
 
 def create_relationship_via_api(contact, related_contact)
-  api_client do
-    @relationshiop_id =  create 'npe4__Relationship__c', {npe4__Contact__c: contact, npe4__RelatedContact__c: related_contact}
-  end
+  @relationshiop_id =  create 'npe4__Relationship__c', {npe4__Contact__c: contact, npe4__RelatedContact__c: related_contact}
 end
 
 def delete_account_via_api
