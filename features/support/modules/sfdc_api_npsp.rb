@@ -37,14 +37,14 @@ module Sfdc_api_npsp
 
 def create_two_contacts_on_account_via_api(client_name1, client_name2)
   api_client do
-    @contact_id = @api_client.create!('Contact', LastName: client_name1)
+    @contact_id = create 'Contact', {LastName: client_name1}
     @contact_name = client_name1
     @array_of_contact_names << client_name1
     account_object = @api_client.query("select AccountId from Contact where Id = '#{@contact_id}'")
     my_account_object = account_object.first
     @account_id_for_contact = my_account_object.AccountId
     @array_of_contacts << @contact_id
-    @contact_id = @api_client.create!('Contact', LastName: client_name2, AccountId: @account_id)
+    @contact_id = create 'Contact', {LastName: client_name2, AccountId: @account_id}
     @contact_name = client_name2
     @array_of_contact_names << client_name2
     @array_of_contacts << @contact_id
