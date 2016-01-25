@@ -1,4 +1,4 @@
-module Sfdc_api_npsp
+module Sfdo_api_npsp
 
   @fields_acceptibly_nil = {'Contact': ['Name'],
    'Opportunity': ['ForecastCategory']}

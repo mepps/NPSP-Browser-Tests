@@ -1,4 +1,4 @@
-module Sfdc_api
+module Sfdo_api
   def api_client
     @api_client ||= Restforce.new :api_version => '32.0',
                                   :refresh_token => ENV['SF_REFRESH_TOKEN'],
