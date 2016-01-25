@@ -69,24 +69,24 @@ end
 
 def create_lead_via_api(last_name, company)
   api_client do
-    @lead_id = @api_client.create!('Lead', LastName: last_name, Company: company)
+    @lead_id = create 'Lead', {LastName: last_name, Company: company}
   end
 end
 
 def create_opportunity_via_api(client_name, stage_name, close_date, amount)
   api_client do
-    @opportunity_id = @api_client.create!('Opportunity',
-                                          Name: client_name,
+    @opportunity_id = create 'Opportunity',
+                                          {Name: client_name,
                                           StageName: stage_name,
                                           CloseDate: close_date,
                                           Amount: amount.to_i,
-                                          AccountId: @account_id_for_contact)
+                                          AccountId: @account_id_for_contact}
   end
 end
 
 def create_relationship_via_api(contact, related_contact)
   api_client do
-    @relationshiop_id = @api_client.create!('npe4__Relationship__c', npe4__Contact__c: contact, npe4__RelatedContact__c: related_contact)
+    @relationshiop_id =  create 'npe4__Relationship__c', {npe4__Contact__c: contact, npe4__RelatedContact__c: related_contact}
   end
 end
 
