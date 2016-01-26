@@ -14,3 +14,15 @@ Then(/^I should see the Lead Convert page for the Lead$/) do
     expect(page.cancel_button_element).to be_visible
   end
 end
+
+  When(/^I click the Convert button$/) do
+    on(NPSPLeadConvertPage).convert_button
+  end
+
+  Then(/^I should be on the Contact page$/) do
+    pending # Write code here that turns the phrase above into concrete actions
+  end
+
+  Then(/^I should see the name of the Lead$/) do
+    pending # Write code here that turns the phrase above into concrete actions
+  end
