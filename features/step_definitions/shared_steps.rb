@@ -34,6 +34,16 @@ When(/^I wait for the page to revert$/) do
   end
 end
 
+Then(/^I should be on the Account page$/) do
+  on(ManageHouseholdsPage) do |page|
+    page.wait_until do
+      page.page_title_element.when_present
+    end
+    expect(page.page_title).to eq "aaaatestcontact#{@random_string} Household"
+    expect(page.account_label).to eq 'Account'
+  end
+end
+
 Then(/^I should see the Payment page$/) do
   on(PaymentWizardPage) do |page|
     page.wait_until do
