@@ -46,32 +46,3 @@ end
 Then(/^the payment amount should be "([^"]*)"$/) do |payment_amount|
   expect(on(PaymentWizardPage).payment_page_amount).to eq payment_amount
 end
-
-# THE STEPS BELOW ARE NEVER TO BE USED IN A JENKINS BUILD
-# BECAUSE THEY LEAK PASSWORDS IN THE SAUCELABS SELENIUM LOGS.
-# PLEASE USE THE OAUTH LOGIN STEPS ABOVE INSTEAD
-
-Given(/^I login with environment variables$/) do
-  visit(LoginPage).login_with_env_vars
-end
-
-Given(/^I login to settings with environment variables$/) do
-  visit(LoginPage, using_params: {:redirect_to => '?startURL=apex%2FSTG_SettingsManager'}) do |page|
-    page.login_with_env_vars
-  end
-end
-
-Given(/^I delete the account$/) do
-  delete_account_via_api
-end
-
-Then(/^I should be on the Account page$/) do
-  on(ManageHouseholdsPage) do |page|
-    page.wait_until do
-      page.page_title_element.when_present
-    end
-    expect(page.page_title).to eq "aaaatestcontact#{@random_string} Household"
-    expect(page.account_label).to eq 'Account'
-  end
-end
-
