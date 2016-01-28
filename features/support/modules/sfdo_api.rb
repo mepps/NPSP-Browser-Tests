@@ -9,11 +9,11 @@ module Sfdo_api
 
   def create(type, obj_hash)
     if is_valid_obj_hash?(type, obj_hash, @fields_acceptibly_nil)
-      objId = api_client do
+      obj_id = api_client do
         @api_client.create! type, obj_hash
       end
     end
-    objId
+    obj_id
   end
 
   def is_valid_obj_hash?(object_name, obj_hash, fields_acceptibly_nil)
