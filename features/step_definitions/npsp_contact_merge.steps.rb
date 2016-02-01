@@ -33,6 +33,9 @@ When(/^I merge the contacts$/) do
   step 'I navigate to Contacts'
 
   on(NPSPContactsPage) do |page|
+    page.wait_until do
+      page.all_contacts_element.visible? == true
+    end
     page.all_contacts = 'All Contacts'
     page.go_button
     page.wait_until do
