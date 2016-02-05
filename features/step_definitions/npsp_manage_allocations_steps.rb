@@ -65,7 +65,11 @@ Then(/^I should see a remainder of "([^"]*)"$/) do |rem|
   expect(on(NPSPManageAllocationsPage).remainder_amount).to eq rem
 end
 
-Then(/^I should see the Save button disabled$/) do
-  expect(on(NPSPManageAllocationsPage).save_and_close_button_element.disabled?).to be true
+Then(/^I should see an error message "([^"]*)"$/) do |msg|
+  on(NPSPManageAllocationsPage) do |page|
+    page.wait_until do
+      page.error_message_element.visible? == true
+    end
+  expect(page.error_message).to match msg
+  end
 end
-

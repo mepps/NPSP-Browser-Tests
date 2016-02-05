@@ -3,7 +3,8 @@ class NPSPManageAllocationsPage
 
   button(:add_row_button, name: /addRowBTN/)
   button(:delete_row_button, name: /delRowBTN/)
-  button(:save_and_close_button, name: /saveCloseBTN/)
+  div(:error_message, class: 'message errorM3')
+  button(:save_and_close_button, value: 'Save & Close')
   text_field(:first_gau_field, name: /theForm/, index: 0)
   text_field(:first_row_amount, name: /theForm/, index: 1)
   text_field(:first_row_percent, name: /theForm/, index: 2)
