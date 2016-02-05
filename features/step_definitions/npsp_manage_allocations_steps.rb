@@ -66,5 +66,10 @@ Then(/^I should see a remainder of "([^"]*)"$/) do |rem|
 end
 
 Then(/^I should see an error message "([^"]*)"$/) do |msg|
-  expect(on(NPSPManageAllocationsPage).error_message).to match msg
+  on(NPSPManageAllocationsPage) do |page|
+    page.wait_until do
+      page.error_message_element.visible? == true
+    end
+  expect(page.error_message).to match msg
+  end
 end
