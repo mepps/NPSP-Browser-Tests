@@ -20,13 +20,15 @@ Feature: NPSP Manage Allocations Page Test
     When I navigate to the Manage Allocations page
       And I enter "1001" in the Amount for the first row for the first GAU
     Then I should see a remainder of "$-1.00"
-      And I should see the Save button disabled
+      And I click Save
+      And I should see an error message "Opportunity allocation totals cannot exceed the amount of the opportunity."
 
   Scenario: Manage Allocations percent error
     When I navigate to the Manage Allocations page
       And I enter "101" in the Percent for the first row for the first GAU
     Then I should see a remainder of "$-10.00"
-      And I should see the Save button disabled
+      And I click Save
+      And I should see an error message "Opportunity allocation totals cannot exceed the amount of the opportunity."
 
   Scenario: Manage Allocations GAU error
     When I navigate to the Manage Allocations page
@@ -34,4 +36,5 @@ Feature: NPSP Manage Allocations Page Test
       And I enter "1000" in the Amount for the first row for the first GAU
       And I enter "10" in the Percent for the second row for the first GAU
     Then I should see a remainder of "$-100.00"
-      And I should see the Save button disabled
+      And I click Save
+      And I should see an error message "Opportunity allocation totals cannot exceed the amount of the opportunity."
