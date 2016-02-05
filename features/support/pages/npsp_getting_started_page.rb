@@ -2,8 +2,6 @@ class NPSPGettingStartedPage
   include PageObject
 
   div(:page_contents, class: 'bootstrap')
-  div(:left_side_contents, class: 'col-md-6', index: 0)
-  div(:right_side_contents, class: 'col-md-6', index: 1)
   a(:salesforce_fundamentals_link, href: 'https://powerofus.force.com/articles/Resource/Salesforce-Fundamentals')
   a(:beginner_admin_trail_link, href: 'https://developer.salesforce.com/trailhead/trail/force_com_admin_beginner')
   a(:this_interactive_learning_path_link, href: 'https://developer.salesforce.com/trailhead/trail/nonprofit_fundraising')
