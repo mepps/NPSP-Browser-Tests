@@ -23,12 +23,12 @@ When(/^I select the second Contact as the winning Contact$/) do
     page.check_contact_checkbox_second
     page.check_contact_checkbox_third
     page.next_button
-    page.choose_contact_second_element.click
+    page.choose_contact_second_element.when_present.click
   end
 end
 
 When(/^I merge the contacts$/) do
-  on(NPSPContactMergePage).merge_contact_button
+  on(NPSPContactMergePage).merge_contact_button_element.when_present(10).click
 
   step 'I navigate to Contacts'
 
