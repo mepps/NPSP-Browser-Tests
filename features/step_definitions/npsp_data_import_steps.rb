@@ -20,8 +20,9 @@ end
 
 Then(/^I should see the Data Import status$/) do
   on(NPSPDataImportPage) do |page|
+    page.page_contents_element.when_present
     page.wait_until do
-      page.page_contents.match /Current Status: Completed/
+      page.page_contents.match /Current Status.+Completed/m
     end
     expect(page.page_contents).to match /Time.+Records processed.+Records imported.+Records failed/m
   end

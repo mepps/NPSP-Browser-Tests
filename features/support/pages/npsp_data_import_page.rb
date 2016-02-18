@@ -1,10 +1,10 @@
 class NPSPDataImportPage
   include PageObject
 
-  text_field(:batch_size, name: /idForm:tbxBS/)
-  select_list(:contact_matching, name: /idForm:slCMR/)
-  select_list(:contact_custom, name: /idForm:slCCUI/)
-  select_list(:account_custom, name: /idForm:slACUI/)
-  button(:begin_button , class: 'btn btn btn-md btn-success')
-  div(:page_contents, class: 'bootstrap')
+  text_field(:batch_size, index: 0)
+  select_list(:contact_matching, index: 0)
+  select_list(:contact_custom, index: 1)
+  select_list(:account_custom, index: 2)
+  button(:begin_button , value: 'Begin Data Import Process')
+  div(:page_contents, class: 'slds-tile__detail')
 end
