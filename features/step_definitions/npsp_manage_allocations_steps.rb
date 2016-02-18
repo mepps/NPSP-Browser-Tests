@@ -73,3 +73,7 @@ Then(/^I should see an error message "([^"]*)"$/) do |msg|
   expect(page.error_message).to match msg
   end
 end
+
+Then(/^I should see the Save button disabled$/) do
+  expect(on(NPSPManageAllocationsPage).save_and_close_button_element.disabled?).to be true
+end
