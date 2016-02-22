@@ -14,3 +14,19 @@ Then(/^I should see the Lead Convert page for the Lead$/) do
     expect(page.cancel_button_element).to be_visible
   end
 end
+
+When(/^I click Convert$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I should be on the new Contact page for the Lead$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I should be able to click the link to the Household Account for the contact$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^the Lead record for this person should no longer exist$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
