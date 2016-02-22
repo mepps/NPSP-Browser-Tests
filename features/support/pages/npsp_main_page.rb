@@ -5,6 +5,7 @@ class NPSPMainPage
   a(:contacts_tab, class: 'contactBlock')
   a(:contacts_tab_on_page, text: 'Contacts')
   img(:getting_started_link, title: 'Getting Started')
+  a(:leads_tab, text: 'Leads')
   a(:recurring_donations_link, text: 'Recurring Donations')
   a(:npsp_settings_link, text: 'NPSP Settings')
   a(:opportunities_link, text: 'Opportunities')

@@ -41,5 +41,11 @@ Then(/^I should be able to click the link to the Household Account for the conta
 end
 
 Then(/^the Lead record for this person should no longer exist$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  step 'I navigate to Leads'
+  on(NPSPLeadConvertPage) do |page|
+    page.wait_until do
+      page.recent_leads_section_element.visible? == true
+    end
+    expect(on(NPSPLeadConvertPage).recent_leads_section).to match 'No recent records'
+  end
 end

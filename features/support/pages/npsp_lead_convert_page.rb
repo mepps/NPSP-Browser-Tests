@@ -12,5 +12,6 @@ class NPSPLeadConvertPage
   text_field(:opportunity_name, name: /pbEdit/, index: 1)
   h1(:page_type, class: 'pageType')
   h2(:page_description, class: 'pageDescription')
+  div(:recent_leads_section, class: 'bRelatedList')
 
 end
