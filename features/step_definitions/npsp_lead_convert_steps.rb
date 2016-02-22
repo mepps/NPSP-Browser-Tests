@@ -16,15 +16,28 @@ Then(/^I should see the Lead Convert page for the Lead$/) do
 end
 
 When(/^I click Convert$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(NPSPLeadConvertPage) do |page|
+    page.convert_button
+    page.convert_button_element.when_not_present
+  end
 end
 
 Then(/^I should be on the new Contact page for the Lead$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(NPSPLeadConvertPage) do |page|
+    expect(page.page_type).to eq 'Contact'
+    expect(page.page_description).to eq @random_string
+  end
 end
 
 Then(/^I should be able to click the link to the Household Account for the contact$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(NPSPLeadConvertPage) do |page|
+    page.household_link
+    page.wait_until do
+      page.page_type_element.visible? == true
+    end
+    expect(page.page_type).to eq 'Account'
+    expect(page.page_description).to eq "#{@random_string} Household"
+  end
 end
 
 Then(/^the Lead record for this person should no longer exist$/) do
