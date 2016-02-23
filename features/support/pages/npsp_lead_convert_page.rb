@@ -7,7 +7,11 @@ class NPSPLeadConvertPage
   select_list(:converted_status, name: /pbEdit/, index: 2)
   checkbox(:do_not_create_opp, name: /pbEdit/, index: 1)
   checkbox(:email_to_owner_checkbox, name: /pbEdit/, index: 0)
+  a(:household_link, text: /Household/)
   select_list(:opportunity_account, name: /pbEdit/, index: 1)
   text_field(:opportunity_name, name: /pbEdit/, index: 1)
+  h1(:page_type, class: 'pageType')
+  h2(:page_description, class: 'pageDescription')
+  div(:recent_leads_section, class: 'bRelatedList')
 
 end

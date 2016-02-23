@@ -7,3 +7,9 @@ Feature: Lead Convert test
   @smoketest
   Scenario: Check Lead Convert page
     Then I should see the Lead Convert page for the Lead
+
+  Scenario: Convert Lead to Contact
+    When I click Convert
+    Then I should be on the new Contact page for the Lead
+      And I should be able to click the link to the Household Account for the contact
+      And the Lead record for this person should no longer exist

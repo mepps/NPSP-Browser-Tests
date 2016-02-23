@@ -42,6 +42,10 @@ Given(/^I navigate to Opportunity$/) do
   on(NPSPMainPage).opportunities_link_element.when_present(15).click
 end
 
+Given(/^I navigate to Leads$/) do
+  on(NPSPMainPage).leads_tab_element.when_present(15).click
+end
+
 Given(/^I navigate to Payment Wizard for that Opportunity$/) do
   @browser.goto($target_org_url + '/apex/PMT_PaymentWizard?id=' + @opportunity_id + '&wtype=payment')
 end
