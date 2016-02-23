@@ -27,6 +27,13 @@ Then(/^I should be able to click the link to the Household Account for the conta
   end
 end
 
+Then(/^I should be on the Lead page for the Contact$/) do
+  on(NPSPLeadConvertPage) do |page|
+    expect(page.page_type).to eq 'Lead'
+    expect(page.page_description).to eq @random_string
+  end
+end
+
 Then(/^I should be on the new Contact page for the Lead$/) do
   on(NPSPLeadConvertPage) do |page|
     expect(page.page_type).to eq 'Contact'
