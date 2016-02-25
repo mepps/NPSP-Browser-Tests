@@ -6,4 +6,6 @@ gem 'page-object'
 gem 'rspec'
 gem 'cucumber'
 gem 'restforce'
+gem 'SFDO-API'
+gem 'pry'
 gem 'rubocop', require: false

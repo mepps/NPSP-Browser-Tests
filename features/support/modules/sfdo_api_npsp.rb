@@ -1,8 +1,7 @@
 module Sfdo_api_npsp
-
   # NPSP will automatically create certain fields on certain objects based on required input values for those records.
   # There is no way to know in advance from the API which these are, so we find them empirically and note them here
-  # before calling the create() method in Sfdo_api
+  # before calling the create() method in SfdoAPI
   @fields_acceptibly_nil = { 'Contact': ['Name'],
                              'Opportunity': ['ForecastCategory'] }
 
@@ -17,6 +16,8 @@ module Sfdo_api_npsp
                                     MailingState: state,
                                     MailingCountry: country,
                                     MailingPostalCode: zip
+    #binding.pry
+    puts 'this is Contact Id ' + @contact_id.to_s
     @contact_name = client_name
     account_object = @api_client.query("select AccountId from Contact where Id = '#{@contact_id}'")
     my_account_object = account_object.first
