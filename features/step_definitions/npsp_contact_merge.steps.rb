@@ -16,19 +16,19 @@ end
 
 When(/^I select the second Contact as the winning Contact$/) do
   on(NPSPContactMergePage) do |page|
-    page.wait_until do
-      page.contact_checkbox_first_element.visible?
-    end
-    page.check_contact_checkbox_first
-    page.check_contact_checkbox_second
-    page.check_contact_checkbox_third
-    page.next_button
+    page.contact_checkbox_first_element.when_present.click
+    page.contact_checkbox_second_element.when_present.click
+    page.contact_checkbox_third_element.when_present.click
+    page.next_button_element.when_present.click
     page.choose_contact_second_element.when_present.click
   end
 end
 
 When(/^I merge the contacts$/) do
-  on(NPSPContactMergePage).merge_contact_button_element.when_present(10).click
+  on(NPSPContactMergePage) do |page|
+    page.merge_contact_button_element.when_present(10).click
+    page.modal_merge_button_element.when_present.click
+  end
 
   step 'I navigate to Contacts'
 
