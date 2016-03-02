@@ -45,7 +45,12 @@ When(/^I merge the contacts$/) do
 end
 
 When(/^I select details among the three Contact records$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(NPSPContactMergePage) do |page|
+    page.mailing_city1_element.when_present.click
+    page.country3_element.click
+    page.zip1_element.click
+    page.state3_element.click
+  end
 end
 
 Then(/^I should see the details captured in the resulting contact record$/) do
