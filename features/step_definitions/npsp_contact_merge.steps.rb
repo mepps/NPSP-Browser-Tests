@@ -1,9 +1,9 @@
 Given(/^I create three Contacts "([^"]*)" and "([^"]*)" and "([^"]*)"$/) do |con1, con2, con3|
-  create_contact_via_api(con1)
+  create_contact_via_api(con1, con1 + 'street', con1 + 'city', con1 +'state', con1 + 'country', con1 + 'zip')
   @array_of_contacts << @contact_id
-  create_contact_via_api(con2)
+  create_contact_via_api(con2, con2 + 'street', con2 + 'city', con2 +'state', con2 + 'country', con2 + 'zip')
   @array_of_contacts << @contact_id
-  create_contact_via_api(con3)
+  create_contact_via_api(con3, con3 + 'street', con3 + 'city', con3 +'state', con3 + 'country', con3 + 'zip')
   @array_of_contacts << @contact_id
 end
 
@@ -42,6 +42,14 @@ When(/^I merge the contacts$/) do
       page.contacts_display_element.visible?
     end
   end
+end
+
+When(/^I select details among the three Contact records$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I should see the details captured in the resulting contact record$/) do
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 Then(/^I should see "([^"]*)" in All Contacts$/) do |merged_contact|
