@@ -10,4 +10,8 @@ class NPSPContactMergePage
   button(:merge_contact_button, text: 'Merge')
   button(:modal_merge_button, class: 'btn slds-button slds-button--destructive')
   button(:next_button, value: 'Next')
+  span(:mailing_city1, text: 'aaa3city')
+  span(:country3, text: 'aaa1country')
+  span(:zip1, text: 'aaa3zip')
+  span(:state3, text: 'aaa1state')
 end
