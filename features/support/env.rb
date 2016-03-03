@@ -10,8 +10,6 @@ require_relative 'modules/sfdo_api_npsp'
 #include Sfdo_api
 include Sfdo_api_npsp
 
-
-
 World(PageObject::PageFactory)
 
 def test_name(scenario)
