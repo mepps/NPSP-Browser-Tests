@@ -16,8 +16,6 @@ module Sfdo_api_npsp
                                     MailingState: state,
                                     MailingCountry: country,
                                     MailingPostalCode: zip
-    #binding.pry
-    puts 'this is Contact Id ' + @contact_id.to_s
     @contact_name = client_name
     account_object = @api_client.query("select AccountId from Contact where Id = '#{@contact_id}'")
     my_account_object = account_object.first

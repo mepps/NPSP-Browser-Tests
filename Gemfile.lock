@@ -7,7 +7,6 @@ GEM
     builder (3.2.2)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
-    coderay (1.1.0)
     cucumber (2.3.2)
       builder (>= 2.1.2)
       cucumber-core (~> 1.4.0)
@@ -34,7 +33,6 @@ GEM
     hashie (3.4.3)
     i18n (0.7.0)
     json (1.8.3)
-    method_source (0.8.2)
     multi_json (1.11.2)
     multi_test (0.1.2)
     multipart-post (2.0.0)
@@ -47,10 +45,6 @@ GEM
     parser (2.3.0.6)
       ast (~> 2.2)
     powerpack (0.1.1)
-    pry (0.10.3)
-      coderay (~> 1.1.0)
-      method_source (~> 0.8.1)
-      slop (~> 3.4)
     rainbow (2.1.0)
     restforce (2.1.2)
       faraday (~> 0.9.0)
@@ -83,7 +77,6 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
-    slop (3.6.0)
     unicode-display_width (0.3.1)
     watir-webdriver (0.9.1)
       selenium-webdriver (>= 2.46.2)
@@ -97,7 +90,6 @@ DEPENDENCIES
   SFDO-API
   cucumber
   page-object
-  pry
   restforce
   rspec
   rubocop
