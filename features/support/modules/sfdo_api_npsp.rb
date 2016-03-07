@@ -1,8 +1,7 @@
 module Sfdo_api_npsp
-
   # NPSP will automatically create certain fields on certain objects based on required input values for those records.
   # There is no way to know in advance from the API which these are, so we find them empirically and note them here
-  # before calling the create() method in Sfdo_api
+  # before calling the create() method in SfdoAPI
   @fields_acceptibly_nil = { 'Contact': ['Name'],
                              'Opportunity': ['ForecastCategory'] }
 
