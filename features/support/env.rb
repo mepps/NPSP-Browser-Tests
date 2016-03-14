@@ -2,12 +2,10 @@ require 'rspec'
 require 'page-object'
 require 'watir-webdriver'
 require 'restforce'
+require 'SFDO/API'
 # need to require_relative below
-require_relative 'modules/sfdo_api'
 require_relative 'modules/sfdo_api_npsp'
-include Sfdo_api
 include Sfdo_api_npsp
-
 
 World(PageObject::PageFactory)
 
