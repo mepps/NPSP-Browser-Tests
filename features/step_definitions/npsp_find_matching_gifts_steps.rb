@@ -27,3 +27,21 @@ Then(/^when I click Search I should see an error "([^"]*)" and "([^"]*)"$/) do |
     expect(page.error_message).to match /#{warning}.+#{content}/m
   end
 end
+
+Given(/^I create two Opportunities to be matched$/) do
+  create_opportunity_via_api("OrigMatch#{@random_string}",
+                             'Closed/Won',
+                             '2020-01-01',
+                             '1000',
+                             @account_id,
+                             'Received',
+                             @account_id_for_contact)
+
+  create_opportunity_via_api("ToBeMatched#{@random_string}",
+                             'Open',
+                             '2020-01-01',
+                             '100',
+                             @account_id,
+                             'Received',
+                             @account_id_for_contact)
+end

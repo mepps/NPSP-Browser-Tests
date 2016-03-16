@@ -53,14 +53,15 @@ module Sfdo_api_npsp
     @lead_id = create 'Lead', LastName: last_name, Company: company
   end
 
-  def create_opportunity_via_api(client_name, stage_name, close_date, amount, matching_gift_status = '')
+  def create_opportunity_via_api(client_name, stage_name, close_date, amount, account_id, matching_gift_status = '', matching_gift_account = '')
     @opportunity_id = create 'Opportunity',
                              Name: client_name,
                              StageName: stage_name,
                              CloseDate: close_date,
                              Amount: amount.to_i,
                              AccountId: @account_id_for_contact,
-                             npsp__Matching_Gift_Status__c: matching_gift_status
+                             npsp__Matching_Gift_Status__c: matching_gift_status,
+                             npsp__Matching_Gift_Account__c: matching_gift_account
 
   end
 
