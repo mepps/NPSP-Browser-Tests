@@ -12,6 +12,5 @@ Feature: Matching Donation test
       And when I click Search I should see an error "Warning" and "Please specify one or more filters in order to search."
 
   Scenario: Find Matching Gift
-    Given I create a new Contact via the API
-      And I create two Opportunities to be matched
+    Given I create two Opportunities to be matched
     When I navigate to Find Matching Gifts for that Opportunity
