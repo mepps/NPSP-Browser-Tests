@@ -10,7 +10,7 @@ Given(/^I navigate to Contact Merge$/) do
   @browser.goto($target_org_url + '/apex/CON_ContactMerge')
 end
 
-When(/^I navigate to Find Matching Gifts for that Opportunity$/) do
+When(/^I navigate to Find Matching Gifts for the original Opportunity$/) do
   @browser.goto($target_org_url + '/apex/MTCH_FindGifts?id=' + @opportunity_id)
 end
 
