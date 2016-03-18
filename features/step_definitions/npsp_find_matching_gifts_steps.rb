@@ -32,14 +32,6 @@ Given(/^I create two Opportunities to be matched$/) do
 
   create_two_contacts_on_different_accounts("First Name", "Second Name")
 
-  create_opportunity_via_api("OrigMatch#{@random_string}",
-                             'Closed Won',
-                             '2020-01-01',
-                             '100',
-                             @account_id_for_first_contact,
-                             'Submitted',
-                             @account_id_for_second_contact)
-
   create_opportunity_via_api("ToBeMatched#{@random_string}",
                              'Closed Won',
                              '2020-01-01',
@@ -48,4 +40,27 @@ Given(/^I create two Opportunities to be matched$/) do
                              'Potential',
                              @account_id_for_first_contact)
 
+  create_opportunity_via_api("OrigMatch#{@random_string}",
+                             'Closed Won',
+                             '2020-01-01',
+                             '100',
+                             @account_id_for_first_contact,
+                             'Submitted',
+                             @account_id_for_second_contact)
+end
+
+
+When(/^I click the checkbox for the matching Opportunity$/) do
+  on(FindMatchingGiftsPage).check_match_checkbox
+end
+
+Then(/^I should be on the Opportunity page for the original Opportunity$/) do
+  on(FindMatchingGiftsPage) do |page|
+    page.opp_page_header_element.when_present
+    expect(page.opp_page_header).to eq "OrigMatch#{@random_string}"
+  end
+end
+
+When(/^I click Matching Gift Save$/) do
+  on(FindMatchingGiftsPage).save_match_gift
 end

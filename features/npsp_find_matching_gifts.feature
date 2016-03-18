@@ -14,3 +14,6 @@ Feature: Matching Donation test
   Scenario: Find Matching Gift
     Given I create two Opportunities to be matched
     When I navigate to Find Matching Gifts for that Opportunity
+      And I click the checkbox for the matching Opportunity
+      And I click Matching Gift Save
+    Then I should be on the Opportunity page for the original Opportunity

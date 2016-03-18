@@ -9,4 +9,7 @@ class FindMatchingGiftsPage
   table(:matching_gift_headers, class: 'slds-table slds-table--bordered')
   div(:opportunity_info, class: 'slds-grid slds-grid--align-spread slds-p-around--medium slds-p-bottom--large slds-theme--default')
   button(:search_button, text: 'Search')
+  checkbox(:match_checkbox, index: 2)
+  h2(:opp_page_header, class: 'pageDescription')
+  button(:save_match_gift, text: 'Save')
 end
