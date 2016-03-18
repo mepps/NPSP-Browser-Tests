@@ -37,6 +37,24 @@ module Sfdo_api_npsp
     @array_of_contacts << @contact_id
   end
 
+  def create_two_contacts_on_different_accounts(client_name1, client_name2)
+    @contact_id_first = create 'Contact', LastName: client_name1
+    @contact_name_first = client_name1
+    @array_of_contact_names << client_name1
+    account_object = @api_client.query("select AccountId from Contact where Id = '#{@contact_id_first}'")
+    my_account_object = account_object.first
+    @account_id_for_first_contact = my_account_object.AccountId
+    @array_of_contacts << @contact_id_first
+
+    @contact_id_second = create 'Contact', LastName: client_name2
+    @contact_name_second = client_name2
+    @array_of_contact_names << client_name2
+    account_object = @api_client.query("select AccountId from Contact where Id = '#{@contact_id_second}'")
+    my_account_object = account_object.first
+    @account_id_for_second_contact = my_account_object.AccountId
+    @array_of_contacts << @contact_id_first
+  end
+
   def create_contacts_with_household_object_via_api(hh_obj, contact_name)
     @hh_obj_id = create 'npo02__Household__c', Name: hh_obj
     @contact_id = create 'Contact', { LastName: contact_name, npo02__Household__c: @hh_obj_id }
@@ -53,14 +71,15 @@ module Sfdo_api_npsp
     @lead_id = create 'Lead', LastName: last_name, Company: company
   end
 
-  def create_opportunity_via_api(client_name, stage_name, close_date, amount, matching_gift_status = '')
+  def create_opportunity_via_api(client_name, stage_name, close_date, amount, account_id, matching_gift_status = '', matching_gift_account = '')
     @opportunity_id = create 'Opportunity',
                              Name: client_name,
                              StageName: stage_name,
                              CloseDate: close_date,
                              Amount: amount.to_i,
                              AccountId: @account_id_for_contact,
-                             npsp__Matching_Gift_Status__c: matching_gift_status
+                             npsp__Matching_Gift_Status__c: matching_gift_status,
+                             npsp__Matching_Gift_Account__c: matching_gift_account
 
   end
 
