@@ -57,7 +57,7 @@ Then(/^Amount in the second row should be disabled$/) do
   expect(on(NPSPManageAllocationsPage).second_row_amount_element.disabled?).to be true
 end
 
-Then(/^Save and Close should be present$/) do
+Then(/^Save should be present$/) do
   expect(on(NPSPManageAllocationsPage).save_and_close_button_element).to be_visible
 end
 

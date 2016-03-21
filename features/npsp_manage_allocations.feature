@@ -14,7 +14,7 @@ Feature: NPSP Manage Allocations Page Test
     Then Delete Row should be present
       And Percent in the first row should be disabled
       And Amount in the second row should be disabled
-      And Save and Close should be present
+      And Save should be present
 
   Scenario: Manage Allocations amount error
     When I navigate to the Manage Allocations page
