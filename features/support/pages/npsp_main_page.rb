@@ -12,7 +12,7 @@ class NPSPMainPage
   a(:payments_link, text: 'Payments')
   a(:contact_merge_link, text: 'Contact Merge')
   div(:home_page_text, class: 'content')
-  div(:npsp_home_page_text, class: 'jumbotron')
+  div(:npsp_home_page_text, class: 'slds-media__body')
   button(:new_recurring_donations_button, name: 'new')
   select_list(:view_tabs, id: 'p1')
 end
