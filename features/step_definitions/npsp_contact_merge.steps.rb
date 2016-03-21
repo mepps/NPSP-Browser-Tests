@@ -26,9 +26,7 @@ end
 
 When(/^I merge the contacts$/) do
   on(NPSPContactMergePage) do |page|
-    sleep 3
     page.merge_contact_button_element.when_present(10).click
-    sleep 3 #race condition. clicking this quickly causes data from Address 1 in the final record instead of what is selected
     page.modal_merge_button_element.when_present.click
   end
 
@@ -61,7 +59,7 @@ Then(/^I should see the details captured in the resulting contact record$/) do
     page.wait_until do
       page.contact_data_element.visible? == true
     end
-    expect(page.contact_data).to match /aaa2street.+aaa3city, aaa1state.+aaa3zip.+aaa1country/m
+    expect(page.contact_data).to match /aaa2street.+aaa1city, aaa3state.+aaa1zip.+aaa3country/m
   end
 end
 
