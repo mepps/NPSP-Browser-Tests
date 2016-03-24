@@ -13,6 +13,7 @@ Feature: Contact Merge test
     Then I should see "aaa2" in All Contacts
       And I should not see "aaa1" or "aaa3" in All Contacts
 
+  @flaky
   Scenario: Contact Merge capture detail
     When I select details among the three Contact records
     And I merge the contacts
