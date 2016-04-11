@@ -16,16 +16,17 @@ end
 
 When(/^I check all the boxes$/) do
   on(NPSPAccountConvertPage) do |page|
-    page.check_all_users
-    page.check_my_data
-    page.check_the_conversion
-    page.check_all_record
-    page.check_all_workflows
-    page.check_all_required
-    page.check_i_am_aware
-    page.check_all_non_npsp
-    page.check_ive_consulted
-    page.check_i_accept
+    page.all_users_element.when_present
+    page.all_users_element.click
+    page.my_data_element.click
+    page.the_conversion_element.click
+    page.all_record_element.click
+    page.all_workflows_element.click
+    page.all_required_element.click
+    page.i_am_aware_element.click
+    page.all_non_npsp_element.click
+    page.ive_consulted_element.click
+    page.i_accept_element.click
   end
 end
 
