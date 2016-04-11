@@ -1,4 +1,4 @@
-@firefox
+
 Feature: Account Convert
 
   @smoketest
