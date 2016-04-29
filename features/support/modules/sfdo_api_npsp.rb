@@ -78,8 +78,8 @@ module Sfdo_api_npsp
                              CloseDate: close_date,
                              Amount: amount.to_i,
                              AccountId: @account_id_for_contact,
-                             npsp__Matching_Gift_Status__c: matching_gift_status,
-                             npsp__Matching_Gift_Account__c: matching_gift_account
+                             "#{$object_namespace}Matching_Gift_Status__c".to_sym => matching_gift_status,
+                             "#{$object_namespace}Matching_Gift_Account__c".to_sym => matching_gift_account
 
   end
 
