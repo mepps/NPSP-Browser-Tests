@@ -3,7 +3,7 @@ Before do |scenario|
   @array_of_contact_names = []
   @array_of_gaus = []
   @gau_names = []
-  set_url_namespace_to_npsp
+  set_url_and_object_namespace_to_npsp
 end
 
 After do |scenario|

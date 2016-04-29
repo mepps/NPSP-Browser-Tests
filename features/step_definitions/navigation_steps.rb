@@ -67,7 +67,7 @@ Given(/^I navigate to Relationship Viewer for the Primary Contact$/) do
 end
 
 Given(/^I navigate to the Account Conversions page$/) do
-  @browser.goto($target_org_url + '/apex/npsp__CONV_Account_Conversion')
+  @browser.goto($target_org_url + "/apex/#{$object_namespace}CONV_Account_Conversion")
 end
 
 Given(/^I navigate to Settings Donations Opportunity Names$/) do
@@ -125,7 +125,7 @@ When(/^I navigate to All Accounts$/) do
 end
 
 When(/^I navigate to Copy Address page for the Contact$/) do
-  @browser.goto($target_org_url + '/apex/npsp__ADDR_CopyAddrHHObjBTN?id=' + @contact_id)
+  @browser.goto($target_org_url + "/apex/#{$object_namespace}ADDR_CopyAddrHHObjBTN?id=" + @contact_id)
 end
 
 When(/^I navigate to Lead Convert page for the Lead$/) do

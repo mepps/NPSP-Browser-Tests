@@ -64,7 +64,7 @@ module Sfdo_api_npsp
   end
 
   def create_gau_via_api(gau_name)
-    @gau_id = create 'npsp__General_Accounting_Unit__c', Name: gau_name
+    @gau_id = create "#{$object_namespace}General_Accounting_Unit__c", Name: gau_name
   end
 
   def create_lead_via_api(last_name, company)
@@ -78,8 +78,8 @@ module Sfdo_api_npsp
                              CloseDate: close_date,
                              Amount: amount.to_i,
                              AccountId: @account_id_for_contact,
-                             npsp__Matching_Gift_Status__c: matching_gift_status,
-                             npsp__Matching_Gift_Account__c: matching_gift_account
+                             "#{$object_namespace}Matching_Gift_Status__c".to_sym => matching_gift_status,
+                             "#{$object_namespace}Matching_Gift_Account__c".to_sym => matching_gift_account
 
   end
 
@@ -110,7 +110,7 @@ module Sfdo_api_npsp
   def delete_gaus_via_api
     api_client do
       @array_of_gaus.each do |contact_id|
-        @api_client.destroy('npsp__General_Accounting_Unit__c', contact_id)
+        @api_client.destroy("#{$object_namespace}General_Accounting_Unit__c", contact_id)
       end
     end
   end
@@ -184,10 +184,12 @@ module Sfdo_api_npsp
     end
   end
 
-  def set_url_namespace_to_npsp
+  def set_url_and_object_namespace_to_npsp
     # THIS IS FOR A MANAGED ORG TEST ENV. UNMANAGED ORG WILL HAVE A DIFFERENT URL SCHEME FOR NPSP PAGES
     interim_url = $instance_url.sub('https://', 'https://npsp.')
     $target_org_url = interim_url.sub('salesforce.com', 'visual.force.com')
+    #FOR UNMANAGED CODE SET THE FOLLOWING LINE TO EMPTY STRING '' INSTEAD OF 'npsp__'
+    $object_namespace = 'npsp__'
   end
 
   def login_with_oauth
