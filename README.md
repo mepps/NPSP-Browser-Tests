@@ -32,7 +32,7 @@ optional: export KEEP_BROWSER_OPEN=true then “unset KEEP_BROWSER_OPEN” to tu
 
 “$ bundle exec cucumber features/”
 
-optional: export SELENIUM_DRIVER=chrome
+optional: export SELENIUM_BROWSER=chrome
 
 
 This test framework depends heavily on Jeff Morgan's page_object Ruby gem. Please find many details documented at https://github.com/cheezy/page-object/
