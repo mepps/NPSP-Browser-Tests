@@ -16,11 +16,7 @@ When(/^I enter "([^"]*)" for Company value$/) do |company|
 end
 
 When(/^I enter "([^"]*)" for Last Name value$/) do |last_name|
-  on(NPSPBDEPage) do |page|
-    page.last_name_element.when_present
-    sleep 1
-    page.last_name_element.send_keys last_name + @random_string
-  end
+  on(NPSPBDEPage).last_name = last_name + @random_string
 end
 
 When(/^I select New Batch for "([^"]*)"$/) do |data_type|

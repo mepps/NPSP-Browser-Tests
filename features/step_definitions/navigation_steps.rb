@@ -1,5 +1,4 @@
 Given(/^I navigate to Batch Data Entry page$/) do
-  puts $target_org_url
   @browser.goto($target_org_url + '/apex/BDE_BatchEntry')
 end
 
