@@ -185,14 +185,19 @@ module Sfdo_api_npsp
   end
 
   def set_url_and_object_namespace_to_npsp
-    # THIS IS FOR A MANAGED ORG TEST ENV. UNMANAGED ORG WILL HAVE A DIFFERENT URL SCHEME FOR NPSP PAGES
-    interim_url = $instance_url.sub('https://', 'https://npsp.')
-    # THIS IS A TERRIBLE HACK BUT WHATEVER UNCOMMENT FOR UNMANAGED CODE
-    #interim_url = $instance_url.sub('https://', 'https://c.')
-
-    $target_org_url = interim_url.sub('salesforce.com', 'visual.force.com')
-    #FOR UNMANAGED CODE SET THE FOLLOWING LINE TO EMPTY STRING '' INSTEAD OF 'npsp__'
-    $object_namespace = 'npsp__'
+    case ENV['TARGET_ORG']
+      when 'unmanaged'
+        interim_url = $instance_url.sub('https://', 'https://c.')
+        $target_org_url = interim_url.sub('salesforce.com', 'visual.force.com')
+        $object_namespace = ''
+      when 'gs0'
+        $target_org_url = $instance_url.sub('gs0.salesforce.com', 'npsp.gus.visual.force.com')
+        $object_namespace = 'npsp__'
+      else
+        interim_url = $instance_url.sub('https://', 'https://npsp.')
+        $target_org_url = interim_url.sub('salesforce.com', 'visual.force.com')
+        $object_namespace = 'npsp__'
+    end
   end
 
   def login_with_oauth
