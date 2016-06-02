@@ -194,6 +194,7 @@ module Sfdo_api_npsp
         $target_org_url = $instance_url.sub('gs0.salesforce.com', 'npsp.gus.visual.force.com')
         $object_namespace = 'npsp__'
       else
+        #THE MOST COMMON CASE, MANAGED CODE IN A DEVELOPMENT ORG
         interim_url = $instance_url.sub('https://', 'https://npsp.')
         $target_org_url = interim_url.sub('salesforce.com', 'visual.force.com')
         $object_namespace = 'npsp__'
