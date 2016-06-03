@@ -101,9 +101,9 @@ module Sfdo_api_npsp
 
   def delete_gaus_via_api
     api_client do
-      @array_of_gaus.each do |contact_id|
-        @api_client.destroy("#{$object_namespace}General_Accounting_Unit__c", contact_id)
-      end
+      gaus = @api_client.query("select Id from #{$object_namespace}General_Accounting_Unit__c")
+      #TODO use define_method or some such to replace the 'npsp__' bit below
+      delete_all_npsp__General_Accounting_Unit__c(gaus)
     end
   end
 
@@ -117,7 +117,7 @@ module Sfdo_api_npsp
   def delete_household_objects
     api_client do
       rd_opps = @api_client.query('select Id from npo02__Household__c')
-      rd_opps.each(&:destroy)
+      delete_all_npo02__Household__c(rd_opps)
     end
   end
 
