@@ -7,4 +7,5 @@ gem 'rspec'
 gem 'cucumber'
 gem 'restforce'
 gem 'SFDO-API'
+gem 'pry', require: false
 gem 'rubocop', require: false
