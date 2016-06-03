@@ -138,14 +138,14 @@ module Sfdo_api_npsp
   def delete_non_household_accounts
     api_client do
       rd_opps = @api_client.query('select Id from Account where Type = null')
-      rd_opps.each(&:destroy)
+      delete_all_account(rd_opps)
     end
   end
 
   def delete_opportunities
     api_client do
       rd_opps = @api_client.query('select Id from Opportunity')
-      rd_opps.each(&:destroy)
+      delete_all_opportunity(rd_opps)
     end
   end
 
