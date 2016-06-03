@@ -131,7 +131,7 @@ module Sfdo_api_npsp
   def delete_payments
     api_client do
       payments = @api_client.query('select Id from npe01__OppPayment__c')
-      payments.each(&:destroy)
+      delete_all_npe01__OppPayment__c(payments)
     end
   end
 
@@ -152,7 +152,7 @@ module Sfdo_api_npsp
   def delete_recurring_donations
     api_client do
       rds = @api_client.query('select Id from npe03__Recurring_Donation__c')
-      rds.each(&:destroy)
+      delete_all_npe03__Recurring_Donation__c(rds)
     end
   end
 
