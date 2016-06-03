@@ -88,21 +88,13 @@ module Sfdo_api_npsp
   end
 
   def delete_account_via_api
-    api_client do
-      @api_client.destroy('Account', @account_id)
-    end
-  end
-
-  def delete_contact_via_api
-    api_client do
-      @api_client.destroy('Contact', @contact_id)
-    end
+   delete_one_account(@account_id)
   end
 
   def delete_contacts_via_api
     api_client do
       @array_of_contacts.each do |contact_id|
-        @api_client.destroy('Contact', contact_id)
+        delete_one_contact(contact_id)
       end
     end
   end
@@ -115,22 +107,10 @@ module Sfdo_api_npsp
     end
   end
 
-  def delete_lead_via_api
-    api_client do
-      @api_client.destroy('Lead', @lead_id)
-    end
-  end
-
-  def delete_opportunity_via_api
-    api_client do
-      @api_client.destroy('Opportunity', @opportunity_id)
-    end
-  end
-
   def delete_household_accounts
     api_client do
       rd_opps = @api_client.query("select Id from Account where Type = 'Household'")
-      rd_opps.each(&:destroy)
+      delete_all_household_account(rd_opps)
     end
   end
 
@@ -144,7 +124,7 @@ module Sfdo_api_npsp
   def delete_leads
     api_client do
       leads = @api_client.query('select Id from Lead')
-      leads.each(&:destroy)
+      delete_all_lead(leads)
     end
   end
 
@@ -158,14 +138,14 @@ module Sfdo_api_npsp
   def delete_non_household_accounts
     api_client do
       rd_opps = @api_client.query('select Id from Account where Type = null')
-      rd_opps.each(&:destroy)
+      delete_all_account(rd_opps)
     end
   end
 
   def delete_opportunities
     api_client do
       rd_opps = @api_client.query('select Id from Opportunity')
-      rd_opps.each(&:destroy)
+      delete_all_opportunity(rd_opps)
     end
   end
 
