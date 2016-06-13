@@ -51,6 +51,29 @@ Feature: Manage Household UI
     Then I should be on the Account page
       And I should see the new address containing "automation street" and "automation city" and "automation state" and "automation zip" and "automation country"
 
+    #NEW FUNCTION:
+    #Upon merging a contact to a household when the contact has a different address, the merged contacts address will be
+  #attached to the household record.
+   # Upon merging a contact from a household with multiple contacts, UI will prompt as to whether to move the one contact
+    #or to move all the members.
+
+  #NEW: CHECK DRAGGING CARDS
+  # CHECK ORDER IN TEXTFIELDS AFTER DRAGGING CARDS
+
+  #DELETE CONTACTS FROM HOUSEHOLDS
+
+  # SET ADDRESS FOR ALL CONTACTS
+  # CHANGE ADDRESSS
+
+  #DELETE PRIMARY CONTACT TEST?
+
+  #CHECK ADDRESS OVERRIDE: ONE CONTACT HAS STABLE DIFFERENT ADDRESS
+
+  #CHECK BREADCRUMBS LINKS FOR TRUE
+
+  #CHECK THAT SOME ITEM THAT SHOULD BE DENIED DOES NOT APPEAR. E.G. USER DOES NOT HAVE PERM TO DELETE CONTACT,
+  #DELETE BUTTON SHOULD NOT BE VISIBLE
+
   Scenario: Checkboxes for Exclude Contact and Auto Name
     Given I create two Contacts "ccc" and "ddd" to be added to Household
       And I navigate to Manage Households UI
@@ -59,6 +82,7 @@ Feature: Manage Household UI
       And I add to household with Add and merge Households option
       And I click the checkboxes in the original address card
     Then I should see all three checkboxes checked
+      And I should see the default text in the page textfields change appropriately
 
   Scenario: Cancel button returns to Manage Household page
     Given I create two Contacts "eee" and "fff" to be added to Household
