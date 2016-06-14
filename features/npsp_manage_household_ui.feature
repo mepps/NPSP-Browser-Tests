@@ -50,10 +50,29 @@ Feature: Manage Household UI
       And I click Manage Household Save
     Then I should be on the Account page
       And I should see the new address containing "automation street" and "automation city" and "automation state" and "automation zip" and "automation country"
+      And I should see an Address record for the Household containing "automation street TWO"
 
     #NEW FUNCTION:
     #Upon merging a contact to a household when the contact has a different address, the merged contacts address will be
   #attached to the household record.
+
+  Scenario: Copy Household addresses from multiple added Contacts
+    Given I navigate to Manage Households UI for contact
+      And I create a new Contact via the API with address "automation street TWO" "automation city TWO" "automation state TWO" "automation country TWO" "automation zip TWO"
+      And I create a new Contact via the API with address "automation street THREE" "automation city THREE" "automation state THREE" "automation country THREE" "automation zip THREE"
+      And I create a new Contact via the API with address "automation street FOUR" "automation city FOUR" "automation state FOUR" "automation country FOUR" "automation zip FOUR"
+    When I type the random string into search box
+      And I add all the Contacts to household with Add option
+      And I add to household with Add and merge Households option
+      And I click Manage Household Save
+      And I negotiate the modal dialog
+    Then I should be on the Account page
+    And I should see the new address containing "automation street" and "automation city" and "automation state" and "automation zip" and "automation country"
+    And I should see an Address record for the Household containing "automation street TWO"
+    And I should see an Address record for the Household containing "automation street THREE"
+    And I should see an Address record for the Household containing "automation street FOUR"
+
+
    # Upon merging a contact from a household with multiple contacts, UI will prompt as to whether to move the one contact
     #or to move all the members.
 
