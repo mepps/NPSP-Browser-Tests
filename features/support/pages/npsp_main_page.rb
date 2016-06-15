@@ -7,6 +7,7 @@ class NPSPMainPage
   img(:getting_started_link, title: 'Getting Started')
   a(:leads_tab, text: 'Leads')
   a(:recurring_donations_link, text: 'Recurring Donations')
+  a(:npsp_data_imports_link, text: 'NPSP Data Imports')
   a(:npsp_settings_link, text: 'NPSP Settings')
   a(:opportunities_link, text: 'Opportunities')
   a(:payments_link, text: 'Payments')
