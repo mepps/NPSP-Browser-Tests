@@ -1,7 +1,7 @@
 When(/^I click New$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(NPSPOtherDataImportPage).new_button
 end
 
 Then(/^I should see the NPSP Data Import Edit page$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(on(NPSPOtherDataImportPage).page_info).to match /NPSP Data Import Edit.+New NPSP Data Import/m
 end
