@@ -119,6 +119,10 @@ Given(/^I login the first time with oauth$/) do
   end
 end
 
+When(/^I navigate to the other NPSP Data Import$/) do
+  on(NPSPMainPage).npsp_data_imports_link_element.when_present(15).click
+end
+
 When(/^I navigate to All Accounts$/) do
   step 'I click the Accounts tab'
   step 'I select "All Accounts" and Go'
