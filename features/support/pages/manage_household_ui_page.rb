@@ -5,7 +5,7 @@ class ManageHouseholdsPage
   div(:account_address_field, id: 'acc17_ileinner')
   h1(:account_label, class: 'pageType')
   text_field(:add_members_search, placeholder: 'Find a contact or add a new contact to the household')
-  button(:add_merge_button, text: 'Add and merge Households')
+  button(:add_merge_button, text: 'Add All Members')
   button(:add_remove_button, text: 'Add and remove from old Household')
   button(:cancel_button, text: 'Cancel')
 

@@ -17,7 +17,7 @@ Feature: Manage Household UI
       And I navigate to Manage Households UI
     When I type "aaa" into search box
       And I add to household with Add option
-      And I add to household with Add and merge Households option
+      And I add to household with Add All Members option
       And I click New Contact
       And I type "bbb" into search box
       And I add to household with Add option

@@ -33,7 +33,7 @@ When(/^I add to household with Add option$/) do
   end
 end
 
-When(/^I add to household with Add and merge Households option$/) do
+When(/^I add to household with Add All Members option$/) do
   on(ManageHouseholdsPage).add_merge_button_element.when_present.click
 end
 
@@ -168,6 +168,7 @@ end
 
 When(/^I type "([^"]*)" into search box$/) do |search_string|
   on(ManageHouseholdsPage) do |page|
+    sleep 5
     page.add_members_search_element.when_present(15).click #search box needs focus for Chrome
     number_of_backspaces = search_string.length
     number_of_backspaces.times do
