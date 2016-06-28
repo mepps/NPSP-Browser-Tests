@@ -205,7 +205,7 @@ Then(/^I should see the Household Details section$/) do
 end
 
 Then(/^I should see the Household Members section$/) do
-  expect(on(ManageHouseholdsPage).household_members_section_element.when_present).to be_visible
+  expect(on(ManageHouseholdsPage).household_members_section_element.when_present(15)).to be_visible
 end
 
 Then(/^I should see the Household Naming section$/) do
