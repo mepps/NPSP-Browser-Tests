@@ -38,6 +38,9 @@ When(/^I add to household with Add All Members option$/) do
 end
 
 When(/^I add to household with Add and remove from old Household option$/) do
+  sleep 6
+  on(ManageHouseholdsPage).add_remove_button_element.when_present.click
+  on(ManageHouseholdsPage).add_remove_button_element.when_present.click
   on(ManageHouseholdsPage).add_remove_button_element.when_present.click
 end
 
@@ -179,6 +182,7 @@ When(/^I type "([^"]*)" into search box$/) do |search_string|
       page.add_members_search_element.send_keys(:backspace)
     end
     page.add_members_search_element.when_present.send_keys search_string
+    #sleep 2
   end
 end
 

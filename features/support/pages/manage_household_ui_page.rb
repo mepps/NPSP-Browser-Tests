@@ -6,7 +6,8 @@ class ManageHouseholdsPage
   h1(:account_label, class: 'pageType')
   text_field(:add_members_search, placeholder: 'Find a contact or add a new contact to the household')
   button(:add_merge_button, text: 'Add All Members')
-  button(:add_remove_button, text: 'Add and remove from old Household')
+  span(:add_remove_button, text: /#{@random_string}/)
+  #button(:add_remove_button, text: /Add.+#{@random_string}/)
   button(:cancel_button, text: 'Cancel')
 
   span(:card_name, class: 'hhCard-details-name')
