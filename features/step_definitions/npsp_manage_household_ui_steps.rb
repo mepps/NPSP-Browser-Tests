@@ -5,11 +5,14 @@ Given(/^I create two Contacts "([^"]*)" and "([^"]*)" to be added to Household$/
 end
 
 Given(/^I see Contact name$/) do
-  expect(on(ManageHouseholdsPage).card_contact_link_element.text).to eq "aaaatestcontact#{@random_string}"
+  expect(on(ManageHouseholdsPage).card_contact_link_element.when_present(15)).to be_visible
 end
 
 Given(/^I see existing address fields$/) do
-  expect(on(ManageHouseholdsPage).existing_address).to match /automation city.+automation state.+automation zip.+automation country/m
+  on(ManageHouseholdsPage) do |page|
+    page.existing_address_element.when_present(15)
+    expect(on(ManageHouseholdsPage).existing_address).to match /automation city.+automation state.+automation zip.+automation country/m
+  end
 end
 
 Given(/^I see the Household Name$/) do

@@ -10,17 +10,19 @@ class ManageHouseholdsPage
   #button(:add_remove_button, text: /Add.+#{@random_string}/)
   button(:cancel_button, text: 'Cancel')
 
-  span(:card_name, class: 'hhCard-details-name')
-  a(:card_contact_link) { |page| page.card_name_element.link_element }
+  #span(:card_name, class: 'hhCard-details-name')
+  #a(:card_contact_link) { |page| page.card_name_element.link_element }
 
-  button(:change_address_button, text: 'Change')
+  a(:card_contact_link, text: /aaaatestcontact/)
+
+  span(:change_address_button, text: 'Change Address')
   text_field(:change_city, id: 'hhAddressCity')
   text_field(:change_country, id: 'hhAddressCountry')
   text_field(:change_state, id: 'hhAddressState')
   textarea(:change_street, id: 'hhAddressStreet')
   text_field(:change_zip, id: 'hhAddressPostalCode')
   a(:enter_new, text: 'Enter a new address')
-  span(:existing_address, class: 'hhCard-details-address')
+  div(:existing_address, class: 'slds-text-body--small slds-m-bottom--small')
   checkbox(:exclude_formal_greeting_original, class: /hh-formal-exclude-input/, index: 0)
   checkbox(:exclude_informal_greeting_original, class: /hh-informal-exclude-input/, index: 0)
   checkbox(:exclude_household_name_original, class: /hh-name-exclude-input/, index: 0)
@@ -28,7 +30,7 @@ class ManageHouseholdsPage
   button(:first_member_add_button, text: 'Add')
   text_field(:formal_greeting, id: 'hhFormalGreeting')
   button(:go_button, name: 'go')
-  text_field(:hh_name, id: 'hhName')
+  text_field(:hh_name, text: /Household/)
   span(:household_address_field, class: 'hhAddress-address')
   div(:household_details, text: 'Household Details')
   div(:household_member_first, class: 'hhCard', index: 0)
