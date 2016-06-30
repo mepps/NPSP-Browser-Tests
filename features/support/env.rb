@@ -22,7 +22,7 @@ Before do |scenario|
     if ENV['SELENIUM_BROWSER']
       @browser = Watir::Browser.new :"#{ENV['SELENIUM_BROWSER']}"
     else
-      @browser = Watir::Browser.new :firefox
+      @browser = Watir::Browser.new :firefox, marionette: true
     end
   end
 

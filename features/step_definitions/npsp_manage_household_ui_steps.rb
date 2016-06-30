@@ -33,11 +33,14 @@ When(/^I add to household with Add option$/) do
   end
 end
 
-When(/^I add to household with Add and merge Households option$/) do
+When(/^I add to household with Add All Members option$/) do
   on(ManageHouseholdsPage).add_merge_button_element.when_present.click
 end
 
 When(/^I add to household with Add and remove from old Household option$/) do
+  sleep 6
+  on(ManageHouseholdsPage).add_remove_button_element.when_present.click
+  on(ManageHouseholdsPage).add_remove_button_element.when_present.click
   on(ManageHouseholdsPage).add_remove_button_element.when_present.click
 end
 
@@ -63,7 +66,11 @@ When(/^I click Manage Household Save$/) do
 end
 
 When(/^I click New Contact$/) do
-  on(ManageHouseholdsPage).new_contact_element.when_present.click
+  on(ManageHouseholdsPage) do |page|
+    sleep 3
+    page.add_members_search_element.when_present(15).click
+    page.new_contact_element.when_present.click
+  end
 end
 
 When(/^I click Select an existing address$/) do
@@ -168,12 +175,14 @@ end
 
 When(/^I type "([^"]*)" into search box$/) do |search_string|
   on(ManageHouseholdsPage) do |page|
-    page.member_search_box_element.when_present.click #search box needs focus for Chrome
+    sleep 5
+    page.add_members_search_element.when_present(15).click #search box needs focus for Chrome
     number_of_backspaces = search_string.length
     number_of_backspaces.times do
-      page.member_search_box_element.send_keys(:backspace)
+      page.add_members_search_element.send_keys(:backspace)
     end
-    page.member_search_box_element.when_present.send_keys search_string
+    page.add_members_search_element.when_present.send_keys search_string
+    #sleep 2
   end
 end
 
