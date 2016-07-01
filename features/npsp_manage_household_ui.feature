@@ -33,7 +33,7 @@ Feature: Manage Household UI
       #And I see the Primary Contact
     When I click Change on Household Address
       And I click Select an existing address
-      And I click Enter a new address
+      #And I click Enter a new address #THIS IS A UX PROBLEM BOTH CONTROLS ARE NOW THE SAME TOGGLE
       And I fill in the five address fields
       And I click Set Address
       And the five address fields should appear in the Household Address section in the correct order

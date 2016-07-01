@@ -77,6 +77,7 @@ When(/^I click New Contact$/) do
 end
 
 When(/^I click Select an existing address$/) do
+  sleep 5
   on(ManageHouseholdsPage).select_existing_element.when_present.click
 end
 
@@ -152,10 +153,10 @@ end
 When(/^I fill in the five address fields$/) do
   on(ManageHouseholdsPage) do |page|
     page.change_street_element.when_present.send_keys('street')
-    page.change_city_element.when_present.send_keys('city')
-    page.change_state_element.when_present.send_keys('state')
-    page.change_zip_element.when_present.send_keys('zip')
-    page.change_country_element.when_present.send_keys('country')
+    #page.change_city_element.when_present.send_keys('city')
+    #page.change_state_element.when_present.send_keys('state')
+    #page.change_zip_element.when_present.send_keys('zip')
+    #page.change_country_element.when_present.send_keys('country')
   end
 end
 
