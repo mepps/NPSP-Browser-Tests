@@ -29,11 +29,11 @@ Feature: Manage Household UI
       And I see Contact name
       And I see existing address fields
       And I see the Household Name
-      And I see the Formal Greeting
-      And I see the Primary Contact
+      #And I see the Formal Greeting
+      #And I see the Primary Contact
     When I click Change on Household Address
       And I click Select an existing address
-      And I click Enter a new address
+      #And I click Enter a new address #THIS IS A UX PROBLEM BOTH CONTROLS ARE NOW THE SAME TOGGLE
       And I fill in the five address fields
       And I click Set Address
       And the five address fields should appear in the Household Address section in the correct order
@@ -46,7 +46,7 @@ Feature: Manage Household UI
       And I create a new Contact via the API with address "automation street TWO" "automation city TWO" "automation state TWO" "automation country TWO" "automation zip TWO"
     When I type the random string into search box
       And I add to household with Add option
-      And I add to household with Add and merge Households option
+      And I add to household with Add All Members option
       And I click Manage Household Save
     Then I should be on the Account page
       And I should see the new address containing "automation street" and "automation city" and "automation state" and "automation zip" and "automation country"
@@ -56,7 +56,7 @@ Feature: Manage Household UI
       And I navigate to Manage Households UI
     When I type "ddd" into search box
       And I add to household with Add option
-      And I add to household with Add and merge Households option
+      And I add to household with Add All Members option
       And I click the checkboxes in the original address card
     Then I should see all three checkboxes checked
 
