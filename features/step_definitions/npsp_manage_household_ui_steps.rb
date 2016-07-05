@@ -41,7 +41,7 @@ When(/^I add to household with Add All Members option$/) do
 end
 
 When(/^I add to household with Add and remove from old Household option$/) do
-  sleep 6
+  sleep 10
   on(ManageHouseholdsPage).add_remove_button_element.when_present.click
   on(ManageHouseholdsPage).add_remove_button_element.when_present.click
   on(ManageHouseholdsPage).add_remove_button_element.when_present.click
