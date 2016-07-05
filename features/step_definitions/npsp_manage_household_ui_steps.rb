@@ -64,6 +64,7 @@ When(/^I click Manage Household Save$/) do
     page.wait_until do
       page.manage_household_save_element.when_present.disabled? == false
     end
+    sleep 5
     page.manage_household_save_element.click
   end
 end
@@ -192,8 +193,8 @@ end
 
 When(/^I type the random string into search box$/) do
   on(ManageHouseholdsPage) do |page|
-    page.member_search_box_element.when_present.click #search box needs focus for Chrome
-    page.member_search_box_element.when_present.send_keys @random_string
+    sleep 5
+    page.add_members_search_element.when_present(15).send_keys @random_string
   end
 end
 
