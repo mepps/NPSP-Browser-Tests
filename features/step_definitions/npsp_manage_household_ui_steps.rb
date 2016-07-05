@@ -180,7 +180,7 @@ end
 
 When(/^I type "([^"]*)" into search box$/) do |search_string|
   on(ManageHouseholdsPage) do |page|
-    sleep 5
+    sleep 8
     page.add_members_search_element.when_present(15).click #search box needs focus for Chrome
     number_of_backspaces = search_string.length
     number_of_backspaces.times do
