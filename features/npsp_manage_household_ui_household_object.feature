@@ -31,7 +31,7 @@ Feature: Manage Household UI One-to-One
     And I fill in the five address fields
     And I click Set Address
     And the five address fields should appear in the Household Address section in the correct order
-    
+
   #Scenario: Checkboxes for Exclude Contact and Auto Name
   #  Given I create two Contacts "ccc" and "ddd" to be added to Household
   #  And I navigate to Manage Households UI for Household Object

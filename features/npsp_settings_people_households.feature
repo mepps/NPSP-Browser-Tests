@@ -16,7 +16,6 @@ Feature: NPSP Settings People Households
       And I set Contact Overrun Count to "11"
       And I set Implementing Class to "baz"
       And I set Household Object Rules to "All Individual Contacts"
-      And I set Household Mailing List Report to "NPSP Campaign Household Mailing List"
       And I click Cancel
       And I wait for the page to revert
     Then I should see the original Household Settings on the page
