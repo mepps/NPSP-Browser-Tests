@@ -41,7 +41,7 @@ When(/^I add to household with Add All Members option$/) do
 end
 
 When(/^I add to household with Add and remove from old Household option$/) do
-  sleep 10
+  sleep 5
   on(ManageHouseholdsPage).add_remove_button_element.when_present.click
 end
 
@@ -185,7 +185,7 @@ When(/^I type "([^"]*)" into search box$/) do |search_string|
       page.add_members_search_element.send_keys(:backspace)
     end
     page.add_members_search_element.when_present.send_keys search_string
-    #sleep 2
+    sleep 3
   end
 end
 
@@ -233,11 +233,10 @@ Then(/^I should see the new address containing "([^"]*)" and "([^"]*)" and "([^"
   expect(on(ManageHouseholdsPage).account_address_field).to match /#{street}/
 end
 
-Then(/^I should see three Household Member entries$/) do
+Then(/^I should see two Household Member entries$/) do
   on(ManageHouseholdsPage) do |page|
     expect(page.household_member_second_element.when_present).to be_visible
     expect(page.household_member_first_element.when_present).to be_visible
-    expect(page.household_member_third_element.when_present).to be_visible
   end
 end
 

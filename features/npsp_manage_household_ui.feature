@@ -23,7 +23,7 @@ Feature: Manage Household UI
       And I add to household with Add option
       And I add to household with Add and remove from old Household option
       #And I add to household with Add All Members option
-    Then I should see three Household Member entries
+    Then I should see two Household Member entries
 
   Scenario: Change Household address
     Given I navigate to Manage Households UI for contact
