@@ -6,8 +6,13 @@ class ManageHouseholdsPage
   h1(:account_label, class: 'pageType')
   text_field(:add_members_search, placeholder: 'Find a contact or add a new contact to the household')
   button(:add_merge_button, text: 'Add All Members')
-  span(:add_remove_button, text: /#{@random_string}/)
+  #span(:add_remove_button, text: /aaa/)
   #button(:add_remove_button, text: /Add.+#{@random_string}/)
+
+  div(:outer_div, :id => 'mergeHHPopup')
+    #span(:add_remove_button) { |page| page.outer_div_element.span_element.click }
+    button(:add_remove_button , class: 'slds-button slds-button--icon-inverse slds-modal__close uiButton--default uiButton')
+
   button(:cancel_button, text: 'Cancel')
 
   #span(:card_name, class: 'hhCard-details-name')

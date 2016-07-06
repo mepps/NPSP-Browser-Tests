@@ -22,6 +22,7 @@ Feature: Manage Household UI
       And I type "bbb" into search box
       And I add to household with Add option
       And I add to household with Add and remove from old Household option
+      #And I add to household with Add All Members option
     Then I should see three Household Member entries
 
   Scenario: Change Household address

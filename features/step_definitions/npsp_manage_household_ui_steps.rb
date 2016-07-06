@@ -43,8 +43,6 @@ end
 When(/^I add to household with Add and remove from old Household option$/) do
   sleep 10
   on(ManageHouseholdsPage).add_remove_button_element.when_present.click
-  on(ManageHouseholdsPage).add_remove_button_element.when_present.click
-  on(ManageHouseholdsPage).add_remove_button_element.when_present.click
 end
 
 When(/^I click Change on Household Address$/) do
