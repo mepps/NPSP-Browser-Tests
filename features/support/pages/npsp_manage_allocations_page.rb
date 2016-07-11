@@ -12,5 +12,5 @@ class NPSPManageAllocationsPage
   text_field(:second_row_amount, name: /theForm/, index: 4)
   text_field(:second_row_percent, name: /theForm/, index: 5)
   text_field(:error_box, name: /theForm:messages/)
-  div(:remainder_amount, id: 'totalAmount')
+  span(:remainder_amount, id: 'totalAmount')
 end
