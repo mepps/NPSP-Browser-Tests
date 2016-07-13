@@ -11,6 +11,7 @@ When(/^I click Start Data Import$/) do
 end
 
 Then(/^I should see the NPSP Batch Data Entry page$/) do
+  sleep 3
   expect(@browser.url).to match /BDI_DataImport\?retURL/
   step 'I set Batch Size to 60'
   step 'I set Contact Matching Rule to "First Name and Last Name"'
