@@ -37,7 +37,7 @@ When(/^I add to household with Add option$/) do
 end
 
 When(/^I add to household with Add All Members option$/) do
-  on(ManageHouseholdsPage).add_merge_button_element.when_present.click
+  on(ManageHouseholdsPage).add_merge_button_element.when_present(15).click
 end
 
 When(/^I add to household with Add and remove from old Household option$/) do
