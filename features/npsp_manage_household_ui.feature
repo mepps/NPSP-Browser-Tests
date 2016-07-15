@@ -67,6 +67,6 @@ Feature: Manage Household UI
     When I type "fff" into search box
       And I add to household with Add option
       #And I add to household with Add and remove from old Household option
-    And I add to household with Add All Members option
+    #And I add to household with Add All Members option
       And I click Cancel
     Then I should be on the regular Households page
