@@ -15,11 +15,11 @@ Feature: Manage Household UI One-to-One
     And I navigate to Manage Households UI for Household Object
     When I type "aaa" into search box
     And I add to household with Add option
-    And I add to household with Add All Members option
+    #And I add to household with Add All Members option
       #And I click New Contact
     And I type "bbb" into search box
     And I add to household with Add option
-    And I add to household with Add and remove from old Household option
+    #And I add to household with Add and remove from old Household option
       #And I add to household with Add All Members option
     Then I should see two Household Member entries
 
@@ -47,6 +47,6 @@ Feature: Manage Household UI One-to-One
     When I type "fff" into search box
     And I add to household with Add option
       #And I add to household with Add and remove from old Household option
-    And I add to household with Add All Members option
+    #And I add to household with Add All Members option
     And I click Cancel
     Then I should be on the regular Households page
