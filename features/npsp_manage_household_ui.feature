@@ -47,7 +47,7 @@ Feature: Manage Household UI
       And I create a new Contact via the API with address "automation street TWO" "automation city TWO" "automation state TWO" "automation country TWO" "automation zip TWO"
     When I type the random string into search box
       And I add to household with Add option
-      And I add to household with Add All Members option
+      #And I add to household with Add All Members option
       And I click Manage Household Save
     Then I should be on the Account page
       And I should see the new address containing "automation street" and "automation city" and "automation state" and "automation zip" and "automation country"
