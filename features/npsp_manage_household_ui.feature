@@ -70,3 +70,12 @@ Feature: Manage Household UI
     #And I add to household with Add All Members option
       And I click Cancel
     Then I should be on the regular Households page
+
+  Scenario: Modal when multiple Contacts in Household
+    Given I create two contacts "ggg" and "hhh" in the same Household
+      And I navigate to Manage Households UI
+    When I type "ggg" into search box
+      And I see the Cancel option
+      And I see the Add One option
+      And I click the Add Many option
+    Then "ggg" and "hhh" should be added to the Household
