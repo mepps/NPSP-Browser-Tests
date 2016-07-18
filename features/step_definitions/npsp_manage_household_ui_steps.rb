@@ -244,3 +244,34 @@ Then(/^the five address fields should appear in the Household Address section in
   #expect(on(ManageHouseholdsPage).household_address_field).to match /street.+city.+state.+zip.+country/m
   expect(on(ManageHouseholdsPage).household_address_field).to match /street/m
 end
+
+Given(/^I create two contacts "([^"]*)" and "([^"]*)" in the same Household$/) do |con1, con2|
+  create_two_contacts_on_account_via_api(con1, con2)
+  create_contact_via_api('decoy')
+end
+
+When(/^I see the Cancel option$/) do
+  sleep 3
+  expect(on(ManageHouseholdsPage).modal_cancel_button_element).to be_visible
+end
+
+When(/^I see the Add One option$/) do
+  expect(on(ManageHouseholdsPage).add_remove_button_element).to be_visible
+end
+
+When(/^I click the Add Many option$/) do
+  on(ManageHouseholdsPage).add_merge_button_element.when_present.click
+end
+
+Then(/^"([^"]*)" and "([^"]*)" should be added to the Household$/) do |arg1, arg2|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I should see three Household Member entries$/) do
+  on(ManageHouseholdsPage) do |page|
+    expect(page.household_member_second_element.when_present).to be_visible
+    expect(page.household_member_first_element.when_present).to be_visible
+    expect(page.household_member_third_element.when_present).to be_visible
+  end
+end
+
