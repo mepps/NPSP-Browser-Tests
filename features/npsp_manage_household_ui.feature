@@ -17,12 +17,8 @@ Feature: Manage Household UI
       And I navigate to Manage Households UI
     When I type "aaa" into search box
       And I add to household with Add option
-      #And I add to household with Add All Members option
-      #And I click New Contact
       And I type "bbb" into search box
       And I add to household with Add option
-      #And I add to household with Add and remove from old Household option
-      #And I add to household with Add All Members option
     Then I should see two Household Member entries
 
   Scenario: Change Household address
@@ -47,27 +43,15 @@ Feature: Manage Household UI
       And I create a new Contact via the API with address "automation street TWO" "automation city TWO" "automation state TWO" "automation country TWO" "automation zip TWO"
     When I type the random string into search box
       And I add to household with Add option
-      #And I add to household with Add All Members option
       And I click Manage Household Save
     Then I should be on the Account page
       And I should see the new address containing "automation street" and "automation city" and "automation state" and "automation zip" and "automation country"
-
-  #Scenario: Checkboxes for Exclude Contact and Auto Name
-  #  Given I create two Contacts "ccc" and "ddd" to be added to Household
-  #    And I navigate to Manage Households UI
-  #  When I type "ddd" into search box
-  #    And I add to household with Add option
-  #    And I add to household with Add All Members option
-  #    And I click the checkboxes in the original address card
-  #  Then I should see all three checkboxes checked
 
   Scenario: Cancel button returns to Manage Household page
     Given I create two Contacts "eee" and "fff" to be added to Household
       And I navigate to Manage Households UI
     When I type "fff" into search box
       And I add to household with Add option
-      #And I add to household with Add and remove from old Household option
-    #And I add to household with Add All Members option
       And I click Cancel
     Then I should be on the regular Households page
 
@@ -79,5 +63,4 @@ Feature: Manage Household UI
       And I see the Cancel option
       And I see the Add One option
       And I add to household with Add All Members option
-    #Then "ggg" and "hhh" should be added to the Household
-      Then I should see three Household Member entries
+    Then I should see three Household Member entries

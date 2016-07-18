@@ -67,14 +67,6 @@ When(/^I click Manage Household Save$/) do
   end
 end
 
-When(/^I click New Contact$/) do
-  on(ManageHouseholdsPage) do |page|
-    sleep 3
-    page.add_members_search_element.when_present(15).click
-    page.new_contact_element.when_present.click
-  end
-end
-
 When(/^I click Select an existing address$/) do
   sleep 5
   on(ManageHouseholdsPage).select_existing_element.when_present.click

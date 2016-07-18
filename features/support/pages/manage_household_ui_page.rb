@@ -6,7 +6,6 @@ class ManageHouseholdsPage
   h1(:account_label, class: 'pageType')
   text_field(:add_members_search, placeholder: 'Find a contact or add a new contact to the household')
   button(:add_merge_button, text: 'Add All Members')
-  #span(:add_remove_button, text: /aaa/)
   button(:add_remove_button, text: /Add.+#{@random_string}/)
 
   button(:add_remove_button , title: /Add  /)
