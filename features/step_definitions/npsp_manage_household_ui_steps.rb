@@ -251,18 +251,27 @@ Given(/^I create two contacts "([^"]*)" and "([^"]*)" in the same Household$/) d
 end
 
 When(/^I see the Cancel option$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  sleep 3
+  expect(on(ManageHouseholdsPage).modal_cancel_button_element).to be_visible
 end
 
 When(/^I see the Add One option$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(on(ManageHouseholdsPage).add_remove_button_element).to be_visible
 end
 
 When(/^I click the Add Many option$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(ManageHouseholdsPage).add_merge_button_element.when_present.click
 end
 
 Then(/^"([^"]*)" and "([^"]*)" should be added to the Household$/) do |arg1, arg2|
   pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I should see three Household Member entries$/) do
+  on(ManageHouseholdsPage) do |page|
+    expect(page.household_member_second_element.when_present).to be_visible
+    expect(page.household_member_first_element.when_present).to be_visible
+    expect(page.household_member_third_element.when_present).to be_visible
+  end
 end
 

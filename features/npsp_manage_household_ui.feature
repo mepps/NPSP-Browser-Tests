@@ -79,4 +79,5 @@ Feature: Manage Household UI
       And I see the Cancel option
       And I see the Add One option
       And I add to household with Add All Members option
-    Then "ggg" and "hhh" should be added to the Household
+    #Then "ggg" and "hhh" should be added to the Household
+      Then I should see three Household Member entries
