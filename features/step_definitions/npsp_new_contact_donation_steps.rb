@@ -14,6 +14,6 @@ Then(/^Account Name should be set to the correct value$/) do
   expect(on(NPSPNewContactDonationPage).acc_name).to eq @contact_name + ' Household'
 end
 
-Then(/^Account Name should be set to the first Contact$/) do
-  expect(on(NPSPNewContactDonationPage).acc_name).to eq @array_of_contact_names[0] + ' Household'
+Then(/^Account Name should be set to the two contact Household$/) do
+  expect(on(NPSPNewContactDonationPage).acc_name).to eq @array_of_contact_names[0] + ' and ' + @array_of_contact_names[1] + ' Household'
 end
