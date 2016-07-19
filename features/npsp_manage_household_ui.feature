@@ -1,6 +1,6 @@
+@not_ie
 Feature: Manage Household UI
 
-  @not_ie
   Background:
     Given I create a new Contact via the API with address "automation street" "automation city" "automation state" "automation country" "automation zip"
       And I create a new random account via the API

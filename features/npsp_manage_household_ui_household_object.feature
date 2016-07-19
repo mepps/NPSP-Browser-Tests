@@ -1,6 +1,6 @@
+@not_ie
 Feature: Manage Household UI One-to-One
 
-  @not_ie
   Background:
    Given I create new Contacts with Household Object via the API
 
