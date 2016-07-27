@@ -27,8 +27,6 @@ Feature: Manage Household UI
       And I see Contact name
       And I see existing address fields
       And I see the Household Name
-      #And I see the Formal Greeting
-      #And I see the Primary Contact
     When I click Change on Household Address
       And I click Select an existing address
       #And I click Enter a new address #THIS IS A UX PROBLEM BOTH CONTROLS ARE NOW THE SAME TOGGLE
