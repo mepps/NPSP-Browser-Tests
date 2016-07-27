@@ -40,11 +40,6 @@ When(/^I add to household with Add All Members option$/) do
   on(ManageHouseholdsPage).add_merge_button_element.when_present(15).click
 end
 
-When(/^I add to household with Add and remove from old Household option$/) do
-  sleep 5
-  on(ManageHouseholdsPage).add_remove_button_element.when_present.click
-end
-
 When(/^I click Change on Household Address$/) do
   on(ManageHouseholdsPage).change_address_button_element.when_present.click
 end
