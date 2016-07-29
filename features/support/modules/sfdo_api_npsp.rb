@@ -103,28 +103,28 @@ module Sfdo_api_npsp
     api_client do
       gaus = @api_client.query("select Id from #{$object_namespace}General_Accounting_Unit__c")
       #TODO use define_method or some such to replace the 'npsp__' bit below
-      delete_all_npsp__General_Accounting_Unit__c(gaus)
+      delete_all_npsp__General_Accounting_Unit__c(gaus) if gaus.first != nil
     end
   end
 
   def delete_household_accounts
     api_client do
       rd_opps = @api_client.query("select Id from Account where Type = 'Household'")
-      delete_all_household_account(rd_opps)
+      delete_all_household_account(rd_opps) if rd_opps.first != nil
     end
   end
 
   def delete_household_objects
     api_client do
       rd_opps = @api_client.query('select Id from npo02__Household__c')
-      delete_all_npo02__Household__c(rd_opps)
+      delete_all_npo02__Household__c(rd_opps) if rd_opps.first != nil
     end
   end
 
   def delete_leads
     api_client do
       leads = @api_client.query('select Id from Lead')
-      delete_all_lead(leads)
+      delete_all_lead(leads) if leads.first != nil
     end
   end
 
@@ -138,21 +138,21 @@ module Sfdo_api_npsp
   def delete_non_household_accounts
     api_client do
       rd_opps = @api_client.query('select Id from Account where Type = null')
-      delete_all_account(rd_opps)
+      delete_all_account(rd_opps) if rd_opps.first != nil
     end
   end
 
   def delete_opportunities
     api_client do
       rd_opps = @api_client.query('select Id from Opportunity')
-      delete_all_opportunity(rd_opps)
+      delete_all_opportunity(rd_opps) if rd_opps.first != nil
     end
   end
 
   def delete_recurring_donations
     api_client do
       rds = @api_client.query('select Id from npe03__Recurring_Donation__c')
-      delete_all_npe03__Recurring_Donation__c(rds)
+      delete_all_npe03__Recurring_Donation__c(rds) if rds.first != nil
     end
   end
 
