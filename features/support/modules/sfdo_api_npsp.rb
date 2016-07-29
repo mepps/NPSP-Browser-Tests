@@ -64,7 +64,7 @@ module Sfdo_api_npsp
   end
 
   def create_gau_via_api(gau_name)
-    @gau_id = create "#{$object_namespace}General_Accounting_Unit__c", Name: gau_name
+    @gau_id = create "#{true_object_name('General_Accounting_Unit__c')}", Name: gau_name
   end
 
   def create_lead_via_api(last_name, company)
@@ -101,8 +101,7 @@ module Sfdo_api_npsp
 
   def delete_gaus_via_api
     api_client do
-      gaus = @api_client.query("select Id from #{$object_namespace}General_Accounting_Unit__c")
-      #TODO use define_method or some such to replace the 'npsp__' bit below
+      gaus = @api_client.query("select Id from #{true_object_name('General_Accounting_Unit__c')}")
       delete_all_npsp__General_Accounting_Unit__c(gaus) if gaus.first != nil
     end
   end
