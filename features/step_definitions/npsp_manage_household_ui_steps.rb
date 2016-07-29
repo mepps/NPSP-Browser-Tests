@@ -258,6 +258,21 @@ Then(/^I should see breadcrumbs for the account$/) do
   expect(on(ManageHouseholdsPage).account_breadcrumb).to match /HOUSEHOLD.+AAAACREACC1#{@random_string}/m
 end
 
+When(/^I delete the last Contact from the Household$/) do
+  on(ManageHouseholdsPage) do |page|
+    page.delete_second_contact_element.when_present.click
+    sleep 2
+    page.modal_remove_element.when_present.click
+  end
+end
+
+Then(/^I should see one Household Member entry$/) do
+  on(ManageHouseholdsPage) do |page|
+    expect(page.household_member_second_element.when_present).to be_visible
+    expect(page.household_member_first_element.when_present).to_not be_visible
+  end
+end
+
 Then(/^I should see three Household Member entries$/) do
   on(ManageHouseholdsPage) do |page|
     expect(page.household_member_second_element.when_present).to be_visible

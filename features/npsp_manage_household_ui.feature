@@ -23,6 +23,16 @@ Feature: Manage Household UI
       And I add to household with Add option
     Then I should see two Household Member entries
 
+  Scenario: Delete Members from Household
+    Given I create two Contacts "aaa" and "bbb" to be added to Household
+      And I navigate to Manage Households UI
+    When I type "aaa" into search box
+      And I add to household with Add option
+      And I type "bbb" into search box
+      And I add to household with Add option
+      And I delete the last Contact from the Household
+    Then I should see one Household Member entry
+
   Scenario: Change Household address
     Given I navigate to Manage Households UI for contact
       And I see Contact name
