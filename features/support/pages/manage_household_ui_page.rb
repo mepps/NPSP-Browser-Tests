@@ -3,6 +3,7 @@ class ManageHouseholdsPage
   
   button(:add_button, text: 'Add')
   div(:account_address_field, id: 'acc17_ileinner')
+  ordered_list(:account_breadcrumb, class: 'slds-breadcrumb slds-list--horizontal')
   h1(:account_label, class: 'pageType')
   text_field(:add_members_search, placeholder: 'Find a contact or add a new contact to the household')
   button(:add_merge_button, text: 'Add All Members')

@@ -254,6 +254,10 @@ Then(/^"([^"]*)" and "([^"]*)" should be added to the Household$/) do |arg1, arg
   pending # Write code here that turns the phrase above into concrete actions
 end
 
+Then(/^I should see breadcrumbs for the account$/) do
+  expect(on(ManageHouseholdsPage).account_breadcrumb).to match /HOUSEHOLD.+AAAACREACC1#{@random_string}/m
+end
+
 Then(/^I should see three Household Member entries$/) do
   on(ManageHouseholdsPage) do |page|
     expect(page.household_member_second_element.when_present).to be_visible

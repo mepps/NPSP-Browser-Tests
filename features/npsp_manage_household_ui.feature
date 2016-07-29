@@ -12,6 +12,7 @@ Feature: Manage Household UI
       And I should see the Add Members search field
       And I should see the Household Naming section
       And I should see the Household Details section
+      And I should see breadcrumbs for the account
 
   Scenario: Add Members to Household
     Given I create two Contacts "aaa" and "bbb" to be added to Household
