@@ -111,8 +111,10 @@ module Sfdo_api_npsp
 
   def delete_household_accounts
     api_client do
-      rd_opps = @api_client.query("select Id from Account where Type = 'Household'")
-      delete_all_household_account(rd_opps) if rd_opps.first != nil
+      hh_accs = @api_client.query("select Id from Account where Type = 'Household'")
+      hh_accs.each do |hh_acc|
+        @api_client.destroy(hh_acc.sobject_type, hh_acc.Id)
+      end
     end
   end
 
