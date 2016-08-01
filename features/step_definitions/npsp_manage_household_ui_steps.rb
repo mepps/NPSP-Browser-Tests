@@ -268,8 +268,8 @@ end
 
 Then(/^I should see one Household Member entry$/) do
   on(ManageHouseholdsPage) do |page|
-    expect(page.household_member_second_element.when_present).to be_visible
-    expect(page.household_member_first_element.when_present).to_not be_visible
+    expect(page.household_member_first_element.when_present).to be_visible
+    expect(page.household_member_second_element).to_not be_visible
   end
 end
 
