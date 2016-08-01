@@ -1,6 +1,6 @@
 Feature: Data Import page
 
-  @smoketest @chrome
+  @smoketest @chrome @flaky
   Scenario: Data Import page
     When I navigate to NPSP Data Import
       And I set Batch Size to 60
