@@ -12,5 +12,9 @@ class NPSPSettingsPage
   span(:loading_message, class: 'loadingText')
   a(:opportunity_names, text: 'Opportunity Names')
   a(:people, text: 'People')
+  table(:recip_settings_records_table, class: 'slds-table slds-table--bordered')
+  a(:relationship_reciprocal_settings, text: 'Relationship Reciprocal Settings')
+  a(:relationships, text: 'Relationships')
+
   button(:save_button, name: /pbHH/, class: 'btn btn-sm btn-primary')
 end
