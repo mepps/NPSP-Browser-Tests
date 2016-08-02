@@ -5,7 +5,6 @@ end
 
 When(/^I click the pin buttons for Last Name and for Company$/) do
   on(NPSPBDEPage) do |page|
-    #sleep 1
     page.company_pin_button_element.when_present.click
     page.last_name_pin_button_element.when_present.click
   end
