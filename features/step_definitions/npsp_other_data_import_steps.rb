@@ -22,5 +22,6 @@ Then(/^I should see the NPSP Batch Data Entry page$/) do
 end
 
 Then(/^I should see the NPSP Data Import Edit page$/) do
+  sleep 3
   expect(on(NPSPOtherDataImportPage).page_info).to match /NPSP Data Import Edit.+New NPSP Data Import/m
 end
