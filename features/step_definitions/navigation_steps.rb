@@ -38,6 +38,20 @@ Given(/^I navigate to Manage Households UI for Household Object$/) do
   @browser.goto($target_org_url + '/apex/HH_ManageHousehold?scontrolCaching=1&id=' + @hh_obj_id)
 end
 
+Given(/^I navigate to Manage Soft Credits for that Opportunity$/) do
+  puts @browser.window.size
+  @browser.window.resize_to(1024, 768)
+  sleep 1
+  puts @browser.window.size
+  @browser.window.resize_to(480, 220)
+  sleep 1
+  puts @browser.window.size
+  @browser.window.resize_to(1024, 768)
+  sleep 1
+  puts @browser.window.size
+  @browser.goto($target_org_url + '/apex/PSC_ManageSoftCredits?scontrolCaching=1&id=' + @opportunity_id)
+end
+
 Given(/^I navigate to Matching Donation for that Opportunity$/) do
   @browser.goto($target_org_url + '/apex/OPP_MatchingDonationsBTN?id=' + @opportunity_id)
 end
