@@ -39,16 +39,6 @@ Given(/^I navigate to Manage Households UI for Household Object$/) do
 end
 
 Given(/^I navigate to Manage Soft Credits for that Opportunity$/) do
-  puts @browser.window.size
-  @browser.window.resize_to(1024, 768)
-  sleep 1
-  puts @browser.window.size
-  @browser.window.resize_to(480, 220)
-  sleep 1
-  puts @browser.window.size
-  @browser.window.resize_to(1024, 768)
-  sleep 1
-  puts @browser.window.size
   @browser.goto($target_org_url + '/apex/PSC_ManageSoftCredits?scontrolCaching=1&id=' + @opportunity_id)
 end
 
