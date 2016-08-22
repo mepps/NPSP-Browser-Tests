@@ -42,6 +42,10 @@ Given(/^I navigate to Manage Soft Credits for that Opportunity$/) do
   @browser.goto($target_org_url + '/apex/PSC_ManageSoftCredits?scontrolCaching=1&id=' + @opportunity_id)
 end
 
+When(/^I navigate to Soft Credits page for the original Opportunity$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
 Given(/^I navigate to Matching Donation for that Opportunity$/) do
   @browser.goto($target_org_url + '/apex/OPP_MatchingDonationsBTN?id=' + @opportunity_id)
 end
