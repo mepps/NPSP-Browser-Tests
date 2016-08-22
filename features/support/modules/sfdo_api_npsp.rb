@@ -80,6 +80,7 @@ module Sfdo_api_npsp
                              AccountId: @account_id_for_contact,
                              "#{$object_namespace}Matching_Gift_Status__c".to_sym => matching_gift_status,
                              "#{$object_namespace}Matching_Gift_Account__c".to_sym => matching_gift_account
+    @array_of_opp_ids << @opportunity_id
 
   end
 
