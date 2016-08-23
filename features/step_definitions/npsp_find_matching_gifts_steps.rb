@@ -1,6 +1,6 @@
 Given(/^I create two Opportunities to be matched$/) do
 
-  create_two_contacts_on_different_accounts("First Name", "Second Name")
+  create_two_contacts_on_different_accounts("First", "Second")
 
   create_opportunity_via_api("ToBeMatched#{@random_string}",
                              'Closed Won',

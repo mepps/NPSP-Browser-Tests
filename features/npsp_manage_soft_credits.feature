@@ -7,11 +7,10 @@ Feature: Manage Soft Credits test
     When I navigate to Manage Soft Credits for that Opportunity
     Then I should see the Manage Soft Credits page
 
-  Scenario: Add Partial Soft Credit
+  Scenario: Add Partial Soft Credit more than amount
     Given I create two Opportunities to be matched
-      #When I navigate to Find Matching Gifts for the original Opportunity
     When I navigate to Soft Credits page for the original Opportunity
       And I click Percent
       And I click Allow soft credit more than amount
-      And I add a new soft credit for the second Contact with a Role for amount "1100"
+      And I add a new soft credit for the second Contact with a Role for amount "1234"
     Then I should see the new soft credit

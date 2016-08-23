@@ -17,10 +17,10 @@ When(/^I add a new soft credit for the second Contact with a Role for amount "([
     page.new_credit
     sleep 2
     page.contact_field_element.when_present
-    page.contact_field = 'Second Name'
+    page.contact_field = 'Second'
     page.role_name = 'Influencer'
-    page.select_full_button
-    page.amount = amount
+    #page.select_full_button #FULL AMOUNT AUTOMATICALLY FILLS IN SOFT CREDIT REGARDLESS OF WHAT IS TYPED
+    page.amount_element.send_keys amount
     page.save_button
   end
 end
