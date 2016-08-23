@@ -12,8 +12,17 @@ When(/^I click Allow soft credit more than amount$/) do
   on(NPSPManageSoftCreditsPage).check_allow_check
 end
 
-When(/^I add a new soft credit for the second Contact with a Role for amount "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I add a new soft credit for the second Contact with a Role for amount "([^"]*)"$/) do |amount|
+  on(NPSPManageSoftCreditsPage) do |page|
+    page.new_credit
+    sleep 2
+    page.contact_field_element.when_present
+    page.contact_field = 'Second Name'
+    page.role_name = 'Influencer'
+    page.select_full_button
+    page.amount = amount
+    page.save_button
+  end
 end
 
 Then(/^I should see the new soft credit$/) do
