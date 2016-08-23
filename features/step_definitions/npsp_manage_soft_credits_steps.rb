@@ -5,11 +5,11 @@ Then(/^I should see the Manage Soft Credits page$/) do
 end
 
 When(/^I click Percent$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(NPSPManageSoftCreditsPage).select_percent_button
 end
 
 When(/^I click Allow soft credit more than amount$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(NPSPManageSoftCreditsPage).check_allow_check
 end
 
 When(/^I add a new soft credit for the second Contact with a Role for amount "([^"]*)"$/) do |arg1|
