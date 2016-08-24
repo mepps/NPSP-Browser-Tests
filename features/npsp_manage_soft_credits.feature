@@ -14,3 +14,10 @@ Feature: Manage Soft Credits test
       And I click Allow soft credit more than amount
       And I add a new soft credit for the second Contact with a Role for amount "1234"
     Then I should see the new Contact Role on the Opportunity
+
+  Scenario: Add Partial Soft Credit full amount
+    Given I create two Opportunities to be matched
+    When I navigate to Soft Credits page for the original Opportunity
+    And I add a new soft credit for the second Contact with a Role for full amount
+    Then I should see "100.00" in the Amount field and Save
+      And I should see the new Contact Role on the Opportunity

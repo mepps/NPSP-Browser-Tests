@@ -25,6 +25,25 @@ When(/^I add a new soft credit for the second Contact with a Role for amount "([
   end
 end
 
+When(/^I add a new soft credit for the second Contact with a Role for full amount$/) do
+  on(NPSPManageSoftCreditsPage) do |page|
+    page.new_credit
+    sleep 2
+    page.contact_field_element.when_present
+    page.contact_field = 'Second'
+    page.role_name = 'Influencer'
+    page.select_full_button #FULL AMOUNT AUTOMATICALLY FILLS IN SOFT CREDIT REGARDLESS OF WHAT IS TYPED
+  end
+end
+
+Then(/^I should see "([^"]*)" in the Amount field and Save$/) do |amount|
+  on(NPSPManageSoftCreditsPage) do |page|
+    page.amount_read_only_element.when_present
+    expect(page.amount_read_only).to eq amount
+    page.save_button
+  end
+end
+
 Then(/^I should see the new Contact Role on the Opportunity$/) do
   on(NPSPManageSoftCreditsPage) do |page|
     page.related_contact_role_list_element.when_present
