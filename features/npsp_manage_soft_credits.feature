@@ -13,4 +13,4 @@ Feature: Manage Soft Credits test
       And I click Percent
       And I click Allow soft credit more than amount
       And I add a new soft credit for the second Contact with a Role for amount "1234"
-    Then I should see the new soft credit
+    Then I should see the new Contact Role on the Opportunity

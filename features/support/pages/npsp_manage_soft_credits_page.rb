@@ -10,4 +10,5 @@ class NPSPManageSoftCreditsPage
   radio_button(:full_button, index: 2)
   text_field(:amount, class: 'slds-input')
   button(:save_button, value: 'Save')
+  div(:related_contact_role_list, id: /RelatedContactRoleList_body/)
 end

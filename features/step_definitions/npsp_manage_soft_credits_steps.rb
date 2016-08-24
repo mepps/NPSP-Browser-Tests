@@ -25,6 +25,9 @@ When(/^I add a new soft credit for the second Contact with a Role for amount "([
   end
 end
 
-Then(/^I should see the new soft credit$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should see the new Contact Role on the Opportunity$/) do
+  on(NPSPManageSoftCreditsPage) do |page|
+    page.related_contact_role_list_element.when_present
+    expect(page.related_contact_role_list).to match /Second.+Second Household/
+  end
 end
