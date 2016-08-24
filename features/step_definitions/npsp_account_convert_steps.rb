@@ -19,6 +19,7 @@ When(/^I check all the boxes$/) do
     page.all_users_element.when_present
     page.all_users_element.click
     page.my_data_element.click
+    page.duplication_management_element.click
     page.the_conversion_element.click
     page.all_record_element.click
     page.all_workflows_element.click
