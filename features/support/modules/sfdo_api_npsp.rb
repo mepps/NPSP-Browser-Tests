@@ -85,7 +85,7 @@ module Sfdo_api_npsp
   end
 
   def create_relationship_via_api(contact, related_contact)
-    @relationshiop_id = create 'npe4__Relationship__c', npe4__Contact__c: contact, npe4__RelatedContact__c: related_contact
+    @relationshiop_id = create "#{true_object_name('Relationship__c')}", npe4__Contact__c: contact, npe4__RelatedContact__c: related_contact
   end
 
   def delete_account_via_api
