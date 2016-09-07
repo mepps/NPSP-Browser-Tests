@@ -56,7 +56,7 @@ module Sfdo_api_npsp
   end
 
   def create_contacts_with_household_object_via_api(hh_obj, contact_name)
-    @hh_obj_id = create 'npo02__Household__c', Name: hh_obj
+    @hh_obj_id = create "#{true_object_name('Household__c')}", Name: hh_obj
     @contact_id = create 'Contact', { LastName: contact_name, npo02__Household__c: @hh_obj_id }
     @array_of_contacts << @contact_id
     @contact_id = create 'Contact', LastName: contact_name, MailingCity: 'hhmailingcity', npo02__Household__c: @hh_obj_id
@@ -103,7 +103,7 @@ module Sfdo_api_npsp
   def delete_gaus_via_api
     api_client do
       gaus = @api_client.query("select Id from #{true_object_name('General_Accounting_Unit__c')}")
-      delete_all_General_Accounting_Unit__c(gaus) #unless gaus.size ==0
+      delete_all_General_Accounting_Unit__c(gaus)
     end
   end
 
