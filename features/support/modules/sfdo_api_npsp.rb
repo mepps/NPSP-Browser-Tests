@@ -118,7 +118,7 @@ module Sfdo_api_npsp
 
   def delete_household_objects
     api_client do
-      rd_opps = @api_client.query('select Id from npo02__Household__c')
+      rd_opps = @api_client.query("select Id from #{true_object_name('Household__c')}")
       delete_all_npo02__Household__c(rd_opps) if rd_opps.first != nil
     end
   end
@@ -135,7 +135,7 @@ module Sfdo_api_npsp
 
   def delete_payments
     api_client do
-      payments = @api_client.query('select Id from npe01__OppPayment__c')
+      payments = @api_client.query("select Id from #{true_object_name('OppPayment__c')}")
       delete_all_npe01__OppPayment__c(payments) if payments.first != nil
     end
   end
@@ -156,14 +156,14 @@ module Sfdo_api_npsp
 
   def delete_recurring_donations
     api_client do
-      rds = @api_client.query('select Id from npe03__Recurring_Donation__c')
+      rds = @api_client.query("select Id from #{true_object_name('Recurring_Donation__c')}")
       delete_all_npe03__Recurring_Donation__c(rds) if rds.first != nil
     end
   end
 
   def update_account_model(to_value)
     api_client do
-      acc_id = @api_client.query('select Id from npe01__Contacts_And_Orgs_Settings__c')
+      acc_id = @api_client.query("select Id from #{true_object_name('Contacts_And_Orgs_Settings__c')}")
       acc = acc_id.first
       @api_client.update('npe01__Contacts_And_Orgs_Settings__c', Id: acc.Id, npe01__Account_Processor__c: to_value)
     end
