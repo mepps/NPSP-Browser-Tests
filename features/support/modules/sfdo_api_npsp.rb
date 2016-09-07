@@ -126,7 +126,6 @@ module Sfdo_api_npsp
   def delete_leads
     api_client do
       leads = @api_client.query('select Id from Lead')
-      #delete_all_lead(leads) if leads.first != nil
       leads.each do |lead_id|
         @api_client.destroy(lead_id.sobject_type, lead_id.Id)
       end
