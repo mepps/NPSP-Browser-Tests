@@ -119,7 +119,7 @@ module Sfdo_api_npsp
   def delete_household_objects
     api_client do
       rd_opps = @api_client.query("select Id from #{true_object_name('Household__c')}")
-      delete_all_npo02__Household__c(rd_opps) if rd_opps.first != nil
+      delete_all_Household__c(rd_opps) if rd_opps.first != nil
     end
   end
 
@@ -136,7 +136,7 @@ module Sfdo_api_npsp
   def delete_payments
     api_client do
       payments = @api_client.query("select Id from #{true_object_name('OppPayment__c')}")
-      delete_all_npe01__OppPayment__c(payments) if payments.first != nil
+      delete_all_OppPayment__c(payments) if payments.first != nil
     end
   end
 
@@ -157,7 +157,7 @@ module Sfdo_api_npsp
   def delete_recurring_donations
     api_client do
       rds = @api_client.query("select Id from #{true_object_name('Recurring_Donation__c')}")
-      delete_all_npe03__Recurring_Donation__c(rds) if rds.first != nil
+      delete_all_Recurring_Donation__c(rds) if rds.first != nil
     end
   end
 
