@@ -165,7 +165,7 @@ module Sfdo_api_npsp
     api_client do
       acc_id = @api_client.query("select Id from #{true_object_name('Contacts_And_Orgs_Settings__c')}")
       acc = acc_id.first
-      @api_client.update('npe01__Contacts_And_Orgs_Settings__c', Id: acc.Id, npe01__Account_Processor__c: to_value)
+      @api_client.update("#{true_object_name('Contacts_And_Orgs_Settings__c')}", Id: acc.Id, npe01__Account_Processor__c: to_value)
     end
   end
 
