@@ -102,11 +102,8 @@ module Sfdo_api_npsp
 
   def delete_gaus_via_api
     api_client do
-      begin
       gaus = @api_client.query("select Id from #{true_object_name('General_Accounting_Unit__c')}")
-      delete_all_npsp__General_Accounting_Unit__c(gaus) if gaus.first != nil
-      rescue
-        end
+      delete_all_General_Accounting_Unit__c(gaus) #unless gaus.size ==0
     end
   end
 
