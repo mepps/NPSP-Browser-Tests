@@ -56,7 +56,7 @@ module Sfdo_api_npsp
   end
 
   def create_contacts_with_household_object_via_api(hh_obj, contact_name)
-    @hh_obj_id = create 'npo02__Household__c', Name: hh_obj
+    @hh_obj_id = create "#{true_object_name('Household__c')}", Name: hh_obj
     @contact_id = create 'Contact', { LastName: contact_name, npo02__Household__c: @hh_obj_id }
     @array_of_contacts << @contact_id
     @contact_id = create 'Contact', LastName: contact_name, MailingCity: 'hhmailingcity', npo02__Household__c: @hh_obj_id
@@ -85,7 +85,7 @@ module Sfdo_api_npsp
   end
 
   def create_relationship_via_api(contact, related_contact)
-    @relationshiop_id = create 'npe4__Relationship__c', npe4__Contact__c: contact, npe4__RelatedContact__c: related_contact
+    @relationshiop_id = create "#{true_object_name('Relationship__c')}", npe4__Contact__c: contact, npe4__RelatedContact__c: related_contact
   end
 
   def delete_account_via_api
@@ -102,11 +102,8 @@ module Sfdo_api_npsp
 
   def delete_gaus_via_api
     api_client do
-      begin
       gaus = @api_client.query("select Id from #{true_object_name('General_Accounting_Unit__c')}")
-      delete_all_npsp__General_Accounting_Unit__c(gaus) if gaus.first != nil
-      rescue
-        end
+      delete_all_General_Accounting_Unit__c(gaus)
     end
   end
 
@@ -121,15 +118,14 @@ module Sfdo_api_npsp
 
   def delete_household_objects
     api_client do
-      rd_opps = @api_client.query('select Id from npo02__Household__c')
-      delete_all_npo02__Household__c(rd_opps) if rd_opps.first != nil
+      rd_opps = @api_client.query("select Id from #{true_object_name('Household__c')}")
+      delete_all_Household__c(rd_opps)
     end
   end
 
   def delete_leads
     api_client do
       leads = @api_client.query('select Id from Lead')
-      #delete_all_lead(leads) if leads.first != nil
       leads.each do |lead_id|
         @api_client.destroy(lead_id.sobject_type, lead_id.Id)
       end
@@ -138,37 +134,37 @@ module Sfdo_api_npsp
 
   def delete_payments
     api_client do
-      payments = @api_client.query('select Id from npe01__OppPayment__c')
-      delete_all_npe01__OppPayment__c(payments) if payments.first != nil
+      payments = @api_client.query("select Id from #{true_object_name('OppPayment__c')}")
+      delete_all_OppPayment__c(payments)
     end
   end
 
   def delete_non_household_accounts
     api_client do
       rd_opps = @api_client.query('select Id from Account where Type = null')
-      delete_all_account(rd_opps) if rd_opps.first != nil
+      delete_all_account(rd_opps)
     end
   end
 
   def delete_opportunities
     api_client do
       rd_opps = @api_client.query('select Id from Opportunity')
-      delete_all_opportunity(rd_opps) if rd_opps.first != nil
+      delete_all_opportunity(rd_opps)
     end
   end
 
   def delete_recurring_donations
     api_client do
-      rds = @api_client.query('select Id from npe03__Recurring_Donation__c')
-      delete_all_npe03__Recurring_Donation__c(rds) if rds.first != nil
+      rds = @api_client.query("select Id from #{true_object_name('Recurring_Donation__c')}")
+      delete_all_Recurring_Donation__c(rds)
     end
   end
 
   def update_account_model(to_value)
     api_client do
-      acc_id = @api_client.query('select Id from npe01__Contacts_And_Orgs_Settings__c')
+      acc_id = @api_client.query("select Id from #{true_object_name('Contacts_And_Orgs_Settings__c')}")
       acc = acc_id.first
-      @api_client.update('npe01__Contacts_And_Orgs_Settings__c', Id: acc.Id, npe01__Account_Processor__c: to_value)
+      @api_client.update("#{true_object_name('Contacts_And_Orgs_Settings__c')}", Id: acc.Id, npe01__Account_Processor__c: to_value)
     end
   end
 
@@ -198,10 +194,11 @@ module Sfdo_api_npsp
       faraday.adapter Faraday.default_adapter # make requests with Net::HTTP
     end
 
-    response = conn.post '/services/oauth2/token',                                                    grant_type: 'refresh_token',
-                                                                                                      client_id: ENV['SF_CLIENT_KEY'],
-                                                                                                      client_secret: ENV['SF_CLIENT_SECRET'],
-                                                                                                      refresh_token: ENV['SF_REFRESH_TOKEN']
+    response = conn.post '/services/oauth2/token',
+                         grant_type: 'refresh_token',
+                         client_id: ENV['SF_CLIENT_KEY'],
+                         client_secret: ENV['SF_CLIENT_SECRET'],
+                         refresh_token: ENV['SF_REFRESH_TOKEN']
 
     response_body = JSON.parse(response.body)
     access_token = response_body['access_token']
