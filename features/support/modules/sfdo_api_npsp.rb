@@ -194,10 +194,11 @@ module Sfdo_api_npsp
       faraday.adapter Faraday.default_adapter # make requests with Net::HTTP
     end
 
-    response = conn.post '/services/oauth2/token',                                                    grant_type: 'refresh_token',
-                                                                                                      client_id: ENV['SF_CLIENT_KEY'],
-                                                                                                      client_secret: ENV['SF_CLIENT_SECRET'],
-                                                                                                      refresh_token: ENV['SF_REFRESH_TOKEN']
+    response = conn.post '/services/oauth2/token',
+                         grant_type: 'refresh_token',
+                         client_id: ENV['SF_CLIENT_KEY'],
+                         client_secret: ENV['SF_CLIENT_SECRET'],
+                         refresh_token: ENV['SF_REFRESH_TOKEN']
 
     response_body = JSON.parse(response.body)
     access_token = response_body['access_token']
