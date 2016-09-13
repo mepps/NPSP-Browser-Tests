@@ -20,13 +20,13 @@ end
 
 Then(/^I should see the default Account Model settings on the page$/) do
   #value "- none -" appears on the edit page but does not appear on the display page
-  if @account_model_setting == '- none -'
+  if @account_model_setting == '--None--'
     @account_model_setting = ''
   end
-  if @household_account_record_type == '- none -'
+  if @household_account_record_type == '--None--'
     @household_account_record_type = ''
   end
-  if @one_to_one_record_type == '- none -'
+  if @one_to_one_record_type == '--None--'
     @one_to_one_record_type = ''
   end
 

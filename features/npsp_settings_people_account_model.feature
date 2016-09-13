@@ -10,7 +10,7 @@ Feature: NPSP Settings People Account Model
     When I set Account Model to "One-to-One"
       And I set Account Model to "Individual"
       And I set Household Account Record Type to "Organization"
-      And I set Household Account Record Type to "- none -"
+      And I set Household Account Record Type to "--None--"
       And I set One-to-One Record Type to "Household Account"
       And I set One-to-One Record Type to "Organization"
       And I click Cancel
