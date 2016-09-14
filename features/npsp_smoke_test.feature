@@ -7,5 +7,5 @@ Feature: NPSP Smoke Test
       And I should be able to click the New button
 
   Scenario: NPSP controls link works
-    When I click the NPSP Settings link
+    When I navigate to NPSP Settings
     Then I should see the NPSP Application Settings page
