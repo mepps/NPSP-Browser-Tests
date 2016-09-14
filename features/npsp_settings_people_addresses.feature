@@ -1,7 +1,7 @@
 Feature: NPSP Settings People Addresses
 
   Background:
-    Given I click the NPSP Settings link
+    Given I navigate to NPSP Settings
       And I navigate to Settings People Addresses
 
     @smoketest

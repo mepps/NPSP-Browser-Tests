@@ -1,8 +1,3 @@
-When(/^I click the NPSP Settings link$/) do
-  sleep 2
-  on(NPSPMainPage).npsp_settings_link_element.when_present(10).click
-end
-
 When(/^I click the Recurring Donations link$/) do
   on(NPSPMainPage).recurring_donations_link_element.when_present.click
 end

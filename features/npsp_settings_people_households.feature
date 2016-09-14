@@ -2,7 +2,7 @@
 Feature: NPSP Settings People Households
 
   Background:
-    Given I click the NPSP Settings link
+    Given I navigate to NPSP Settings
     When I navigate to Settings People Households
 
   Scenario: Household Name Settings set values

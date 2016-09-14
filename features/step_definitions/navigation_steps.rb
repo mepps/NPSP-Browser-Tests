@@ -50,6 +50,10 @@ Given(/^I navigate to Matching Donation for that Opportunity$/) do
   @browser.goto($target_org_url + '/apex/OPP_MatchingDonationsBTN?id=' + @opportunity_id)
 end
 
+Given(/^I navigate to NPSP Settings$/) do
+  @browser.goto($target_org_url + '/apex/STG_SettingsManager')
+end
+
 Given(/^I navigate to Opportunity$/) do
   on(NPSPMainPage).opportunities_link_element.when_present(15).click
 end
