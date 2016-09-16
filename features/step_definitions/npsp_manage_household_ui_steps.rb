@@ -299,9 +299,5 @@ Then(/^checkboxes should be checked$/) do
     expect(page.one_checked_box_element).to be_visible
     expect(page.other_checked_box_element).to be_visible
     expect(page.bogus_checked_box_element).not_to be_visible
-    #page.bogus_checked_box_element.flash
-    #page.bogus_checked_box_element.flash
-
   end
 end
-
