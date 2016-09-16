@@ -85,5 +85,5 @@ Feature: Manage Household UI
       And I add to household with Add All Members option
     Then I should be able to click all the checkboxes
       And I click Manage Household Save
-    And I navigate to Manage Households UI for contact
-    And checkboxes ftmfw
+      And I navigate to Manage Households UI for contact
+      And checkboxes ftmfw
