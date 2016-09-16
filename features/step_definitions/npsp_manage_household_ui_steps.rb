@@ -266,6 +266,18 @@ When(/^I delete the last Contact from the Household$/) do
   end
 end
 
+Then(/^I should be able to click all the checkboxes$/) do
+  on(ManageHouseholdsPage) do |page|
+    sleep 3
+    page.first_exclude_checkbox_span_element.when_present.click
+    page.ninth_exclude_checkbox_span_element.when_present.click
+    page.auto_name_checkbox_span_element.when_present.click
+    page.auto_formal_checkbox_span_element.when_present.click
+    page.auto_informal_checkbox_span_element.when_present.click
+
+  end
+end
+
 Then(/^I should see one Household Member entry$/) do
   on(ManageHouseholdsPage) do |page|
     expect(page.household_member_first_element.when_present).to be_visible
@@ -278,6 +290,18 @@ Then(/^I should see three Household Member entries$/) do
     expect(page.household_member_second_element.when_present).to be_visible
     expect(page.household_member_first_element.when_present).to be_visible
     expect(page.household_member_third_element.when_present).to be_visible
+  end
+end
+
+Then(/^checkboxes ftmfw$/) do
+  sleep 3
+  on(ManageHouseholdsPage) do |page|
+    expect(page.one_checked_box_element).to be_visible
+    expect(page.other_checked_box_element).to be_visible
+    expect(page.bogus_checked_box_element).not_to be_visible
+    #page.bogus_checked_box_element.flash
+    #page.bogus_checked_box_element.flash
+
   end
 end
 

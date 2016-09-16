@@ -74,3 +74,16 @@ Feature: Manage Household UI
       And I see the Add One option
       And I add to household with Add All Members option
     Then I should see three Household Member entries
+
+  Scenario: All the checkboxes
+    Given I create two contacts "jjj" and "kkk" in the same Household
+      And I navigate to Manage Households UI for contact
+    When I type "jjj" into search box
+      And I add to household with Add option
+      And I see the Cancel option
+      And I see the Add One option
+      And I add to household with Add All Members option
+    Then I should be able to click all the checkboxes
+      And I click Manage Household Save
+    And I navigate to Manage Households UI for contact
+    And checkboxes ftmfw
