@@ -293,7 +293,7 @@ Then(/^I should see three Household Member entries$/) do
   end
 end
 
-Then(/^checkboxes ftmfw$/) do
+Then(/^checkboxes should be checked$/) do
   sleep 3
   on(ManageHouseholdsPage) do |page|
     expect(page.one_checked_box_element).to be_visible
