@@ -9,7 +9,7 @@ end
 Then(/^I should see the NPSP Application Settings page$/) do
   on(NPSPMainPage) do |page|
     page.npsp_home_page_text_element.when_present(10)
-    expect(page.npsp_home_page_text).to match 'Nonprofit Starter Pack Application Settings'
+    expect(page.npsp_home_page_text).to match 'Nonprofit Success Pack Application Settings'
   end
 end
 
