@@ -12,11 +12,11 @@ class NPSPGettingStartedPage
   #a(:this_workbook_link, href: Regexp.escape("https://powerofus.force.com/servlet/fileField?retURL=%2Farticles%2FResource%2FNonprofit-Starter-Pack-Workbook%3Fpopup%3Dfalse&entityId="))
   #a(:guide_link, href: Regexp.escape("https://powerofus.force.com/servlet/fileField?retURL=%2Farticles%2FResource%2FNPSP-Administrators-Guide-to-Importing-Donor-Data&entityId=k"))
 
-  a(:this_workbook_link, href: /Nonprofit-Starter-Pack-Workbook/)
-  a(:guide_link, href: /NPSP-Administrators-Guide-to-Importing-Donor-Data/)
+  a(:this_workbook_link, href: /NPSP_Workbook/)
+  a(:guide_link, href: /NPSP_Import_Data/)
 
 
   a(:power_of_us_login_link, href: 'https://powerofus.force.com')
   a(:salesforce_success_learn_more_link, href: 'https://powerofus.force.com/articles/Resource/Get-Help-NPSP')
-  a(:foundation_office_hours_learn_more_link, href: 'https://powerofus.force.com/articles/Resource/Salesforce-com-Foundation-Weekly-Office-Hours')
+  a(:foundation_office_hours_learn_more_link, href: 'https://powerofus.force.com/HUB_Foundation_Office_Hours')
 end
