@@ -80,7 +80,6 @@ Feature: Manage Household UI
       And I navigate to Manage Households UI for contact
     When I type "jjj" into search box
       And I add to household with Add option
-      And I see the Cancel option
       And I see the Add One option
       And I add to household with Add All Members option
     Then I should be able to click all the checkboxes

@@ -15,16 +15,20 @@ Given(/^I see existing address fields$/) do
   end
 end
 
-Given(/^I see the Household Name$/) do
-  expect(on(ManageHouseholdsPage).hh_name).to eq "aaaatestcontact#{@random_string} Household"
-end
-
 Given(/^I see the Formal Greeting$/) do
   expect(on(ManageHouseholdsPage).formal_greeting).to eq " aaaatestcontact#{@random_string}"
 end
 
+Given(/^I see the Household Name$/) do
+  expect(on(ManageHouseholdsPage).hh_name).to eq "aaaatestcontact#{@random_string} Household"
+end
+
 Given(/^I see the Primary Contact$/) do
   expect(on(ManageHouseholdsPage).primary_contact).to eq "aaaatestcontact#{@random_string}"
+end
+
+When(/^I add to household with Add All Members option$/) do
+  on(ManageHouseholdsPage).add_merge_button_element.when_present(15).click
 end
 
 When(/^I add to household with Add option$/) do
@@ -34,10 +38,6 @@ When(/^I add to household with Add option$/) do
     end
     page.add_button_element.click
   end
-end
-
-When(/^I add to household with Add All Members option$/) do
-  on(ManageHouseholdsPage).add_merge_button_element.when_present(15).click
 end
 
 When(/^I click Change on Household Address$/) do
@@ -77,63 +77,6 @@ end
 
 When(/^I click the first Household Account$/) do
   on(ManageHouseholdsPage).first_household_link_element.when_present.click
-end
-
-When(/^I click the checkboxes in the original address card$/) do
-  on(ManageHouseholdsPage) do |page|
-    page.wait_until do
-      page.exclude_household_name_original_element.when_present.disabled? == false
-    end
-    page.check_exclude_household_name_original
-
-    page.wait_until do
-      page.exclude_formal_greeting_original_element.disabled? == false
-    end
-    page.check_exclude_formal_greeting_original
-
-    page.wait_until do
-      page.exclude_informal_greeting_original_element.disabled? == false
-    end
-    page.check_exclude_informal_greeting_original
-  end
-end
-
-When(/^I click the checkboxes in the second address card$/) do
-  on(ManageHouseholdsPage) do |page|
-    page.wait_until do
-      page.exclude_household_name_second_element.disabled? == false
-    end
-    page.check_exclude_household_name_second
-
-    page.wait_until do
-      page.exclude_formal_greeting_second_element.disabled? == false
-    end
-    page.check_exclude_formal_greeting_second
-
-    page.wait_until do
-      page.exclude_informal_greeting_second_element.disabled? == false
-    end
-    page.check_exclude_informal_greeting_second
-  end
-end
-
-When(/^I click the three Auto checkboxes$/) do
-  on(ManageHouseholdsPage) do |page|
-    page.wait_until do
-      page.auto_name_element.disabled? == false
-    end
-    page.check_auto_name
-
-    page.wait_until do
-      page.auto_formal_greeting_element.disabled? == false
-    end
-    page.check_auto_formal_greeting
-
-    page.wait_until do
-      page.auto_informal_greeting_element.disabled? == false
-    end
-    page.check_auto_informal_greeting
-  end
 end
 
 When(/^I fill in the five address fields$/) do
