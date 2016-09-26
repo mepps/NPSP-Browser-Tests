@@ -2,9 +2,7 @@ class LoginPage
   include PageObject
 
   div(:app_switcher, id: 'tsidButton')
-  a(:npsp_app_picker, text: 'Nonprofit Starter Pack')
-  div(:app_switcher, id: 'tsidButton')
-  a(:npsp_app_picker, text: 'Nonprofit Starter Pack')
+  a(:npsp_app_picker, text: 'Nonprofit Success Pack')
 
 # LOGIN WITH ENV VARS IS NEVER TO BE USED IN A JENKINS BUILD
 # BECAUSE IT LEAKS PASSWORDS IN THE SAUCELABS SELENIUM LOGS.
