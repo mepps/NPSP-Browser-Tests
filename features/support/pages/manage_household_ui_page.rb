@@ -48,4 +48,14 @@ class ManageHouseholdsPage
   button(:set_address_button, text: 'Set Address')
   select_list(:view_select_list, id: 'fcf')
   div(:households_list, class: 'listBody')
+
+  span(:first_exclude_checkbox_span, css: '#SortCanvas > li:nth-child(1) > div > div.slds-card__body.slds-m-around--x-small.slds-p-vertical--none > form > fieldset > div:nth-child(2) > div > label > span.slds-checkbox--faux')
+  span(:ninth_exclude_checkbox_span, css: '#SortCanvas > li:nth-child(3) > div > div.slds-card__body.slds-m-around--x-small.slds-p-vertical--none > form > fieldset > div:nth-child(4) > div > label > span.slds-checkbox--faux')
+  span(:auto_name_checkbox_span, css: '#lightning > form > div > div.myBodyContent > div.slds-grid.slds-grid--align-spread.slds-m-around--medium > div > div:nth-child(2) > div > label > span.slds-checkbox--faux')
+  span(:auto_formal_checkbox_span, css: '#lightning > form > div > div.myBodyContent > div.slds-grid.slds-grid--align-spread.slds-m-around--medium > div > div:nth-child(4) > div > label > span.slds-checkbox--faux')
+  span(:auto_informal_checkbox_span, css: '#lightning > form > div > div.myBodyContent > div.slds-grid.slds-grid--align-spread.slds-m-around--medium > div > div:nth-child(6) > div > label > span.slds-checkbox--faux')
+
+  checkbox(:one_checked_box, checked: 'checked')
+  checkbox(:other_checked_box, checked: 'checked', index: 1)
+  checkbox(:bogus_checked_box, checked: 'checked', index: 2)
 end

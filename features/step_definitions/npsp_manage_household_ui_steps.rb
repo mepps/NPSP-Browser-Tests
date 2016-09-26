@@ -1,3 +1,7 @@
+Given(/^I create two contacts "([^"]*)" and "([^"]*)" in the same Household$/) do |con1, con2|
+  create_two_contacts_on_account_via_api(con1, con2)
+  create_contact_via_api('decoy')
+end
 
 Given(/^I create two Contacts "([^"]*)" and "([^"]*)" to be added to Household$/) do |con1, con2|
   create_contact_via_api(con1)
@@ -15,16 +19,20 @@ Given(/^I see existing address fields$/) do
   end
 end
 
-Given(/^I see the Household Name$/) do
-  expect(on(ManageHouseholdsPage).hh_name).to eq "aaaatestcontact#{@random_string} Household"
-end
-
 Given(/^I see the Formal Greeting$/) do
   expect(on(ManageHouseholdsPage).formal_greeting).to eq " aaaatestcontact#{@random_string}"
 end
 
+Given(/^I see the Household Name$/) do
+  expect(on(ManageHouseholdsPage).hh_name).to eq "aaaatestcontact#{@random_string} Household"
+end
+
 Given(/^I see the Primary Contact$/) do
   expect(on(ManageHouseholdsPage).primary_contact).to eq "aaaatestcontact#{@random_string}"
+end
+
+When(/^I add to household with Add All Members option$/) do
+  on(ManageHouseholdsPage).add_merge_button_element.when_present(15).click
 end
 
 When(/^I add to household with Add option$/) do
@@ -34,10 +42,6 @@ When(/^I add to household with Add option$/) do
     end
     page.add_button_element.click
   end
-end
-
-When(/^I add to household with Add All Members option$/) do
-  on(ManageHouseholdsPage).add_merge_button_element.when_present(15).click
 end
 
 When(/^I click Change on Household Address$/) do
@@ -79,60 +83,11 @@ When(/^I click the first Household Account$/) do
   on(ManageHouseholdsPage).first_household_link_element.when_present.click
 end
 
-When(/^I click the checkboxes in the original address card$/) do
+When(/^I delete the last Contact from the Household$/) do
   on(ManageHouseholdsPage) do |page|
-    page.wait_until do
-      page.exclude_household_name_original_element.when_present.disabled? == false
-    end
-    page.check_exclude_household_name_original
-
-    page.wait_until do
-      page.exclude_formal_greeting_original_element.disabled? == false
-    end
-    page.check_exclude_formal_greeting_original
-
-    page.wait_until do
-      page.exclude_informal_greeting_original_element.disabled? == false
-    end
-    page.check_exclude_informal_greeting_original
-  end
-end
-
-When(/^I click the checkboxes in the second address card$/) do
-  on(ManageHouseholdsPage) do |page|
-    page.wait_until do
-      page.exclude_household_name_second_element.disabled? == false
-    end
-    page.check_exclude_household_name_second
-
-    page.wait_until do
-      page.exclude_formal_greeting_second_element.disabled? == false
-    end
-    page.check_exclude_formal_greeting_second
-
-    page.wait_until do
-      page.exclude_informal_greeting_second_element.disabled? == false
-    end
-    page.check_exclude_informal_greeting_second
-  end
-end
-
-When(/^I click the three Auto checkboxes$/) do
-  on(ManageHouseholdsPage) do |page|
-    page.wait_until do
-      page.auto_name_element.disabled? == false
-    end
-    page.check_auto_name
-
-    page.wait_until do
-      page.auto_formal_greeting_element.disabled? == false
-    end
-    page.check_auto_formal_greeting
-
-    page.wait_until do
-      page.auto_informal_greeting_element.disabled? == false
-    end
-    page.check_auto_informal_greeting
+    page.delete_second_contact_element.when_present.click
+    sleep 2
+    page.modal_remove_element.when_present.click
   end
 end
 
@@ -144,6 +99,19 @@ When(/^I fill in the five address fields$/) do
     #page.change_zip_element.when_present.send_keys('zip')
     #page.change_country_element.when_present.send_keys('country')
   end
+end
+
+When(/^I see the Add One option$/) do
+  expect(on(ManageHouseholdsPage).add_remove_button_element).to be_visible
+end
+
+When(/^I click the Add Many option$/) do
+  on(ManageHouseholdsPage).add_merge_button_element.when_present.click
+end
+
+When(/^I see the Cancel option$/) do
+  sleep 3
+  expect(on(ManageHouseholdsPage).modal_cancel_button_element).to be_visible
 end
 
 When(/^I select "([^"]*)" and Go$/) do |account_view|
@@ -183,6 +151,27 @@ When(/^I type the random string into search box$/) do
   end
 end
 
+Then(/^checkboxes should be checked$/) do
+  sleep 3
+  on(ManageHouseholdsPage) do |page|
+    expect(page.one_checked_box_element).to be_visible
+    expect(page.other_checked_box_element).to be_visible
+    expect(page.bogus_checked_box_element).not_to be_visible
+  end
+end
+
+Then(/^I should be able to click all the checkboxes$/) do
+  on(ManageHouseholdsPage) do |page|
+    sleep 3
+    page.first_exclude_checkbox_span_element.when_present.click
+    page.ninth_exclude_checkbox_span_element.when_present.click
+    page.auto_name_checkbox_span_element.when_present.click
+    page.auto_formal_checkbox_span_element.when_present.click
+    page.auto_informal_checkbox_span_element.when_present.click
+
+  end
+end
+
 Then(/^I should be on the regular Households page$/) do
   expect(on(ManageHouseholdsPage).regular_page_detail_block_element.when_present).to be_visible
 end
@@ -192,6 +181,17 @@ Then(/^I should see all three checkboxes checked$/) do
     expect(page.exclude_formal_greeting_original_checked?).to be true
     expect(page.exclude_informal_greeting_original_checked?).to be true
     expect(page.exclude_household_name_original_checked?).to be true
+  end
+end
+
+Then(/^I should see breadcrumbs for the account$/) do
+  expect(on(ManageHouseholdsPage).account_breadcrumb).to match /HOUSEHOLD.+AAAACREACC1#{@random_string}/m
+end
+
+Then(/^I should see one Household Member entry$/) do
+  on(ManageHouseholdsPage) do |page|
+    expect(page.household_member_first_element.when_present).to be_visible
+    expect(page.household_member_second_element).to_not be_visible
   end
 end
 
@@ -220,6 +220,14 @@ Then(/^I should see the new address containing "([^"]*)" and "([^"]*)" and "([^"
   expect(on(ManageHouseholdsPage).account_address_field).to match /#{street}/
 end
 
+Then(/^I should see three Household Member entries$/) do
+  on(ManageHouseholdsPage) do |page|
+    expect(page.household_member_second_element.when_present).to be_visible
+    expect(page.household_member_first_element.when_present).to be_visible
+    expect(page.household_member_third_element.when_present).to be_visible
+  end
+end
+
 Then(/^I should see two Household Member entries$/) do
   on(ManageHouseholdsPage) do |page|
     expect(page.household_member_second_element.when_present).to be_visible
@@ -232,52 +240,6 @@ Then(/^the five address fields should appear in the Household Address section in
   expect(on(ManageHouseholdsPage).household_address_field).to match /street/m
 end
 
-Given(/^I create two contacts "([^"]*)" and "([^"]*)" in the same Household$/) do |con1, con2|
-  create_two_contacts_on_account_via_api(con1, con2)
-  create_contact_via_api('decoy')
-end
-
-When(/^I see the Cancel option$/) do
-  sleep 3
-  expect(on(ManageHouseholdsPage).modal_cancel_button_element).to be_visible
-end
-
-When(/^I see the Add One option$/) do
-  expect(on(ManageHouseholdsPage).add_remove_button_element).to be_visible
-end
-
-When(/^I click the Add Many option$/) do
-  on(ManageHouseholdsPage).add_merge_button_element.when_present.click
-end
-
 Then(/^"([^"]*)" and "([^"]*)" should be added to the Household$/) do |arg1, arg2|
   pending # Write code here that turns the phrase above into concrete actions
 end
-
-Then(/^I should see breadcrumbs for the account$/) do
-  expect(on(ManageHouseholdsPage).account_breadcrumb).to match /HOUSEHOLD.+AAAACREACC1#{@random_string}/m
-end
-
-When(/^I delete the last Contact from the Household$/) do
-  on(ManageHouseholdsPage) do |page|
-    page.delete_second_contact_element.when_present.click
-    sleep 2
-    page.modal_remove_element.when_present.click
-  end
-end
-
-Then(/^I should see one Household Member entry$/) do
-  on(ManageHouseholdsPage) do |page|
-    expect(page.household_member_first_element.when_present).to be_visible
-    expect(page.household_member_second_element).to_not be_visible
-  end
-end
-
-Then(/^I should see three Household Member entries$/) do
-  on(ManageHouseholdsPage) do |page|
-    expect(page.household_member_second_element.when_present).to be_visible
-    expect(page.household_member_first_element.when_present).to be_visible
-    expect(page.household_member_third_element.when_present).to be_visible
-  end
-end
-
