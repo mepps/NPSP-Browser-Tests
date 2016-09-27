@@ -11,7 +11,6 @@ Then(/^I should see the Getting Started links$/) do
     expect(page.salesforce_fundamentals_link_element).to be_visible
     expect(page.beginner_admin_trail_link_element).to be_visible
     expect(page.this_interactive_learning_path_link_element).to be_visible
-    expect(page.this_workbook_link_element).to be_visible
     expect(page.guide_link_element).to be_visible
     expect(page.power_of_us_login_link_element).to be_visible
     expect(page.salesforce_success_learn_more_link_element).to be_visible
