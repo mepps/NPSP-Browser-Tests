@@ -56,7 +56,7 @@ module Sfdo_api_npsp
   end
 
   def create_contacts_with_household_object_via_api(hh_obj, contact_name)
-    @hh_obj_id = create "#{true_object_name('Household__c')}", Name: hh_obj
+    @hh_obj_id = create 'Household__c', Name: hh_obj
     @contact_id = create 'Contact', { LastName: contact_name, npo02__Household__c: @hh_obj_id }
     @array_of_contacts << @contact_id
     @contact_id = create 'Contact', LastName: contact_name, MailingCity: 'hhmailingcity', npo02__Household__c: @hh_obj_id
@@ -64,7 +64,7 @@ module Sfdo_api_npsp
   end
 
   def create_gau_via_api(gau_name)
-    @gau_id = create "#{true_object_name('General_Accounting_Unit__c')}", Name: gau_name
+    @gau_id = create 'General_Accounting_Unit__c', Name: gau_name
   end
 
   def create_lead_via_api(last_name, company)
@@ -85,7 +85,7 @@ module Sfdo_api_npsp
   end
 
   def create_relationship_via_api(contact, related_contact)
-    @relationshiop_id = create "#{true_object_name('Relationship__c')}", npe4__Contact__c: contact, npe4__RelatedContact__c: related_contact
+    @relationshiop_id = create 'Relationship__c', npe4__Contact__c: contact, npe4__RelatedContact__c: related_contact
   end
 
   def delete_account_via_api
