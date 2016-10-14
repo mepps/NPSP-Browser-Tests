@@ -118,7 +118,7 @@ module Sfdo_api_npsp
 
   def delete_household_objects
     api_client do
-      hh_objs = select_api "select Id from Household__c"
+      hh_objs = select_api 'select Id from Household__c'
       delete_all_Household__c(hh_objs)
     end
   end
@@ -141,7 +141,7 @@ module Sfdo_api_npsp
 
   def delete_non_household_accounts
     api_client do
-      nh_accs = select_api "select Id from Account where Type = null"
+      nh_accs = select_api 'select Id from Account where Type = null'
       delete_all_account(nh_accs)
     end
   end
@@ -155,7 +155,7 @@ module Sfdo_api_npsp
 
   def delete_recurring_donations
     api_client do
-      rds = select_api "select Id from Recurring_Donation__c"
+      rds = select_api 'select Id from Recurring_Donation__c'
       delete_all_Recurring_Donation__c(rds)
     end
   end
