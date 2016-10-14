@@ -103,7 +103,7 @@ module Sfdo_api_npsp
   def delete_gaus_via_api
     api_client do
       #gaus = @api_client.query("select Id from #{true_object_name('General_Accounting_Unit__c')}")
-      gaus = select('select Id from General_Accounting_Unit__c')
+      gaus = select_api "select Id from General_Accounting_Unit__c"
       delete_all_General_Accounting_Unit__c(gaus)
     end
   end
