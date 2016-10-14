@@ -142,8 +142,9 @@ module Sfdo_api_npsp
 
   def delete_non_household_accounts
     api_client do
-      rd_opps = @api_client.query('select Id from Account where Type = null')
-      delete_all_account(rd_opps)
+      #nh_accs = @api_client.query('select Id from Account where Type = null')
+      nh_accs = select_api "select Id from Account where Type = null"
+      delete_all_account(nh_accs)
     end
   end
 
