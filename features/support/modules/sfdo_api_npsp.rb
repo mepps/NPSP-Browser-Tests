@@ -17,7 +17,7 @@ module Sfdo_api_npsp
                                     MailingCountry: country,
                                     MailingPostalCode: zip
     @contact_name = client_name
-    account_object = @api_client.query("select AccountId from Contact where Id = '#{@contact_id}'")
+    account_object = select_api "select AccountId from Contact where Id = '#{@contact_id}'"
     my_account_object = account_object.first
     @account_id_for_contact = my_account_object.AccountId
     @array_of_contacts << @contact_id
@@ -27,7 +27,7 @@ module Sfdo_api_npsp
     @contact_id = create 'Contact', LastName: client_name1
     @contact_name = client_name1
     @array_of_contact_names << client_name1
-    account_object = @api_client.query("select AccountId from Contact where Id = '#{@contact_id}'")
+    account_object = select_api "select AccountId from Contact where Id = '#{@contact_id}'"
     my_account_object = account_object.first
     @account_id_for_contact = my_account_object.AccountId
     @array_of_contacts << @contact_id
@@ -41,7 +41,7 @@ module Sfdo_api_npsp
     @contact_id_first = create 'Contact', LastName: client_name1
     @contact_name_first = client_name1
     @array_of_contact_names << client_name1
-    account_object = @api_client.query("select AccountId from Contact where Id = '#{@contact_id_first}'")
+    account_object = select_api "select AccountId from Contact where Id = '#{@contact_id_first}'"
     my_account_object = account_object.first
     @account_id_for_first_contact = my_account_object.AccountId
     @array_of_contacts << @contact_id_first
@@ -49,7 +49,7 @@ module Sfdo_api_npsp
     @contact_id_second = create 'Contact', LastName: client_name2
     @contact_name_second = client_name2
     @array_of_contact_names << client_name2
-    account_object = @api_client.query("select AccountId from Contact where Id = '#{@contact_id_second}'")
+    account_object = select_api "select AccountId from Contact where Id = '#{@contact_id_second}'"
     my_account_object = account_object.first
     @account_id_for_second_contact = my_account_object.AccountId
     @array_of_contacts << @contact_id_first
@@ -102,14 +102,14 @@ module Sfdo_api_npsp
 
   def delete_gaus_via_api
     api_client do
-      gaus = @api_client.query("select Id from #{true_object_name('General_Accounting_Unit__c')}")
+      gaus = select_api 'select Id from General_Accounting_Unit__c'
       delete_all_General_Accounting_Unit__c(gaus)
     end
   end
 
   def delete_household_accounts
     api_client do
-      hh_accs = @api_client.query("select Id from Account where Type = 'Household'")
+      hh_accs = select_api "select Id from Account where Type = 'Household'"
       hh_accs.each do |hh_acc|
         @api_client.destroy(hh_acc.sobject_type, hh_acc.Id)
       end
@@ -118,14 +118,14 @@ module Sfdo_api_npsp
 
   def delete_household_objects
     api_client do
-      rd_opps = @api_client.query("select Id from #{true_object_name('Household__c')}")
-      delete_all_Household__c(rd_opps)
+      hh_objs = select_api 'select Id from Household__c'
+      delete_all_Household__c(hh_objs)
     end
   end
 
   def delete_leads
     api_client do
-      leads = @api_client.query('select Id from Lead')
+      leads = select_api 'select Id from Lead'
       leads.each do |lead_id|
         @api_client.destroy(lead_id.sobject_type, lead_id.Id)
       end
@@ -134,35 +134,35 @@ module Sfdo_api_npsp
 
   def delete_payments
     api_client do
-      payments = @api_client.query("select Id from #{true_object_name('OppPayment__c')}")
+      payments = select_api 'select Id from OppPayment__c'
       delete_all_OppPayment__c(payments)
     end
   end
 
   def delete_non_household_accounts
     api_client do
-      rd_opps = @api_client.query('select Id from Account where Type = null')
-      delete_all_account(rd_opps)
+      nh_accs = select_api 'select Id from Account where Type = null'
+      delete_all_account(nh_accs)
     end
   end
 
   def delete_opportunities
     api_client do
-      rd_opps = @api_client.query('select Id from Opportunity')
+      rd_opps = select_api 'select Id from Opportunity'
       delete_all_opportunity(rd_opps)
     end
   end
 
   def delete_recurring_donations
     api_client do
-      rds = @api_client.query("select Id from #{true_object_name('Recurring_Donation__c')}")
+      rds = select_api 'select Id from Recurring_Donation__c'
       delete_all_Recurring_Donation__c(rds)
     end
   end
 
   def update_account_model(to_value)
     api_client do
-      acc_id = @api_client.query("select Id from #{true_object_name('Contacts_And_Orgs_Settings__c')}")
+      acc_id = select_api 'select Id from Contacts_And_Orgs_Settings__c'
       acc = acc_id.first
       @api_client.update("#{true_object_name('Contacts_And_Orgs_Settings__c')}", Id: acc.Id, npe01__Account_Processor__c: to_value)
     end
