@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    SFDO-API (0.1.6)
+    SFDO-API (0.1.7)
       restforce (~> 2.1.1)
     ast (2.3.0)
     builder (3.2.2)
@@ -42,8 +42,8 @@ GEM
       page_navigation (>= 0.9)
       selenium-webdriver (>= 2.44.0)
       watir-webdriver (>= 0.6.11)
-    page_navigation (0.9)
-      data_magic (>= 0.14)
+    page_navigation (0.10)
+      data_magic (>= 0.22)
     parser (2.3.1.4)
       ast (~> 2.2)
     powerpack (0.1.1)
@@ -102,4 +102,4 @@ DEPENDENCIES
   rubocop
 
 BUNDLED WITH
-   1.13.4
+   1.13.5
