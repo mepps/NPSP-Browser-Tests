@@ -1,5 +1,7 @@
 When(/^I fill in EPT information$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(EPTPage) do |page|
+    page.template_name_element.when_present.send_keys("ept" + @random_string)
+  end
 end
 
 When(/^I create a Task and a Subtask$/) do
