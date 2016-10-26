@@ -10,6 +10,14 @@ Given(/^I navigate to Contact Merge$/) do
   @browser.goto($target_org_url + '/apex/CON_ContactMerge')
 end
 
+Given(/^I navigate to Engagement Plan Template$/) do
+  @browser.goto($target_org_url + '/apex/EP_ManageEPTemplate')
+end
+
+Given(/^I navigate to Engagement Plan for Contact$/) do
+  @browser.goto($target_org_url + '/apex/placeholder')
+end
+
 When(/^I navigate to Find Matching Gifts for the original Opportunity$/) do
   @browser.goto($target_org_url + '/apex/MTCH_FindGifts?id=' + @opportunity_id)
 end
