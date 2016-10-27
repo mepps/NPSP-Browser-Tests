@@ -1,16 +1,20 @@
 When(/^I fill in EPT information$/) do
-  on(EPTPage) do |page|
-    page.template_name_element.when_present.send_keys("ept" + @random_string)
-  end
+  on(EPTPage).template_name_element.when_present.send_keys("ept" + @random_string)
 end
 
 When(/^I create a Task and a Subtask$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(EPTPage) do |page|
+    page.new_task_button
+    page.dependent_task_button_element.when_present.click
+    page.task_subject_element.when_present.send_keys('task subject' + @random_string)
+    page.subtask_subject_element.when_present.send_keys('subtask subject' + @random_string)
+  end
 end
 
 When(/^I save my EPT$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(EPTPage).save_button
 end
+
 
 Then(/^my EPT should exist$/) do
   pending # Write code here that turns the phrase above into concrete actions
