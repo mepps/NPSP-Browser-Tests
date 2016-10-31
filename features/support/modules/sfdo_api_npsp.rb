@@ -100,6 +100,13 @@ module Sfdo_api_npsp
     end
   end
 
+  def delete_engagement_plan_templates
+    api_client do
+      epts = select_api 'select Id from Engagement_Plan_Template'
+      delete_all_Engagement_Plan_Template(epts)
+    end
+  end
+
   def delete_gaus_via_api
     api_client do
       gaus = select_api 'select Id from General_Accounting_Unit'

@@ -20,4 +20,5 @@ After do |scenario|
   delete_non_household_accounts
   delete_household_objects
   delete_gaus_via_api
+  delete_engagement_plan_templates
 end
