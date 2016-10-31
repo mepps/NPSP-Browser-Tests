@@ -5,7 +5,6 @@ Feature: NPSP Engagement Plan
     Given I create an Engagement Plan Template
       And I navigate to Levels
     When I fill in Levels information for "Account"
+      And I link to an EPT
       And I save my Level
-    Then my Level should exist
-
-
+    Then I should see the proper error message
