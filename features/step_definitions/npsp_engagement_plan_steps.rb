@@ -16,7 +16,6 @@ When(/^I save my EPT$/) do
   on(EPTPage).save_button
 end
 
-
 Then(/^my EPT should exist$/) do
   on(EPTPage) do |page|
     page.saved_page_header_element.when_present(10)
