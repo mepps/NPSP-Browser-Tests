@@ -34,6 +34,10 @@ Given(/^I navigate to Household created$/) do
   @browser.goto($instance_url + '/' + @hh_obj_id)
 end
 
+Given(/^I navigate to Levels$/) do
+  @browser.goto($target_org_url + '/apex/LVL_LevelEdit')
+end
+
 Given(/^I navigate to Manage Households UI$/) do
   @browser.goto($target_org_url + '/apex/HH_ManageHHAccount?scontrolCaching=1&id=' + @account_id)
 end
