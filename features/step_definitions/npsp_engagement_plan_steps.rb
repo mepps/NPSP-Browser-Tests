@@ -6,7 +6,8 @@ When(/^I create a Task and a Subtask$/) do
   on(EPTPage) do |page|
     page.new_task_button
     page.dependent_task_button_element.when_present.click
-    page.task_subject_element.when_present.send_keys('task subject' + @random_string)
+    sleep 2
+    page.task_subject_element.when_present.send_keys('top subject' + @random_string)
     page.subtask_subject_element.when_present.send_keys('subtask subject' + @random_string)
   end
 end
@@ -17,5 +18,10 @@ end
 
 
 Then(/^my EPT should exist$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  on(EPTPage) do |page|
+    page.saved_page_header_element.when_present(10)
+    expect(page.saved_page_header).to eq ('ept' + @random_string)
+    expect(page.task_link_element.text).to eq ('top subject' + @random_string)
+    expect(page.subtask_link_element.text).to eq ('subtask subject' + @random_string)
+  end
 end
