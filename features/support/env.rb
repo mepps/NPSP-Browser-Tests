@@ -30,8 +30,21 @@ Before do |scenario|
 
   if ENV['RUN_ON_SAUCE']
     caps = Selenium::WebDriver::Remote::Capabilities.send(ENV['SELENIUM_BROWSER'])
-    caps.platform = 'Windows 10'
-    caps.version = '54.0'
+
+      case ENV['SELENIUM_BROWSER']
+        when 'internet_explorer'
+          caps.platform = 'Windows 10'
+          caps.version = '11.103'
+        when 'chrome'
+          caps.platform = 'Windows 10'
+          caps.version = '54.0'
+        when 'firefox'
+          caps.platform = 'Windows 10'
+          caps.version = '48.0'
+        else
+          puts 'Environment variable SELENIUM_BROWSER is not valid'
+      end
+
     caps[:name] = sauce_test_name
 
     @browser = Watir::Browser.new(
