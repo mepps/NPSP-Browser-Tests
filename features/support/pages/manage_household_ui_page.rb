@@ -20,7 +20,7 @@ class ManageHouseholdsPage
   textarea(:change_street, index: 0)
   text_field(:change_zip, id: 'hhAddressPostalCode')
 
-  button(:delete_second_contact, class: 'slds-button slds-button--icon removeBtn uiButton--default uiButton', index: 1)
+  button(:delete_second_contact, class: 'slds-button removeBtn slds-button--icon-bare', index: 1)
   a(:enter_new, text: 'Enter a new address')
   div(:existing_address, class: 'slds-text-body--small slds-m-bottom--small')
   checkbox(:exclude_formal_greeting_original, class: /hh-formal-exclude-input/, index: 0)
@@ -39,7 +39,7 @@ class ManageHouseholdsPage
   div(:household_naming, class: 'slds-grid slds-grid--align-spread slds-m-around--medium')
   button(:manage_household_save, text: 'Save')
   button(:manage_households_button, text: 'Manage Household')
-  button(:modal_remove, class: 'slds-button slds-button--destructive uiButton--default uiButton', title: 'Remove')
+  button(:modal_remove, name: 'btnRemove')
   button(:new_contact, text: 'New Contact')
   h2(:page_title, class: 'pageDescription')
   div(:regular_page_detail_block, id: 'ep')
