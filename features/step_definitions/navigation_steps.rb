@@ -90,6 +90,15 @@ Given(/^I navigate to the Account Conversions page$/) do
   @browser.goto($target_org_url + "/apex/#{$object_namespace}CONV_Account_Conversion")
 end
 
+Given(/^I navigate to Recurring Donations Recurring Donations$/) do
+  on(NPSPSettingsPage) do |page|
+    page.recurring_donations_element.when_present(10).click
+    page.second_recurring_donations_element.when_present.click
+    page.edit_hh_button_element.when_present.click
+    step 'I wait for the page to revert'
+  end
+end
+
 Given(/^I navigate to Settings Donations Opportunity Names$/) do
   on(NPSPSettingsPage) do |page|
     page.donations_element.when_present(10).click
