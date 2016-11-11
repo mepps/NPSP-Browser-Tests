@@ -46,6 +46,7 @@ class ManageHouseholdsPage
   div(:search_part, class: 'hhSearch-item-address')
   div(:select_existing, text: 'Select an existing address')
   button(:set_address_button, text: 'Set Address')
+  div(:spinner, class: 'slds-spinner_container')
   select_list(:view_select_list, id: 'fcf')
   div(:households_list, class: 'listBody')
 
