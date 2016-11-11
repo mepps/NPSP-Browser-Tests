@@ -7,7 +7,6 @@ Feature: NPSP Settings Recurring Donations
     @smoketest @reset_recurring_donations_settings
   Scenario: Actually save Settings
     When I change Recurring Donations settings
-      And I save Recurring Donations settings
       And I click Save Recurring Donations Settings
     Then Recurring Donations settings should be saved
 

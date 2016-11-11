@@ -23,10 +23,10 @@ When(/^I click Save Recurring Donations Settings$/) do
     @recurring_donations_settings = @api_client.query('select Id,
                                        Name,
                                        npe03__Opportunity_Forecast_Months__c,
-                                       npe03__Open_Opportunity_Behavior__c,
+                                       npe03__Open_Opportunity_Behavior__c
                                        from npe03__Recurring_Donations_Settings__c')
   end
 
   sleep 1
-  on(NPSPSettingsPage).save_button
+  on(NPSPRecurringDonationsSettingsPage).save_button
 end
