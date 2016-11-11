@@ -177,6 +177,18 @@ module Sfdo_api_npsp
     end
   end
 
+  def reset_recurring_donations_settings(id,
+                                         name = '',
+                                         forecast_months = '',
+                                         open_opp_behavior = ''
+    @api_client.update('hed__Affl_Mappings__c',
+                       Id: id,
+                       Name: name,
+                       npe03__Opportunity_Forecast_Months__c: forecast_months,
+                       npe03__Open_Opportunity_Behavior__c: open_opp_behavior
+    )
+  end
+
   def set_url_and_object_namespace_to_npsp
     case ENV['TARGET_ORG']
       when 'unmanaged'

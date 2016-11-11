@@ -7,6 +7,16 @@ Before do |scenario|
   set_url_and_object_namespace_to_npsp
 end
 
+After('@reset_recurring_donations') do
+  @recurring_donations_settings.each do |rd_record|
+    reset_recurring_donations_settings(rd_record.Id,
+                          system_record.Name,
+                          system_record.npe03__Opportunity_Forecast_Months__c,
+                          system_record.npe03__Open_Opportunity_Behavior__c
+    )
+  end
+end
+
 After do |scenario|
   #CLOBBER OBJECTS TO PREVENT FAILURES FROM POLLUTING DOWNSTREAM TESTS
   #IF THE OBJECT IS ALREADY DELETED THIS IS A NOOP
