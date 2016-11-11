@@ -181,7 +181,8 @@ module Sfdo_api_npsp
                                          name = '',
                                          forecast_months = '',
                                          open_opp_behavior = ''
-    @api_client.update('hed__Affl_Mappings__c',
+  )
+    @api_client.update('npe03__Recurring_Donations_Settings__c',
                        Id: id,
                        Name: name,
                        npe03__Opportunity_Forecast_Months__c: forecast_months,
