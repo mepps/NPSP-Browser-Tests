@@ -45,7 +45,10 @@ When(/^I add to household with Add option$/) do
 end
 
 When(/^I click Change on Household Address$/) do
-  on(ManageHouseholdsPage).change_address_button_element.when_present.click
+  on(ManageHouseholdsPage) do |page|
+    page.spinner_element.when_not_present(10)
+    page.change_address_button_element.when_present.click
+  end
 end
 
 When(/^I click Enter a new address$/) do
