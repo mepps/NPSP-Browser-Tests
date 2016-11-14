@@ -94,8 +94,6 @@ Given(/^I navigate to Recurring Donations Recurring Donations$/) do
   on(NPSPSettingsPage) do |page|
     page.recurring_donations_element.when_present(10).click
     page.second_recurring_donations_element.when_present.click
-    page.edit_hh_button_element.when_present.click
-    step 'I wait for the page to revert'
   end
 end
 

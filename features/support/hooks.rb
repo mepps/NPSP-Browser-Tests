@@ -10,9 +10,9 @@ end
 After('@reset_recurring_donations') do
   @recurring_donations_settings.each do |rd_record|
     reset_recurring_donations_settings(rd_record.Id,
-                          system_record.Name,
-                          system_record.npe03__Opportunity_Forecast_Months__c,
-                          system_record.npe03__Open_Opportunity_Behavior__c
+                          rd_record.Name,
+                          rd_record.npe03__Opportunity_Forecast_Months__c,
+                          rd_record.npe03__Open_Opportunity_Behavior__c
     )
   end
 end
