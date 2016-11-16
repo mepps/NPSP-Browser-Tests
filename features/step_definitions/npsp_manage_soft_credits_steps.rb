@@ -36,10 +36,12 @@ end
 
 When(/^I add a soft credit$/) do
   on(NPSPManageSoftCreditsPage).add_soft_credit_link_element.when_present.click
+  sleep 1
 end
 
 When(/^I delete a soft credit$/) do
   on(NPSPManageSoftCreditsPage).delete_soft_credit_button_element.when_present.click
+  sleep 1
 end
 
 Then(/^the Manage Soft Credits page should have no credits visible$/) do
