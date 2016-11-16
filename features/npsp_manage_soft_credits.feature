@@ -7,6 +7,16 @@ Feature: Manage Soft Credits test
     When I navigate to Manage Soft Credits for that Opportunity
     Then I should see the Manage Soft Credits page
 
+  Scenario: Add and Delete
+    Given I create a new Contact via the API
+      And I create a new Opportunity via the API with stage name "Qualification" and close date "2020-01-01" and amount "1000"
+    When I navigate to Manage Soft Credits for that Opportunity
+      And I add a soft credit
+      And I add a soft credit
+      And I delete a soft credit
+      And I delete a soft credit
+    Then the Manage Soft Credits page should have no credits visible
+
   Scenario: Add Partial Soft Credit more than amount
     Given I create two Opportunities to be matched
     When I navigate to Soft Credits page for the original Opportunity

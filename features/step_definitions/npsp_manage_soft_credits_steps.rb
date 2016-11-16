@@ -34,6 +34,23 @@ When(/^I add a new soft credit for the second Contact with a Role for full amoun
   end
 end
 
+When(/^I add a soft credit$/) do
+  on(NPSPManageSoftCreditsPage).add_soft_credit_link_element.when_present.click
+  sleep 1
+end
+
+When(/^I delete a soft credit$/) do
+  on(NPSPManageSoftCreditsPage).delete_soft_credit_button_element.when_present.click
+  sleep 1
+end
+
+Then(/^the Manage Soft Credits page should have no credits visible$/) do
+  on(NPSPManageSoftCreditsPage) do |page|
+    sleep 1
+    expect(page.delete_soft_credit_button_element).to_not be_visible
+  end
+end
+
 When(/^I click Allow soft credit more than amount$/) do
   on(NPSPManageSoftCreditsPage).check_allow_check
 end
