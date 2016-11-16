@@ -44,6 +44,7 @@ end
 
 Then(/^the Manage Soft Credits page should have no credits visible$/) do
   on(NPSPManageSoftCreditsPage) do |page|
+    sleep 1
     expect(page.delete_soft_credit_button_element).to_not be_visible
   end
 end
