@@ -5,9 +5,9 @@ general:
 test:
     override:
     if $SELENIUM_BROWSER == "chrome"
-        - bundle exec cucumber features/ --tags ~@flaky --tags @chrome
+        - bundle exec cucumber features/ --tags ~@firefox --tags ~@flaky
     elif $SELENIUM_BROWSER == "firefox"
-        - bundle exec cucumber features/ --tags ~@flaky --tags @firefox
+        - bundle exec cucumber features/ --tags ~@flaky --tags ~@chrome
     else $SELENIUM_BROWSER == "internet_exporer"
-        - bundle exec cucumber features/ --tags ~@flaky --tags ~@not_ie
+        - bundle exec cucumber features/ --tags ~@firefox --tags ~@flaky --tags ~@not_ie
     fi
