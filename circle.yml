@@ -4,10 +4,6 @@ general:
       - master # list of branches to build
 test:
     override:
-    if $SELENIUM_BROWSER == "chrome"
-        - bundle exec cucumber features/ --tags ~@firefox --tags ~@flaky
-    elif $SELENIUM_BROWSER == "firefox"
-        - bundle exec cucumber features/ --tags ~@flaky --tags ~@chrome
-    else $SELENIUM_BROWSER == "internet_exporer"
-        - bundle exec cucumber features/ --tags ~@firefox --tags ~@flaky --tags ~@not_ie
-    fi
+      - 'if [[ $SELENIUM_BROWSER == "chrome" ]]; then bundle exec cucumber features/ --tags ~@firefox --tags ~@flaky fi
+      - 'if [[ $SELENIUM_BROWSER == "firefox" ]]; then bundle exec cucumber features/ --tags ~@flaky --tags ~@chrome fi
+      - 'if [[ $SELENIUM_BROWSER == "internet_explorer" ]]; then bundle exec cucumber features/ --tags ~@firefox --tags ~@flaky --tags ~@not_ie fi
