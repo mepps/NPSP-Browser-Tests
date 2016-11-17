@@ -155,8 +155,9 @@ When(/^I type the random string into search box$/) do
 end
 
 Then(/^checkboxes should be checked$/) do
-  sleep 3
+
   on(ManageHouseholdsPage) do |page|
+    page.one_checked_box_element.when_present(10)
     expect(page.one_checked_box_element).to be_visible
     expect(page.other_checked_box_element).to be_visible
     expect(page.bogus_checked_box_element).not_to be_visible
@@ -181,13 +182,14 @@ end
 
 Then(/^I should see all three checkboxes checked$/) do
   on(ManageHouseholdsPage) do |page|
-    expect(page.exclude_formal_greeting_original_checked?).to be true
-    expect(page.exclude_informal_greeting_original_checked?).to be true
-    expect(page.exclude_household_name_original_checked?).to be true
+    expect(page.exclude_formal_greeting_original_checked?).to be false
+    expect(page.exclude_informal_greeting_original_checked?).to be false
+    expect(page.exclude_household_name_original_checked?).to be false
   end
 end
 
 Then(/^I should see breadcrumbs for the account$/) do
+  sleep 2
   expect(on(ManageHouseholdsPage).account_breadcrumb).to match /HOUSEHOLD.+AAAACREACC1#{@random_string}/m
 end
 
