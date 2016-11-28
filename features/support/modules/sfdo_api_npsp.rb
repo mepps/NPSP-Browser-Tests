@@ -177,6 +177,17 @@ module Sfdo_api_npsp
     end
   end
 
+  def reset_account_model_settings(id,
+                                         name = '',
+                                         account_record_type = ''
+  )
+    @api_client.update('npe01__Contacts_And_Orgs_Settings__c',
+                       Id: id,
+                       Name: name,
+                       npe01__HH_Account_RecordTypeID__c: account_record_type
+    )
+  end
+
   def reset_recurring_donations_settings(id,
                                          name = '',
                                          forecast_months = '',

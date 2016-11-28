@@ -3,6 +3,7 @@ Feature: NPSP Settings People Account Model
   Background:
     Given I navigate to NPSP Settings
     When I navigate to Settings People Account Model
+      And I click Edit People Account Model
       And I retrieve current settings for Account Model, Household Account Record Type, One-to-One Record Type
 
 @smoketest
@@ -16,3 +17,10 @@ Feature: NPSP Settings People Account Model
       And I click Cancel
       And I wait for the page to revert
     Then I should see the default Account Model settings on the page
+
+  @reset_account_model
+  Scenario: Account Model save values
+    When I set Household Account Record Type to "Organization"
+      And I click Save Account Model Settings
+    Then Account Model settings should be saved
+      And when I refresh the Account Model Settings page my Account Model changes should be visible
