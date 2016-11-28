@@ -44,3 +44,14 @@ Then(/^I should see the default Account Model settings on the page$/) do
 
   expect(on(NPSPAddressSettingsPage).page_contents).to match /#{@account_model_setting}.+#{@household_account_record_type}.+#{@one_to_one_record_type}/m
 end
+
+Then(/^Account Model settings should be saved$/) do
+  expect(on(NPSPAccountModelSettingsPage).changed_account_model_element.when_present(15)).to be_visible
+end
+
+Then(/^when I refresh the Account Model Settings page my Account Model changes should be visible$/) do
+  @browser.refresh
+  step 'I navigate to Settings People Account Model'
+  sleep 1
+  step 'Account Model settings should be saved'
+end
