@@ -1,6 +1,6 @@
 Feature: NPSP Settings Recurring Donations
 
-  @smoketest @reset_recurring_donations
+  @smoketest @reset_recurring_donations @chrome
   Scenario: Actually save Settings
     Given I navigate to NPSP Settings
       And I navigate to Recurring Donations Recurring Donations

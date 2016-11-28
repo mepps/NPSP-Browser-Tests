@@ -1,6 +1,6 @@
 require 'rspec'
 require 'page-object'
-require 'watir-webdriver'
+require 'watir'
 require 'restforce'
 require 'SFDO/API'
 # need to require_relative below
