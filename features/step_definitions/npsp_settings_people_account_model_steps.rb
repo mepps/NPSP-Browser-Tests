@@ -6,6 +6,11 @@ When(/^I retrieve current settings for Account Model, Household Account Record T
   end
 end
 
+When(/^I click Edit People Account Model$/) do
+  on(NPSPSettingsPage).edit_am_button_element.when_present.click
+  step 'I wait for the page to revert'
+end
+
 When(/^I click Save Account Model Settings$/) do
   api_client do
     @recurring_donations_settings = @api_client.query('select Id,

@@ -3,6 +3,7 @@ Feature: NPSP Settings People Account Model
   Background:
     Given I navigate to NPSP Settings
     When I navigate to Settings People Account Model
+      And I click Edit People Account Model
       And I retrieve current settings for Account Model, Household Account Record Type, One-to-One Record Type
 
 @smoketest
