@@ -6,6 +6,18 @@ When(/^I retrieve current settings for Account Model, Household Account Record T
   end
 end
 
+When(/^I click Save Account Model Settings$/) do
+  api_client do
+    @recurring_donations_settings = @api_client.query('select Id,
+                                       Name,
+                                       npe01__HH_Account_RecordTypeID__c
+                                       from npe01__Contacts_And_Orgs_Settings__c')
+  end
+
+  sleep 1
+  on(NPSPRecurringDonationsSettingsPage).save_button
+end
+
 When(/^I set Account Model to "([^"]*)"$/) do |account_model_value|
   on(NPSPAccountModelSettingsPage).account_model_select = account_model_value
 end

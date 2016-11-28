@@ -17,6 +17,15 @@ After('@reset_recurring_donations') do
   end
 end
 
+After('@reset_account_model') do
+  @recurring_donations_settings.each do |am_record|
+    reset_account_model_settings(am_record.Id,
+                                       am_record.Name,
+                                       am_record.npe01__HH_Account_RecordTypeID__c
+    )
+  end
+end
+
 After do |scenario|
   #CLOBBER OBJECTS TO PREVENT FAILURES FROM POLLUTING DOWNSTREAM TESTS
   #IF THE OBJECT IS ALREADY DELETED THIS IS A NOOP
