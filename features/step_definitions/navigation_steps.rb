@@ -138,6 +138,13 @@ Given(/^I navigate to Settings Relationships Reciprocal$/) do
   end
 end
 
+Given(/^I navigate to Relationships Relationships$/) do
+  on(NPSPSettingsPage) do |page|
+    page.relationships_element.when_present(10).click
+    page.relationships_second_settings_element.when_present.click
+  end
+end
+
 Given(/^I login the first time with oauth$/) do
   on(LoginPage) do |page|
     page.app_switcher_element.when_present.click
