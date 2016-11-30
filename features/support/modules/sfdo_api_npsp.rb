@@ -188,6 +188,18 @@ module Sfdo_api_npsp
     )
   end
 
+  def reset_relationships_settings(id,
+                                   name = '',
+                                   reciprocal_method = ''
+  )
+puts reciprocal_method
+    @api_client.update('npe4__Relationship_Settings__c',
+                       Id: id,
+                       Name: name,
+                       npe4__Reciprocal_Method__c: reciprocal_method
+    )
+  end
+
   def reset_recurring_donations_settings(id,
                                          name = '',
                                          forecast_months = '',
