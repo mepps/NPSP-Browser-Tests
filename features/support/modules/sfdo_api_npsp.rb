@@ -181,7 +181,7 @@ module Sfdo_api_npsp
                                          name = '',
                                          account_record_type = ''
   )
-    @api_client.update('Contacts_And_Orgs_Settings',
+    @api_client.update('npe01__Contacts_And_Orgs_Settings__c',
                        Id: id,
                        Name: name,
                        npe01__HH_Account_RecordTypeID__c: account_record_type
@@ -192,8 +192,8 @@ module Sfdo_api_npsp
                                    name = '',
                                    reciprocal_method = ''
   )
-
-    @api_client.update('Relationship_Settings',
+puts reciprocal_method
+    @api_client.update('npe4__Relationship_Settings__c',
                        Id: id,
                        Name: name,
                        npe4__Reciprocal_Method__c: reciprocal_method
@@ -205,7 +205,7 @@ module Sfdo_api_npsp
                                          forecast_months = '',
                                          open_opp_behavior = ''
   )
-    @api_client.update('Recurring_Donations_Settings',
+    @api_client.update('npe03__Recurring_Donations_Settings__c',
                        Id: id,
                        Name: name,
                        npe03__Opportunity_Forecast_Months__c: forecast_months,
