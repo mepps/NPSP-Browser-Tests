@@ -18,11 +18,10 @@ After('@reset_recurring_donations') do
 end
 
 After('@reset_relationships') do
-
   @relationships_settings.each do |rel_record|
     reset_relationships_settings(rel_record.Id,
                                  rel_record.Name,
-                                 rel_record.npe4__Gender_Field__c
+                                 rel_record.npe4__Reciprocal_Method__c
     )
   end
 end

@@ -1,6 +1,6 @@
 class NPSPRelationshipsSettingsPage
   include PageObject
 
-  select_list(:gender_field_select, id: /lGF/)
-  span(:page_gender, text: 'Level')
+  select_list(:reciprocal_method_select, id: /lRM/)
+  span(:page_reciprocal_method, text: 'Value Inversion')
 end

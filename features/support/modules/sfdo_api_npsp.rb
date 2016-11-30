@@ -190,12 +190,13 @@ module Sfdo_api_npsp
 
   def reset_relationships_settings(id,
                                    name = '',
-                                   gender_field = ''
+                                   reciprocal_method = ''
   )
-    @api_client.update('Relationship_Settings',
+
+    @api_client.update('npe4__Relationship_Settings__c',
                        Id: id,
                        Name: name,
-                       npe4_Gender_Field__c: gender_field
+                       npe4__Reciprocal_Method__c: reciprocal_method
     )
   end
 

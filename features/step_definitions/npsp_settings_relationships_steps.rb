@@ -4,8 +4,8 @@ When(/^I change Relationships Gender Field settings$/) do
   step 'I wait for the page to revert'
 
   on(NPSPRelationshipsSettingsPage) do |page|
-    page.gender_field_select_element.when_present(10)
-    page.gender_field_select='Level'
+    page.reciprocal_method_select_element.when_present(10)
+    page.reciprocal_method_select='Value Inversion'
   end
 
 end
@@ -14,7 +14,7 @@ When(/^I click Save Relationships Settings$/) do
   api_client do
     @relationships_settings = @api_client.query('select Id,
                                        Name,
-                                       npe4__Gender_Field__c
+                                       npe4__Reciprocal_Method__c
                                        from npe4__Relationship_Settings__c')
   end
 
@@ -24,8 +24,8 @@ end
 
 Then(/^Relationships settings should be saved$/) do
   on(NPSPRelationshipsSettingsPage) do |page|
-    page.page_gender_element.when_present(15)
-    expect(page.page_gender_element).to be_visible
+    page.page_reciprocal_method_element.when_present(15)
+    expect(page.page_reciprocal_method_element).to be_visible
   end
 end
 
