@@ -188,6 +188,17 @@ module Sfdo_api_npsp
     )
   end
 
+  def reset_relationships_settings(id,
+                                   name = '',
+                                   gender_field = ''
+  )
+    @api_client.update('Relationship_Settings',
+                       Id: id,
+                       Name: name,
+                       npe4_Gender_Field__c: gender_field
+    )
+  end
+
   def reset_recurring_donations_settings(id,
                                          name = '',
                                          forecast_months = '',

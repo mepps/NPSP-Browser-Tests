@@ -8,6 +8,7 @@ class NPSPSettingsPage
   button(:edit_am_button, value: 'Edit')
   button(:edit_hh_button, value: 'Edit', index: 1)
   button(:edit_rc_button, value: 'Edit', index: 13)
+  button(:edit_rel_button, value: 'Edit', index: 5)
   button(:edit_opp_button, name: /pbOppNaming/)
   a(:households, text: 'Households')
   span(:loading_message, class: 'loadingText')

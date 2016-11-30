@@ -17,6 +17,17 @@ After('@reset_recurring_donations') do
   end
 end
 
+After('@reset_relationships') do
+
+  @relationships_settings.each do |rel_record|
+    reset_relationships_settings(rel_record.Id,
+                                 rel_record.Name,
+                                 rel_record.npe4__Gender_Field__c
+    )
+  end
+end
+
+
 After('@reset_account_model') do
   @recurring_donations_settings.each do |am_record|
     reset_account_model_settings(am_record.Id,
