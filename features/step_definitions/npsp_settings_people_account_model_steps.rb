@@ -13,10 +13,10 @@ end
 
 When(/^I click Save Account Model Settings$/) do
   api_client do
-    @recurring_donations_settings = @api_client.query('select Id,
+    @account_model_settings = @api_client.query('select Id,
                                        Name,
                                        npe01__HH_Account_RecordTypeID__c
-                                       from npe01__Contacts_And_Orgs_Settings__c')
+                                       from npe01__Contacts_And_Orgs_Settings__c').first
   end
 
   sleep 1

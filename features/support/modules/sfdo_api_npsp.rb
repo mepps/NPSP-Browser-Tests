@@ -177,40 +177,16 @@ module Sfdo_api_npsp
     end
   end
 
-  def reset_account_model_settings(id,
-                                         name = '',
-                                         account_record_type = ''
-  )
-    @api_client.update('npe01__Contacts_And_Orgs_Settings__c',
-                       Id: id,
-                       Name: name,
-                       npe01__HH_Account_RecordTypeID__c: account_record_type
-    )
+  def reset_account_model_settings
+    @api_client.update_api(account_model_obj)
   end
 
-  def reset_relationships_settings(id,
-                                   name = '',
-                                   reciprocal_method = ''
-  )
-puts reciprocal_method
-    @api_client.update('npe4__Relationship_Settings__c',
-                       Id: id,
-                       Name: name,
-                       npe4__Reciprocal_Method__c: reciprocal_method
-    )
+  def reset_relationships_settings(settings_obj)
+    @api_client.update_api(settings_obj)
   end
 
-  def reset_recurring_donations_settings(id,
-                                         name = '',
-                                         forecast_months = '',
-                                         open_opp_behavior = ''
-  )
-    @api_client.update('npe03__Recurring_Donations_Settings__c',
-                       Id: id,
-                       Name: name,
-                       npe03__Opportunity_Forecast_Months__c: forecast_months,
-                       npe03__Open_Opportunity_Behavior__c: open_opp_behavior
-    )
+  def reset_recurring_donations_settings
+    @api_client.update_api(recurring_donations_obj)
   end
 
   def set_url_and_object_namespace_to_npsp
