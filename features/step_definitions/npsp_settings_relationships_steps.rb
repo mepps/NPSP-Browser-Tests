@@ -3,7 +3,6 @@ When(/^I change Relationships Reciprocal Method settings$/) do
   on(NPSPRelationshipsSettingsPage).unsaved_page_reciprocal_method_element.when_present
 
   on(NPSPSettingsPage).edit_rel_button_element.when_present.click
-  sleep 10
   step 'I wait for the page to revert'
 
   on(NPSPRelationshipsSettingsPage) do |page|
