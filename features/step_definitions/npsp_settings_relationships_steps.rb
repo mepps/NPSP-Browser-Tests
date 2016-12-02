@@ -14,11 +14,13 @@ end
 
 When(/^I click Save Relationships Settings$/) do
   api_client do
-    @relationships_settings = @api_client.query('select Id,
-                                       Name,
-                                       npe4__Reciprocal_Method__c
-                                       from npe4__Relationship_Settings__c').first
-  end
+    @relationships_settings = select_api 'select Id,
+                                          Name,
+                                          npe4__Reciprocal_Method__c
+                                          from Relationship_Settings'
+    end
+
+    @relationships_settings = @relationships_settings.first
 
   sleep 1
   on(NPSPRecurringDonationsSettingsPage).save_button

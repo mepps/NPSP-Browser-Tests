@@ -13,11 +13,13 @@ end
 
 When(/^I click Save Account Model Settings$/) do
   api_client do
-    @account_model_settings = @api_client.query('select Id,
+    @account_model_settings =  select_api 'select Id,
                                        Name,
                                        npe01__HH_Account_RecordTypeID__c
-                                       from npe01__Contacts_And_Orgs_Settings__c').first
+                                       from Contacts_And_Orgs_Settings'
   end
+
+  @account_model_settings = @account_model_settings.first
 
   sleep 1
   on(NPSPRecurringDonationsSettingsPage).save_button
