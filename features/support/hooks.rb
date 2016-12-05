@@ -8,32 +8,15 @@ Before do |scenario|
 end
 
 After('@reset_recurring_donations') do
-  @recurring_donations_settings.each do |rd_record|
-    reset_recurring_donations_settings(rd_record.Id,
-                          rd_record.Name,
-                          rd_record.npe03__Opportunity_Forecast_Months__c,
-                          rd_record.npe03__Open_Opportunity_Behavior__c
-    )
-  end
+  reset_recurring_donations_settings(@recurring_donations_settings)
 end
 
 After('@reset_relationships') do
-  @relationships_settings.each do |rel_record|
-    reset_relationships_settings(rel_record.Id,
-                                 rel_record.Name,
-                                 rel_record.npe4__Reciprocal_Method__c
-    )
-  end
+  reset_relationships_settings(@relationships_settings)
 end
 
-
 After('@reset_account_model') do
-  @recurring_donations_settings.each do |am_record|
-    reset_account_model_settings(am_record.Id,
-                                       am_record.Name,
-                                       am_record.npe01__HH_Account_RecordTypeID__c
-    )
-  end
+  reset_account_model_settings(@account_model_settings)
 end
 
 After do |scenario|
