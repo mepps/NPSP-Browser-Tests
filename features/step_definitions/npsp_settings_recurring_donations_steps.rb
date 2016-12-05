@@ -1,6 +1,6 @@
 
 When(/^I change Recurring Donations settings$/) do
-  on(NPSPRecurringDonationSettingsPage) do |page|
+  on(NPSPRecurringDonationsSettingsPage) do |page|
     on(NPSPSettingsPage).edit_rc_button_element.when_present.click
     step 'I wait for the page to revert'
     5.times do
