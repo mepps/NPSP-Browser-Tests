@@ -131,6 +131,13 @@ Given(/^I navigate to Settings People Households$/) do
   end
 end
 
+Given(/^I navigate to Relationships Affiliations$/) do
+  on(NPSPSettingsPage) do |page|
+    page.relationships_element.when_present(10).click
+    page.relationship_affiliations_settings_element.when_present.click
+  end
+end
+
 Given(/^I navigate to Settings Relationships Reciprocal$/) do
   on(NPSPSettingsPage) do |page|
     page.relationships_element.when_present(10).click
