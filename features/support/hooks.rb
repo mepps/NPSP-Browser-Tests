@@ -11,6 +11,10 @@ After('@reset_recurring_donations') do
   reset_recurring_donations_settings(@recurring_donations_settings)
 end
 
+After('@reset_aff_relationships') do
+  reset_relationships_settings(@relationships_aff_settings)
+end
+
 After('@reset_relationships') do
   reset_relationships_settings(@relationships_settings)
 end

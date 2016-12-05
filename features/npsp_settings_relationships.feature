@@ -11,7 +11,7 @@ Feature: NPSP Settings Relationships
     Then Relationships settings should be saved
       And when I refresh the Relationships Relationships page my changes should be visible
 
-  @smoketest @reset_relationships @chrome
+  @smoketest @reset_aff_relationships @chrome
   Scenario: Actually save Relationships Settings Affiliations
     Given I navigate to Relationships Affiliations
     When I change Relationships Affiliations settings
