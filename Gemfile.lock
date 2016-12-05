@@ -46,7 +46,7 @@ GEM
       watir (~> 6.0)
     page_navigation (0.10)
       data_magic (>= 0.22)
-    parser (2.3.3.0)
+    parser (2.3.3.1)
       ast (~> 2.2)
     powerpack (0.1.1)
     pry (0.10.4)
