@@ -1,4 +1,17 @@
 
+When(/^I change Relationships Affiliations settings$/) do
+  on(NPSPRelationshipsSettingsPage).unsaved_page_affiliations_element.when_present
+
+  on(NPSPSettingsPage).edit_aff_button_element.when_present.click
+  step 'I wait for the page to revert'
+
+  on(NPSPRelationshipsSettingsPage) do |page|
+    page.reciprocal_method_select_element.when_present(15)
+    page.reciprocal_method_select='Value Inversion'
+  end
+
+end
+
 When(/^I change Relationships Reciprocal Method settings$/) do
   on(NPSPRelationshipsSettingsPage).unsaved_page_reciprocal_method_element.when_present
 
