@@ -29,13 +29,13 @@ end
 
 When(/^I click Save Relationships Settings$/) do
   api_client do
-    @relationships_settings = select_api 'select Id,
+    @these_settings = select_api 'select Id,
                                           Name,
                                           npe4__Reciprocal_Method__c
                                           from Relationship_Settings'
     end
 
-    @relationships_settings = @relationships_settings.first
+    @these_settings = @these_settings.first
 
   sleep 1
   on(NPSPRecurringDonationsSettingsPage).save_button
@@ -43,13 +43,13 @@ end
 
 When(/^I click Save Relationships Affiliations Settings$/) do
   api_client do
-    @relationships_aff_settings = select_api 'select Id,
+    @these_settings = select_api 'select Id,
                                           Name,
                                           npe5__Automatic_Affiliation_Creation_Turned_On__c
                                           from Affiliations_Settings'
   end
 
-  @relationships_aff_settings = @relationships_aff_settings.first
+  @these_settings = @these_settings.first
 
   sleep 1
   on(NPSPRecurringDonationsSettingsPage).save_button
