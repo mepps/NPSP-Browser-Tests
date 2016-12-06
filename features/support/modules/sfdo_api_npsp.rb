@@ -177,18 +177,6 @@ module Sfdo_api_npsp
     end
   end
 
-  def reset_account_model_settings(account_model_obj)
-    @api_client.update_api(account_model_obj)
-  end
-
-  def reset_relationships_settings(settings_obj)
-    @api_client.update_api(settings_obj)
-  end
-
-  def reset_recurring_donations_settings(recurring_donations_obj)
-    @api_client.update_api(recurring_donations_obj)
-  end
-
   def reset_these_settings(these_settings_obj)
     @api_client.update_api(these_settings_obj)
   end

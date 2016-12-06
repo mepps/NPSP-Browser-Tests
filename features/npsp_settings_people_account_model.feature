@@ -18,7 +18,7 @@ Feature: NPSP Settings People Account Model
       And I wait for the page to revert
     Then I should see the default Account Model settings on the page
 
-  @reset_account_model
+  @reset_these_settings
   Scenario: Account Model save values
     When I set Household Account Record Type to "Organization"
       And I click Save Account Model Settings

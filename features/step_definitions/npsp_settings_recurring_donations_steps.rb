@@ -14,14 +14,14 @@ end
 
 When(/^I click Save Recurring Donations Settings$/) do
   api_client do
-    @recurring_donations_settings =  select_api 'select Id,
+    @these_settings =  select_api 'select Id,
                                        Name,
                                        npe03__Opportunity_Forecast_Months__c,
                                        npe03__Open_Opportunity_Behavior__c
                                        from Recurring_Donations_Settings'
   end
 
-  @recurring_donations_settings = @recurring_donations_settings.first
+  @these_settings = @these_settings.first
 
   sleep 1
   on(NPSPRecurringDonationsSettingsPage).save_button
