@@ -189,6 +189,10 @@ module Sfdo_api_npsp
     @api_client.update_api(recurring_donations_obj)
   end
 
+  def reset_these_settings(these_settings_obj)
+    @api_client.update_api(these_settings_obj)
+  end
+
   def set_url_and_object_namespace_to_npsp
     case ENV['TARGET_ORG']
       when 'unmanaged'

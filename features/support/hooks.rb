@@ -23,6 +23,11 @@ After('@reset_account_model') do
   reset_account_model_settings(@account_model_settings)
 end
 
+After('@reset_these_settings') do
+  reset_these_settings(@these_settings)
+end
+
+
 After do |scenario|
   #CLOBBER OBJECTS TO PREVENT FAILURES FROM POLLUTING DOWNSTREAM TESTS
   #IF THE OBJECT IS ALREADY DELETED THIS IS A NOOP

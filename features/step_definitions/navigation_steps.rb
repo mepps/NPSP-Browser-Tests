@@ -97,6 +97,13 @@ Given(/^I navigate to Recurring Donations Recurring Donations$/) do
   end
 end
 
+Given(/^I navigate to Settings Donations Batch Entry$/) do
+  on(NPSPSettingsPage) do |page|
+    page.donations_element.when_present(10).click
+    page.batch_entry_element.when_present.click
+  end
+end
+
 Given(/^I navigate to Settings Donations Opportunity Names$/) do
   on(NPSPSettingsPage) do |page|
     page.donations_element.when_present(10).click
