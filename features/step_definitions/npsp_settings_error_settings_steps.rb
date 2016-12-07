@@ -3,7 +3,9 @@ When(/^I change System Tools Error Notifications$/) do
   on(NPSPErrorSettingsPage) do |page|
     on(NPSPSettingsPage).edit_err_button_element.when_present.click
     step 'I wait for the page to revert'
-      page.uncheck_store_errors
+      #page.uncheck_store_errors
+      #WANT TO ALWAYS FIND A CHECKED CHECKBOX HERE SO NO EXPLICIT 'uncheck'
+    page.store_errors_element.when_present.click
   end
 end
 
