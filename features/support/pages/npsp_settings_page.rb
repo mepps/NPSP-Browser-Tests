@@ -10,6 +10,7 @@ class NPSPSettingsPage
   button(:edit_aff_button, value: 'Edit', index: 4)
   button(:edit_am_button, value: 'Edit')
   button(:edit_dbe_button, value: 'Edit', index:12)
+  button(:edit_err_button, id: /editNotif/)
   button(:edit_hh_button, value: 'Edit', index: 1)
   button(:edit_rc_button, value: 'Edit', index: 13)
   button(:edit_rel_button, value: 'Edit', index: 5)
