@@ -27,6 +27,10 @@ Then(/^System Tools Error Notifications settings should be saved$/) do
     page.page_store_errors_saved_element.when_present(15)
     expect( page.page_store_errors_saved_element).to be_visible
     expect( page.page_error_notifications_saved_element).to be_visible
+    on(NPSPSettingsPage).edit_err_button_element.when_present.click
+    page.store_errors_element.when_present(15)
+    expect(page.store_errors_checked?).to be false
+    expect(page.error_notifications_checked?).to be false
   end
 end
 
