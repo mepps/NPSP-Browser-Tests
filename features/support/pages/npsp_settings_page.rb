@@ -5,10 +5,12 @@ class NPSPSettingsPage
   a(:addresses, text: 'Addresses')
   a(:batch_entry, text: 'Batch Data Entry')
   a(:donations, text: 'Donations')
+  a(:error_notifications_settings, text: 'Error Notifications')
   button(:edit_button, name: /EditNotif/)
   button(:edit_aff_button, value: 'Edit', index: 4)
   button(:edit_am_button, value: 'Edit')
   button(:edit_dbe_button, value: 'Edit', index:12)
+  button(:edit_err_button, id: /editNotif/)
   button(:edit_hh_button, value: 'Edit', index: 1)
   button(:edit_rc_button, value: 'Edit', index: 13)
   button(:edit_rel_button, value: 'Edit', index: 5)
@@ -24,6 +26,7 @@ class NPSPSettingsPage
   a(:relationship_reciprocal_settings, text: 'Relationship Reciprocal Settings')
   a(:relationships_second_settings, text: 'Relationships', index: 1)
   a(:relationships, text: 'Relationships')
+  a(:system_tools, text: 'System Tools')
 
   button(:save_button, name: /pbHH/, class: 'btn btn-sm btn-primary')
 end
