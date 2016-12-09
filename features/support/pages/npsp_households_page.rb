@@ -6,6 +6,7 @@ class NPSPHouseholdsSettingsPage
   select(:formal_greetimg_format, name: /slstrFormatFG/)
   select(:hh_creation_excluded, name: /idDBMS/)
   select(:hh_name_format, name: /slstrFormatHH/)
+  span(:page_name_format_saved, text: "{!{!FirstName}} {!LastName} Household")
   select(:hh_obj_rule, name: /slHR/)
   div(:hh_page_contents, id: /idPanelHH/)
   text_field(:implementing_class, name: /txtClass/)
