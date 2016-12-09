@@ -23,6 +23,21 @@ When(/^I change Donations Contact Roles settings$/) do
   end
 end
 
+When(/^I click Save Donations Batch Entry settings$/) do
+  api_client do
+    @these_settings = select_api 'select Id,
+                                          Name,
+                                          npsp__Allow_Blank_Opportunity_Names__c,
+                                          npsp__Opportunity_Naming__c
+                                          from Batch_Data_Entry_Settings'
+  end
+
+  @these_settings = @these_settings.first
+
+  sleep 1
+  on(NPSPRecurringDonationsSettingsPage).save_button
+end
+
 When(/^I click Save Donations Contact Roles settings$/) do
   api_client do
     @these_settings = select_api 'select Id,
