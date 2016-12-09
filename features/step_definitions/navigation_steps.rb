@@ -133,8 +133,6 @@ Given(/^I navigate to Settings People Households$/) do
   on(NPSPSettingsPage) do |page|
     page.people_element.when_present(10).click
     page.households_element.when_present.click
-    page.edit_hh_button_element.when_present.click
-    step 'I wait for the page to revert'
   end
 end
 

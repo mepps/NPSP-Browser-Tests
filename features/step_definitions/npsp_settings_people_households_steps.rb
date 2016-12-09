@@ -1,3 +1,9 @@
+
+When(/^I click Edit Household Name Settings/) do
+  on(NPSPSettingsPage).edit_hh_button_element.when_present.click
+  step 'I wait for the page to revert'
+end
+
 When(/^I retrieve existing values/) do
   on (NPSPHouseholdsSettingsPage) do |page|
     @contact_overrun = Regexp.escape page.contact_overrun
@@ -50,6 +56,34 @@ end
 
 When(/^I uncheck Automatic Household Naming$/) do
   on(NPSPHouseholdsSettingsPage).uncheck_automatic_hh_naming
+end
+
+When(/^I click Save Household Naming Settings$/) do
+  api_client do
+    @these_settings =  select_api 'select Id,
+                                       Name,
+                                       npsp__Household_Name_Format__c
+                                       from Household_Naming_Settings'
+  end
+
+  @these_settings = @these_settings.first
+
+  sleep 1
+  on(NPSPRecurringDonationsSettingsPage).save_button
+end
+
+Then(/^my Household Naming Settings should be saved$/) do
+  on(NPSPHouseholdsSettingsPage) do |page|
+    page.page_name_format_saved_element.when_present(15)
+    expect(page.page_name_format_saved_element).to be_visible
+  end
+end
+
+Then(/^when I refresh the page my Household Naming Settings should be saved$/) do
+  @browser.refresh
+  step 'I navigate to Settings People Households'
+  sleep 1
+  step 'my Household Naming Settings should be saved'
 end
 
 Then(/^Examples for Household Name Format should reflect my changes$/) do
