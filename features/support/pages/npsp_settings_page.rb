@@ -7,7 +7,7 @@ class NPSPSettingsPage
   a(:contact_roles, text: 'Contact Roles')
   a(:donations, text: 'Donations')
   a(:error_notifications_settings, text: 'Error Notifications')
-  button(:edit_button, name: /EditNotif/)
+  button(:edit_button, id: /editAddr/)
   button(:edit_aff_button, value: 'Edit', index: 4)
   button(:edit_am_button, value: 'Edit')
   button(:edit_dbe_button, value: 'Edit', index:12)
