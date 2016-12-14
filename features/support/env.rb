@@ -40,7 +40,7 @@ Before do |scenario|
           caps.version = '54.0'
         when 'firefox'
           caps.platform = 'Windows 10'
-          caps.version = '48.0'
+          caps.version = '50.0'
         else
           puts 'Environment variable SELENIUM_BROWSER is not valid'
       end
