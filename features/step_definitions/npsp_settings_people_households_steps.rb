@@ -92,7 +92,7 @@ Then(/^Examples for Household Name Format should reflect my changes$/) do
     page.wait_until do
       page.example_text_box.match "Sam, Sally foo Suzie"
     end
-    expect(page.example_text_box).to match /Examples for Household Name Format\s+Smith \(Sam\) Household\s+Smith \(Sam foo Sally\) Household\s+Smith \(Sam, Sally foo Suzie\) Household\s+Smith \(Sam, Sally foo Suzie\) foo Doe \(Daphne\) Household\s+Smith \(Sam, Sally foo Suzie\) foo Doe \(Daphne foo Donald\) Household/m
+    expect(page.example_text_box).to match /Smith \(Sam\) Household\s+Smith \(Sam foo Sally\) Household\s+Smith \(Sam, Sally foo Suzie\) Household\s+Smith \(Sam, Sally foo Suzie\) foo Doe \(Daphne\) Household\s+Smith \(Sam, Sally foo Suzie\) foo Doe \(Daphne foo Donald\) Household/m
   end
 end
 
