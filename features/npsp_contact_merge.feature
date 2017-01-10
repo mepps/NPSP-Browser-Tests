@@ -7,7 +7,7 @@ Feature: Contact Merge test
     When I select the second Contact as the winning Contact
 
 
-  @smoketest
+  @smoketest @chrome
   Scenario: Contact Merge select and merge
     And I merge the contacts
     Then I should see "aaa2" in All Contacts

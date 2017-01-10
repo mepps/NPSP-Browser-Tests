@@ -1,7 +1,7 @@
 
 Feature: Account Convert
 
-  @smoketest
+  @smoketest @chrome
   Scenario: Account Convert screen
     Given I navigate to the Account Conversions page
       And the Begin button is disabled

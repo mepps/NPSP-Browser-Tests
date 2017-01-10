@@ -12,6 +12,7 @@ Feature: Batch Data Entry test
       And I should see four text fields
       And the Save button should be clickable
 
+  @chrome
   Scenario: Pinned fields persist over multiple records
     When I enter "Lastname" for Last Name value
       And I enter "Company" for Company value

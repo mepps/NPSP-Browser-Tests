@@ -33,6 +33,7 @@ Feature: Manage Household UI
       And I delete the last Contact from the Household
     Then I should see one Household Member entry
 
+  @chrome
   Scenario: Change Household address
     Given I navigate to Manage Households UI for contact
       And I see Contact name
