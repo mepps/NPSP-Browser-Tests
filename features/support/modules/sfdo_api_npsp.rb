@@ -201,24 +201,28 @@ module Sfdo_api_npsp
   def login_with_oauth
     require 'faraday'
 
-    conn = Faraday.new(url: ENV['SF_SERVERURL']) do |faraday|
-      faraday.request :url_encoded # form-encode POST params
-      # faraday.response :logger                  # log requests to STDOUT
-      faraday.adapter Faraday.default_adapter # make requests with Net::HTTP
+    if ENV['SF_ACCESS_TOKEN'] and ENV['SF_INSTANCE_URL']
+      $instance_url = ENV['SF_INSTANCE_URL']
+      @access_token = ENV['SF_ACCESS_TOKEN']
+    else
+      conn = Faraday.new(url: ENV['SF_SERVERURL']) do |faraday|
+        faraday.request :url_encoded # form-encode POST params
+        # faraday.response :logger                  # log requests to STDOUT
+        faraday.adapter Faraday.default_adapter # make requests with Net::HTTP
+      end
+
+      response = conn.post '/services/oauth2/token',
+                           grant_type: 'refresh_token',
+                           client_id: ENV['SF_CLIENT_KEY'],
+                           client_secret: ENV['SF_CLIENT_SECRET'],
+                           refresh_token: ENV['SF_REFRESH_TOKEN']
+
+      response_body = JSON.parse(response.body)
+      @access_token = response_body['access_token']
+      $instance_url = response_body['instance_url']
     end
-
-    response = conn.post '/services/oauth2/token',
-                         grant_type: 'refresh_token',
-                         client_id: ENV['SF_CLIENT_KEY'],
-                         client_secret: ENV['SF_CLIENT_SECRET'],
-                         refresh_token: ENV['SF_REFRESH_TOKEN']
-
-    response_body = JSON.parse(response.body)
-    access_token = response_body['access_token']
-    $instance_url = response_body['instance_url']
-
-    #@browser.goto('about:blank')
-    @browser.goto($instance_url + '/secur/frontdoor.jsp?sid=' + access_token)
+    
+    @browser.goto($instance_url + '/secur/frontdoor.jsp?sid=' + @access_token)
     @browser.goto($instance_url + '/home/showAllTabs.jsp')
   end
 end
