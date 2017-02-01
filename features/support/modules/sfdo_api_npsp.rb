@@ -8,7 +8,7 @@ module Sfdo_api_npsp
   def create_account_via_api(client_name)
 
     record_type_id = select_api "select Id from RecordType where DeveloperName = 'HH_Account'"
-    @account_id = @api_client.create!( 'Account', Name: client_name, RecordTypeId: record_type_id.first.Id)
+    @account_id = create 'Account', Name: client_name, RecordTypeId: record_type_id.first.Id
   end
 
   def create_contact_via_api(client_name, street = '', city = '', state = '', country = '', zip = '')
