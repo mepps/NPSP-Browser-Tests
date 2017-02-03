@@ -5,9 +5,10 @@ end
 When(/^I create a Task and a Subtask$/) do
   on(EPTPage) do |page|
     page.new_task_button
-    page.dependent_task_button_element.when_present.click
-    sleep 2
     page.task_subject_element.when_present.send_keys('top subject' + @random_string)
+    page.days_after_element.send_keys '8'
+    page.dependent_task_button_element.when_present.click
+    sleep 3
     page.subtask_subject_element.when_present.send_keys('subtask subject' + @random_string)
   end
 end
