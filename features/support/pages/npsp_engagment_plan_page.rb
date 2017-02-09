@@ -8,6 +8,7 @@ class EPTPage
   h2(:saved_page_header, class: 'pageDescription')
   a(:task_link, text: /top subject/)
   a(:subtask_link, text: /subtask subject/)
-  text_field(:task_subject, id: /theForm:Name1/)
-  text_field(:subtask_subject, id: /theForm:Name1-1/)
+  text_field(:task_subject, id: /inputX/)
+  text_field(:days_after, id: /inputX/, index: 2)
+  text_field(:subtask_subject, id: /inputX/, index: 3)
 end
