@@ -96,9 +96,8 @@ module Sfdo_api_npsp
 
   def delete_contacts_via_api
     api_client do
-      @array_of_contacts.each do |contact_id|
-        delete_one_contact(contact_id)
-      end
+      cons = select_api 'select Id from Contact'
+      delete_all_contact(cons)
     end
   end
 
