@@ -59,9 +59,11 @@ module Sfdo_api_npsp
 
   def create_contacts_with_household_object_via_api(hh_obj, contact_name)
     @hh_obj_id = create 'Household', Name: hh_obj
-    @contact_id = create 'Contact', { LastName: contact_name, npo02__Household__c: @hh_obj_id }
+    #@contact_id = create 'Contact', { LastName: contact_name, npo02__Household__c: @hh_obj_id }
+    @contact_id = create 'Contact', { LastName: contact_name, Household: @hh_obj_id }
     @array_of_contacts << @contact_id
-    @contact_id = create 'Contact', LastName: contact_name, MailingCity: 'hhmailingcity', npo02__Household__c: @hh_obj_id
+    #@contact_id = create 'Contact', LastName: contact_name, MailingCity: 'hhmailingcity', npo02__Household__c: @hh_obj_id
+    @contact_id = create 'Contact', LastName: contact_name, MailingCity: 'hhmailingcity', Household: @hh_obj_id
     @array_of_contacts << @contact_id
   end
 
@@ -80,14 +82,18 @@ module Sfdo_api_npsp
                              CloseDate: close_date,
                              Amount: amount.to_i,
                              AccountId: @account_id_for_contact,
-                             "#{$object_namespace}Matching_Gift_Status__c".to_sym => matching_gift_status,
-                             "#{$object_namespace}Matching_Gift_Account__c".to_sym => matching_gift_account
+                             Matching_Gift_Status: matching_gift_status,
+                             Matching_Gift_Account: matching_gift_account
     @array_of_opp_ids << @opportunity_id
+
+    #{$object_namespace}Matching_Gift_Status__c".to_sym => matching_gift_status,
+    #{$object_namespace}Matching_Gift_Account__c".to_sym => matching_gift_account
 
   end
 
   def create_relationship_via_api(contact, related_contact)
-    @relationshiop_id = create 'Relationship', npe4__Contact__c: contact, npe4__RelatedContact__c: related_contact
+    #@relationshiop_id = create 'Relationship', npe4__Contact__c: contact, npe4__RelatedContact__c: related_contact
+    @relationshiop_id = create 'Relationship', Contact: contact, RelatedContact: related_contact
   end
 
   def delete_account_via_api
