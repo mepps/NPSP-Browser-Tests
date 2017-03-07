@@ -59,9 +59,11 @@ module Sfdo_api_npsp
 
   def create_contacts_with_household_object_via_api(hh_obj, contact_name)
     @hh_obj_id = create 'Household', Name: hh_obj
-    @contact_id = create 'Contact', { LastName: contact_name, npo02__Household__c: @hh_obj_id }
+    #@contact_id = create 'Contact', { LastName: contact_name, Household: @hh_obj_id }
+    @contact_id = create 'Contact', { LastName: contact_name, Household: @hh_obj_id }
     @array_of_contacts << @contact_id
-    @contact_id = create 'Contact', LastName: contact_name, MailingCity: 'hhmailingcity', npo02__Household__c: @hh_obj_id
+    #@contact_id = create 'Contact', LastName: contact_name, MailingCity: 'hhmailingcity', npo02__Household__c: @hh_obj_id
+    @contact_id = create 'Contact', LastName: contact_name, MailingCity: 'hhmailingcity', Household: @hh_obj_id
     @array_of_contacts << @contact_id
   end
 
@@ -80,14 +82,15 @@ module Sfdo_api_npsp
                              CloseDate: close_date,
                              Amount: amount.to_i,
                              AccountId: @account_id_for_contact,
-                             "#{$object_namespace}Matching_Gift_Status__c".to_sym => matching_gift_status,
-                             "#{$object_namespace}Matching_Gift_Account__c".to_sym => matching_gift_account
+                             Matching_Gift_Status: matching_gift_status,
+                             Matching_Gift_Account: matching_gift_account
     @array_of_opp_ids << @opportunity_id
 
   end
 
   def create_relationship_via_api(contact, related_contact)
-    @relationshiop_id = create 'Relationship', npe4__Contact__c: contact, npe4__RelatedContact__c: related_contact
+    #@relationshiop_id = create 'Relationship', npe4__Contact__c: contact, npe4__RelatedContact__c: related_contact
+    @relationshiop_id = create 'Relationship', Contact: contact, RelatedContact: related_contact
   end
 
   def delete_account_via_api
@@ -111,7 +114,7 @@ module Sfdo_api_npsp
   def delete_gaus_via_api
     api_client do
       gaus = select_api 'select Id from General_Accounting_Unit'
-      delete_all_General_Accounting_Unit__c(gaus)
+      delete_all_General_Accounting_Unit(gaus)
     end
   end
 
@@ -127,7 +130,7 @@ module Sfdo_api_npsp
   def delete_household_objects
     api_client do
       hh_objs = select_api 'select Id from Household'
-      delete_all_Household__c(hh_objs)
+      delete_all_Household(hh_objs)
     end
   end
 
@@ -143,7 +146,7 @@ module Sfdo_api_npsp
   def delete_payments
     api_client do
       payments = select_api 'select Id from OppPayment'
-      delete_all_OppPayment__c(payments)
+      delete_all_OppPayment(payments)
     end
   end
 
@@ -164,7 +167,7 @@ module Sfdo_api_npsp
   def delete_recurring_donations
     api_client do
       rds = select_api 'select Id from Recurring_Donation'
-      delete_all_Recurring_Donation__c(rds)
+      delete_all_Recurring_Donation(rds)
     end
   end
 
@@ -172,6 +175,7 @@ module Sfdo_api_npsp
     api_client do
       acc_id = select_api 'select Id from Contacts_And_Orgs_Settings'
       acc = acc_id.first
+      #THIS NEEDS A CHANGE TO SFDO-API TO SEND THESE VALUES THROUGH true_field()
       acc.npe01__Account_Processor__c = to_value
 
       update_api(acc)
