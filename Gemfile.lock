@@ -41,7 +41,7 @@ GEM
     multipart-post (2.0.0)
     net-http-persistent (3.0.0)
       connection_pool (~> 2.2)
-    page-object (2.1.1)
+    page-object (2.0.0)
       net-http-persistent (~> 3.0)
       page_navigation (>= 0.9)
       selenium-webdriver (~> 3.0)
