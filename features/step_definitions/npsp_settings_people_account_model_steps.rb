@@ -15,7 +15,7 @@ When(/^I click Save Account Model Settings$/) do
   api_client do
     @these_settings =  select_api 'select Id,
                                        Name,
-                                       npe01__HH_Account_RecordTypeID__c
+                                       HH_Account_RecordTypeID
                                        from Contacts_And_Orgs_Settings'
   end
 

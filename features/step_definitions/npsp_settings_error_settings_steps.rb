@@ -13,8 +13,8 @@ When(/^I click Save System Tools Error Notifications$/) do
   api_client do
     @these_settings =  select_api 'select Id,
                                        Name,
-                                       npsp__Store_Errors_On__c,
-                                       npsp__Error_Notifications_On__c
+                                       Store_Errors_On,
+                                       Error_Notifications_On
                                        from Error_Settings'
   end
 

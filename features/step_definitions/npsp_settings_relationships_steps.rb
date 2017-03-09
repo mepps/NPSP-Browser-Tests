@@ -31,7 +31,7 @@ When(/^I click Save Relationships Settings$/) do
   api_client do
     @these_settings = select_api 'select Id,
                                           Name,
-                                          npe4__Reciprocal_Method__c
+                                          Reciprocal_Method
                                           from Relationship_Settings'
     end
 
@@ -45,7 +45,7 @@ When(/^I click Save Relationships Affiliations Settings$/) do
   api_client do
     @these_settings = select_api 'select Id,
                                           Name,
-                                          npe5__Automatic_Affiliation_Creation_Turned_On__c
+                                          Automatic_Affiliation_Creation_Turned_On
                                           from Affiliations_Settings'
   end
 

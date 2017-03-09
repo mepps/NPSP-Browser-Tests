@@ -15,8 +15,8 @@ When(/^I click Save Donations Batch Entry settings$/) do
   api_client do
     @these_settings = select_api 'select Id,
                                           Name,
-                                          npsp__Allow_Blank_Opportunity_Names__c,
-                                          npsp__Opportunity_Naming__c
+                                          Allow_Blank_Opportunity_Names,
+                                          Opportunity_Naming
                                           from Batch_Data_Entry_Settings'
   end
 

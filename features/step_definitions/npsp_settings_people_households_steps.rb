@@ -62,7 +62,7 @@ When(/^I click Save Household Naming Settings$/) do
   api_client do
     @these_settings =  select_api 'select Id,
                                        Name,
-                                       npsp__Household_Name_Format__c
+                                       Household_Name_Format
                                        from Household_Naming_Settings'
   end
 

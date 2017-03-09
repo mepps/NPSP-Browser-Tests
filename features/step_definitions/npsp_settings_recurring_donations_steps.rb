@@ -16,8 +16,8 @@ When(/^I click Save Recurring Donations Settings$/) do
   api_client do
     @these_settings =  select_api 'select Id,
                                        Name,
-                                       npe03__Opportunity_Forecast_Months__c,
-                                       npe03__Open_Opportunity_Behavior__c
+                                       Opportunity_Forecast_Months,
+                                       Open_Opportunity_Behavior
                                        from Recurring_Donations_Settings'
   end
 
