@@ -4,7 +4,7 @@ end
 
 Given(/^I delete the random account via the API$/) do
   create_account_via_api("aaaacreacc2#{@random_string}")
-  delete_account_via_api
+  delete_household_accounts
 end
 
 Then(/^I should not see the random account created earlier$/) do
