@@ -47,7 +47,13 @@ run the tests:
 
 `bundle exec cucumber features/`
 
-optional: `export SELENIUM_BROWSER=chrome`
+If you want to use Chrome:
+
+Download the Chrome driver at https://sites.google.com/a/chromium.org/chromedriver/
+
+`sudo mv ~/Downloads/chromedriver /usr/local/bin`
+
+`export SELENIUM_BROWSER=chrome`
 
 
 This test framework depends heavily on Jeff Morgan's page_object Ruby gem. Please find many details documented at https://github.com/cheezy/page-object/
