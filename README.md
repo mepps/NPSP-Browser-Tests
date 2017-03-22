@@ -23,6 +23,7 @@ Use this on a test salesforce instance or sandbox!!
 `bundle install`
 
 * Follow the directions at https://cumulusci-oauth-tool.herokuapp.com/ and follow the directions to get refresh token, consumer key, and consumer secret
+* Note: do NOT directly copy them from the screen where you get the refresh token
 
 * set the environment variables: 
 ````
@@ -51,7 +52,7 @@ If you want to use Chrome:
 
 Download the Chrome driver at https://sites.google.com/a/chromium.org/chromedriver/
 
-`sudo mv ~/Downloads/chromedriver /usr/local/bin`
+`sudo mv ~/Downloads/chromedriver /usr/local/bin` (this path may be different on PCs)
 
 `export SELENIUM_BROWSER=chrome`
 
