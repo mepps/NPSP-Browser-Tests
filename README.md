@@ -2,7 +2,7 @@
 Cross-browser UI tests for NPSP features
 
 How to run browser tests locally (non-Windows OS)
-Use this on a test salesforce instance or sandbox!!
+Use this on a test salesforce instance or sandbox with NPSP installed!!
 
 * Install Firefox if it’s not already installed
 
@@ -31,15 +31,18 @@ export SF_SERVERURL=https://login.salesforce.com/
 
 export SF_REFRESH_TOKEN=[your refresh token]
 
-export SF_USERNAME=[your username]
-
-export SF_PASSWORD=[your password]
-
 export SF_CLIENT_KEY=[your consumer key]
 
 export SF_CLIENT_SECRET=[your consumer secret]
 
 export RUN_LOCAL=true
+````
+
+Not sure if these are needed
+````
+export SF_USERNAME=[your username]
+
+export SF_PASSWORD=[your password]
 ````
 
 optional: `export KEEP_BROWSER_OPEN=true` then `unset KEEP_BROWSER_OPEN` to turn it off
