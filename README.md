@@ -7,14 +7,18 @@ Use this on a test salesforce instance or sandbox with NPSP installed!!
 * Install Firefox if it’s not already installed
 
 * If you're new to ruby:
-* Install RVM and Ruby 2.2
-`\curl -sSL https://get.rvm.io | bash -s stable` (for details see https://rvm.io/)
-`rvm install ruby 2.2`
+* Install RVM and Ruby 2.2 (for details see https://rvm.io/)
+````
+\curl -sSL https://get.rvm.io | bash -s stable
+rvm install ruby 2.2
+````
 ** check your install:
-	
-`which ruby`
-*/Users/[your user]/.rvm/rubies/ruby-2.2.1/bin/ruby*
-(if you see something like /usr/bin/ruby instead of .rvm/rubies, read the RVM docs and fix your path)
+
+````	
+which ruby
+````
+Expect to see */Users/[your user]/.rvm/rubies/ruby-2.2.1/bin/ruby*
+if you see something like /usr/bin/ruby instead of .rvm/rubies, read the RVM docs and fix your path
 
 `gem install bundler`
 * clone or download the browser test source code
@@ -36,13 +40,6 @@ export SF_CLIENT_KEY=[your consumer key]
 export SF_CLIENT_SECRET=[your consumer secret]
 
 export RUN_LOCAL=true
-````
-
-Not sure if these are needed
-````
-export SF_USERNAME=[your username]
-
-export SF_PASSWORD=[your password]
 ````
 
 optional: `export KEEP_BROWSER_OPEN=true` then `unset KEEP_BROWSER_OPEN` to turn it off
